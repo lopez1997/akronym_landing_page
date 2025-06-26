@@ -1,8 +1,25 @@
 ---
 import '../styles/global.css';
+
+import slide1 from '../assets/slide-1.png';
+import slide2 from '../assets/slide-2.png';
+import slide3 from '../assets/slide-3.png';
+import slide4 from '../assets/slide-4.png';
+import slide5 from '../assets/slide-5.png';
+import rectangle2 from '../assets/rectangle2.png';
+import rectangle3 from '../assets/rectangle3.png';
+import rectangle4 from '../assets/rectangle4.png';
+import rectangle5 from '../assets/rectangle5.png';
+import rectangle6 from '../assets/rectangle6.png';
+import rectangle7 from '../assets/rectangle7.png';
+import desktop1 from '../assets/desktop1.jpeg';
+import globe from '../assets/globe.png';
+import heic0604a from '../assets/heic0604a.png';
+import testimonial from '../assets/15542441146671.png';
+import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 ---
 
-<div class="relative w-screen h-screen min-h-[600px] font-sans overflow-hidden" style="background: url('/src/assets/desktop1.jpeg') center center/cover no-repeat;">
+<div class="relative w-screen h-screen min-h-[600px] font-sans overflow-hidden" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
   <div class="absolute inset-0 bg-black/60 z-10"></div>
   <nav class="absolute top-0 left-0 w-full flex items-start justify-between px-16 py-6 z-20">
     <div class="flex-1 flex items-start justify-start">
@@ -65,7 +82,7 @@ import '../styles/global.css';
 </section>
 
 <!-- Nueva sección: NACIMOS EN COSTA RICA -->
-<section class="w-full min-h-[90vh] bg-neutral-900 flex flex-col items-center justify-center py-24 relative overflow-hidden" style="background: url('/src/assets/globe.png') center center/cover no-repeat;">
+<section class="w-full min-h-[90vh] bg-neutral-900 flex flex-col items-center justify-center py-24 relative overflow-hidden" style={`background: url('${globe.src}') center center/cover no-repeat;`}>
   <div class="relative z-10 flex flex-col items-center w-full">
     <h2 class="text-2xl md:text-4xl font-normal text-neutral-100 mb-4 text-center mt-8">NACIMOS EN COSTA RICA.</h2>
     <p class="text-base md:text-lg text-neutral-100 mb-12 text-center max-w-2xl uppercase tracking-wide">
@@ -75,12 +92,7 @@ import '../styles/global.css';
     <div class="mt-12 mb-10 text-center">
       <h3 class="text-2xl md:text-3xl font-normal text-neutral-100 mb-6 uppercase tracking-wide">SI QUERÉS QUE TU NEGOCIO<br>EVOLUCIONE EN SERIO, ACÁ ES.</h3>
       <div class="flex flex-col items-center mb-6">
-        <!-- Logo Akronym SVG Placeholder -->
-        <svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-2">
-          <rect x="0" y="16" width="48" height="16" rx="4" fill="#fff"/>
-          <rect x="56" y="0" width="64" height="48" rx="8" fill="#fff"/>
-        </svg>
-        <span class="text-3xl md:text-4xl font-bold text-neutral-100 ml-2">AKRONYM</span>
+        <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-16 md:h-20 mb-2" />
       </div>
       <p class="text-base md:text-lg text-neutral-100 mb-8 text-center max-w-2xl">
         LOS ACRÓNIMOS RESUMEN LO ESENCIAL.<br>
@@ -103,11 +115,11 @@ import '../styles/global.css';
   <!-- Carousel Slick -->
   <div class="w-full max-w-5xl mb-12 px-2">
     <div class="slick-slider">
-      <div class="px-3"><img src="/src/assets/slide-1.png" alt="slide1" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src="/src/assets/slide-2.png" alt="slide2" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src="/src/assets/slide-3.png" alt="slide3" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src="/src/assets/slide-4.png" alt="slide4" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src="/src/assets/slide-5.png" alt="slide5" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+      <div class="px-3"><img src={slide1.src} alt="slide1" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+      <div class="px-3"><img src={slide2.src} alt="slide2" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+      <div class="px-3"><img src={slide3.src} alt="slide3" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+      <div class="px-3"><img src={slide4.src} alt="slide4" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+      <div class="px-3"><img src={slide5.src} alt="slide5" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
     </div>
   </div>
   <p class="text-lg text-neutral-900 mb-4 text-center max-w-3xl">
@@ -186,13 +198,13 @@ import '../styles/global.css';
         <p class="text-sm md:text-base opacity-80">Tomamos decisiones que impactan.<br>Negocio, operación y tecnología alineados.</p>
       </div>
       <div class="flex-1">
-        <img src="/src/assets/rectangle2.png" alt="Dirección que transforma" class="w-full object-cover rounded" />
+        <img src={rectangle2.src} alt="Dirección que transforma" class="w-full object-cover rounded" />
       </div>
     </div>
     <!-- Fila 2: imagen - texto -->
     <div class="flex flex-col md:flex-row gap-8 items-end">
       <div class="flex-1 order-2 md:order-1">
-        <img src="/src/assets/rectangle3.png" alt="Experiencia de usuario" class="w-full object-cover rounded" />
+        <img src={rectangle3.src} alt="Experiencia de usuario" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100">
         <h3 class="text-xl md:text-2xl font-semibold mb-2">EXPERIENCIA DE USUARIO (UX/UI)</h3>
@@ -206,13 +218,13 @@ import '../styles/global.css';
         <p class="text-sm md:text-base opacity-80">Menos esfuerzo. Más resultados.<br>Todo conectado. Todo fluyendo sin fricción.</p>
       </div>
       <div class="flex-1">
-        <img src="/src/assets/rectangle4.png" alt="Procesos sin fricción" class="w-full object-cover rounded" />
+        <img src={rectangle4.src} alt="Procesos sin fricción" class="w-full object-cover rounded" />
       </div>
     </div>
     <!-- Fila 4: imagen - texto -->
     <div class="flex flex-col md:flex-row gap-8 items-end">
       <div class="flex-1 order-2 md:order-1">
-        <img src="/src/assets/rectangle5.png" alt="Tecnología que impulsa" class="w-full object-cover rounded" />
+        <img src={rectangle5.src} alt="Tecnología que impulsa" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100">
         <h3 class="text-xl md:text-2xl font-semibold mb-2">TECNOLOGÍA QUE IMPULSA</h3>
@@ -226,13 +238,13 @@ import '../styles/global.css';
         <p class="text-sm md:text-base opacity-80">Dirección con datos. No adivinamos.<br>Decidimos con claridad.</p>
       </div>
       <div class="flex-1">
-        <img src="/src/assets/rectangle6.png" alt="Data con dirección" class="w-full object-cover rounded" />
+        <img src={rectangle6.src} alt="Data con dirección" class="w-full object-cover rounded" />
       </div>
     </div>
     <!-- Fila 6: imagen - texto -->
     <div class="flex flex-col md:flex-row gap-8 items-end">
       <div class="flex-1 order-2 md:order-1">
-        <img src="/src/assets/rectangle7.png" alt="Presencia que sostiene" class="w-full object-cover rounded" />
+        <img src={rectangle7.src} alt="Presencia que sostiene" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100">
         <h3 class="text-xl md:text-2xl font-semibold mb-2">PRESENCIA QUE SOSTIENE</h3>
@@ -247,7 +259,7 @@ import '../styles/global.css';
   <div class="max-w-6xl w-full flex flex-col md:flex-row gap-12 px-4">
     <!-- Columna izquierda: imagen y testimonio -->
     <div class="flex-1 flex flex-col items-center md:items-start">
-      <img src="/src/assets/15542441146671.png" alt="Marilis Llobet" class="w-64 h-64 object-cover rounded mb-8" />
+      <img src={testimonial.src} alt="Marilis Llobet" class="w-64 h-64 object-cover rounded mb-8" />
       <p class="text-neutral-100 text-base md:text-lg max-w-xs text-left">
         I invited the owner of Akronym, Sergio Chang, to be a partner of my company because I understood we need a world class provider to create our training platform. Akronym is a strategic business partner for companies looking to use technology as a key differentiator.
       </p>
@@ -275,7 +287,7 @@ import '../styles/global.css';
 </section>
 
 <!-- Nueva sección: DESDE AQUÍ ARRIBA, TODO SE VE DIFERENTE -->
-<section class="w-full min-h-[90vh] flex flex-col items-center justify-center relative overflow-hidden" style="background: url('/src/assets/heic0604a.png') center center/cover no-repeat;">
+<section class="w-full min-h-[90vh] flex flex-col items-center justify-center relative overflow-hidden" style={`background: url('${heic0604a.src}') center center/cover no-repeat;`}>
   <div class="absolute inset-0 bg-black/60 z-0"></div>
   <div class="relative z-10 flex flex-col items-center justify-center w-full h-full py-24">
     <h2 class="text-4xl md:text-6xl lg:text-7xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl">
