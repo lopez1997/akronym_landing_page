@@ -55,9 +55,9 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
   <h2 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 mb-4 sm:mb-8 tracking-wide text-center">MÁS CLARO</h2>
   <p class="text-base sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">con lo que realmente querés lograr.</p>
   <div class="relative flex flex-col items-center">
-    <button class="relative w-full max-w-xs sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-base sm:text-lg font-normal transition hover:bg-neutral-800">
+    <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-neutral-800">
       Transformá tu negocio ahora
-      <span class="ml-3 text-xl sm:text-2xl">→</span>
+      <span class="ml-3 text-2xl">→</span>
     </button>
   </div>
 </section>
@@ -87,7 +87,7 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 <section class="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden bg-linear-to-t from-[#0d0d11] to-[#07070a]">
   <img src={globe.src} alt="Globe background" class="absolute w-full h-full object-contain" />
   <div class="relative z-10 flex flex-col justify-between items-center w-full h-full py-15">
-    <div class="text-center mb-180">
+    <div class="text-center mb-20 md:mb-180">
       <h2 class="text-2xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">NACIMOS EN COSTA RICA.</h2>
       <p class="text-base md:text-2xl text-neutral-100 text-center max-w-4xl uppercase tracking-wide drop-shadow-lg">
         PERO NUESTRA FORMA DE TRABAJAR NO TIENE GEOGRAFÍA:<br>
@@ -98,7 +98,7 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     <div class="text-center flex flex-col items-center">
       <h3 class="text-2xl md:text-4xl font-normal text-neutral-100 uppercase tracking-wide drop-shadow-lg">SI QUERÉS QUE TU NEGOCIO<br>EVOLUCIONE EN SERIO, ACÁ ES.</h3>
       <div class="my-20">
-        <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-16 md:h-20 mb-2 drop-shadow-lg" />
+        <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-10 md:h-20 mb-2 drop-shadow-lg" />
       </div>
       <p class="text-base md:text-2xl text-neutral-100 mb-20 text-center max-w-2xl drop-shadow-lg">
         LOS ACRÓNIMOS RESUMEN LO ESENCIAL.<br>
@@ -180,7 +180,7 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     <polyline points="52,32 52,52 32,52" />
   </svg>
 
-  <h2 class="text-[7vw] md:text-9xl font-normal text-neutral-100 mb-6 text-center leading-tight">LO QUE<br>HACEMOS</h2>
+  <h2 class="text-[10vw] md:text-9xl font-normal text-neutral-100 mb-6 text-center leading-tight">LO QUE<br>HACEMOS</h2>
   <div class="text-lg md:text-2xl text-neutral-100 uppercase text-center mb-6 max-w-6xl px-4 tracking-wide">
     NO HACEMOS TAREAS. HACEMOS QUE LAS COSAS FUNCIONEN.
   </div>
@@ -195,9 +195,9 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 
 <!-- Nueva sección: GRID DE TEXTO E IMÁGENES ALTERNADOS -->
 <section class="w-full bg-black py-24 flex flex-col items-center justify-center">
-  <div class="max-w-7xl w-full flex flex-col  px-4">
+  <div class="max-w-7xl w-full flex flex-col px-4">
     <!-- Fila 1: texto - imagen -->
-    <div class="flex flex-col md:flex-row items-end">
+    <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
         <h3 class="text-2xl md:text-5xl mb-4">DIRECCIÓN QUE TRANSFORMA</h3>
         <p class="text-lg md:text-xl opacity-80">Tomamos decisiones que impactan.<br>Negocio, operación y tecnología alineados.</p>
@@ -208,20 +208,20 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     </div>
     
     <!-- Fila 2: imagen - texto -->
-    <div class="flex flex-col md:flex-row items-end">
+    <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 order-2 md:order-1">
         <img src={rectangle3.src} alt="Experiencia de usuario" class="w-full object-cover rounded" />
       </div>
-      <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5 pl-5">
+      <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5 md:pl-5">
         <h3 class="text-2xl md:text-5xl mb-4">EXPERIENCIA DE USUARIO (UX/UI)</h3>
-        <p class="text-lg md:text-xl opacity-80">Diseñamos para que se entienda, se use y convierta.<br>Porque sin función, el diseño no sirve.</p>
+        <p class="text-lg md:text-xl opacity-80">Diseñamos para que se entienda, se use y convierta.<br>Sin función, el diseño no sirve.</p>
       </div>
     </div>
 
     <!-- Fila 3: texto - imagen -->
-    <div class="flex flex-col md:flex-row items-end">
+    <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="text-2xl md:text-5xl mb-4 pr-5">PROCESOS SIN FRICCIÓN (AUTOMATIZACIONES)</h3>
+        <h3 class="text-2xl md:text-5xl mb-4 md:pr-5">PROCESOS SIN FRICCIÓN (AUTOMATIZACIONES)</h3>
         <p class="text-lg md:text-xl opacity-80">Menos esfuerzo. Más resultados.<br>Todo conectado. Todo fluyendo sin fricción.</p>
       </div>
       <div class="flex-1">
@@ -230,18 +230,18 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     </div>
 
     <!-- Fila 4: imagen - texto -->
-    <div class="flex flex-col md:flex-row items-end">
+    <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 order-2 md:order-1">
         <img src={rectangle5.src} alt="Tecnología que impulsa" class="w-full object-cover rounded" />
       </div>
-      <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5 pl-5">
+      <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5 md:pl-5">
         <h3 class="text-2xl md:text-5xl mb-4">TECNOLOGÍA QUE IMPULSA</h3>
         <p class="text-lg md:text-xl opacity-80">Ágil. A realidad aumentada.<br>Sólo si acelera, conecta o transforma tu negocio.</p>
       </div>
     </div>
 
     <!-- Fila 5: texto - imagen -->
-    <div class="flex flex-col md:flex-row items-end">
+    <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
         <h3 class="text-2xl md:text-5xl mb-4">DATA CON DIRECCIÓN</h3>
         <p class="text-lg md:text-xl opacity-80">Dirección con datos. No adivinamos.<br>Decidimos con claridad.</p>
@@ -252,7 +252,7 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     </div>
 
     <!-- Fila 6: imagen - texto -->
-    <div class="flex flex-col md:flex-row gap-8 items-end">
+    <div class="flex flex-col md:flex-row gap-8 items-start md:items-end">
       <div class="flex-1 order-2 md:order-1">
         <img src={rectangle7.src} alt="Presencia que sostiene" class="w-full object-cover rounded" />
       </div>
@@ -270,12 +270,12 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
     <!-- Columna izquierda: imagen y testimonio -->
     <div class="flex-1 flex flex-col items-center md:items-start">
       <img src={testimonial.src} alt="Marilis Llobet" class="w-90 h-90 object-cover rounded mb-8" />
-      <p class="text-neutral-100 text-base md:text-lg max-w-xs text-left">
+      <p class="text-neutral-100 text-base md:text-lg max-w-xs">
         I invited the owner of Akronym, Sergio Chang, to be a partner of my company because I understood we need a world class provider to create our training platform. Akronym is a strategic business partner for companies looking to use technology as a key differentiator.
       </p>
     </div>
     <!-- Columna derecha: nombres y descripciones -->
-    <div class="flex-1 flex flex-col justify-start">
+    <div class="flex-1 flex flex-col justify-start text-center md:text-left">
       <div class="mb-10">
         <h3 class="text-5xl md:text-6xl font-semibold text-neutral-100 leading-tight">MARILIS<br>LLOBET</h3>
         <div class="text-neutral-300 text-base mt-2 mb-8">CEO of Ventas Cognitivas</div>
