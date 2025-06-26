@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  /* Espaciados según la guía */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+  --space-40: 10rem;    /* 160px */
+  --space-48: 12rem;    /* 192px */
+  --space-56: 14rem;    /* 224px */
+  --space-64: 16rem;    /* 256px */
+
+  /* Colores neutros */
+  --neutral-1: #fcfcfc;
+  --neutral-3: #f5f5f5;
+  --neutral-5: #f0f0f0;
+  --neutral-7: #d9d9d9;
+  --neutral-9: #bfbfbf;
+  --neutral-11: #595959;
+  --neutral-13: #262626;
+  --neutral-15: #141414;
+  --neutral-16: #000000;
+
+  /* Colores de éxito */
+  --success-50: #e0f9f8;
+  --success-100: #acecb8;
+  --success-200: #b0e3f6;
+  --success-300: #8dc7b6;
+  --success-400: #75c149;
+  --success-500: #53c1bb;
+
+  /* Colores de advertencia */
+  --warning-50: #fff7c6;
+  --warning-100: #f6e0b6;
+  --warning-200: #f6d093;
+  --warning-300: #fcc862;
+  --warning-400: #f1ba43;
+  --warning-500: #faad14;
+
+  /* Colores de error */
+  --error-50: #ffdcdb;
+  --error-100: #ffc8c8;
+  --error-200: #ffadce;
+  --error-300: #eb6889;
+  --error-400: #f16772;
+  --error-500: #fe444f;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: var(--neutral-16);
+  color: var(--neutral-1);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--neutral-16);
+}
+
+* {
+  box-sizing: inherit;
+} 
