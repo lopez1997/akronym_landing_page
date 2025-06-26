@@ -20,47 +20,44 @@ import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 ---
 
 <!-- Sección de logo Akronym centrado pantalla completa -->
-<section class="w-screen h-screen min-h-[600px] bg-black flex flex-col items-center justify-center">
-  <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="w-120 md:w-120 mb-6" />
+<section class="w-screen h-screen min-h-[400px] bg-black flex flex-col items-center justify-center">
+  <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="w-48 sm:w-64 md:w-80 lg:w-[30rem] max-w-[80vw] mb-6" />
 </section>
 
-<div class="relative w-screen h-screen min-h-[600px] font-sans overflow-hidden" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
+<div class="relative w-screen h-screen min-h-[400px] font-sans overflow-hidden" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
   <div class="absolute inset-0 bg-black/10 z-10"></div>
-  <nav class="absolute top-0 left-0 w-full flex items-start justify-between px-16 py-6 z-20">
-    <div class="flex-1 flex items-start justify-start">
-      <span class="text-neutral-100 text-base font-normal tracking-wider">AKRONYM</span>
+  <nav class="absolute top-0 left-0 w-full flex flex-col md:flex-row items-start justify-between px-4 sm:px-8 md:px-16 py-4 md:py-6 z-20">
+    <div class="flex-1 flex items-start justify-start mb-2 md:mb-0">
+      <span class="text-neutral-100 text-base md:text-lg font-normal tracking-wider">AKRONYM</span>
     </div>
-	
-    <div class="flex items-start justify-between">
-      <div class="mr-5">
-        <a href="#sobre-nosotros" class="text-neutral-100 text-base font-normal tracking-wider text-center leading-tight hover:opacity-70 transition-opacity">SOBRE NOSOTROS</a><br>
+    <div class="flex items-start justify-between gap-2 md:gap-5">
+      <div>
+        <a href="#sobre-nosotros" class="text-neutral-100 text-sm md:text-base font-normal tracking-wider text-center leading-tight hover:opacity-70 transition-opacity">SOBRE NOSOTROS</a><br>
       </div>
-      <div class="">
-        <a href="#contacto" class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
+      <div>
+        <a href="#contacto" class="text-neutral-100 text-sm md:text-base font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
       </div>
     </div>
   </nav>
-
-  <section class="absolute left-0 bottom-0 z-20 text-neutral-100 max-w-[60vw] p-16">
-    <div class="text-5xl leading-tight mb-6 tracking-wide">
+  <section class="absolute left-0 bottom-0 z-20 text-neutral-100 max-w-full md:max-w-[60vw] p-4 sm:p-8 md:p-16">
+    <div class="text-2xl sm:text-3xl md:text-5xl leading-tight mb-4 md:mb-6 tracking-wide">
       LA MAYORÍA DIGITALIZA <br />PROCESOS. NOSOTROS <br />TRANSFORMAMOS NEGOCIOS.
     </div>
-    <div class="text-xl font-medium mt-4 text-neutral-100 opacity-95">
+    <div class="text-base sm:text-lg md:text-xl font-medium mt-2 md:mt-4 text-neutral-100 opacity-95">
       No venimos a hacer que todo se vea más lindo.<br />
       Venimos a hacer que funcione mejor.
     </div>
   </section>
-  
 </div>
 
 <!-- Nueva sección: MÁS CLARO -->
-<section class="w-full min-h-[60vh] bg-black flex flex-col items-center justify-center py-24">
-  <h2 class="text-[6vw] md:text-9xl font-normal text-neutral-100 mb-8 tracking-wide text-center">MÁS CLARO</h2>
-  <p class="text-xl md:text-2xl text-neutral-300 mb-10 text-center">con lo que realmente querés lograr.</p>
+<section class="w-full min-h-[40vh] sm:min-h-[60vh] bg-black flex flex-col items-center justify-center py-12 sm:py-24 px-2">
+  <h2 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 mb-4 sm:mb-8 tracking-wide text-center">MÁS CLARO</h2>
+  <p class="text-base sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">con lo que realmente querés lograr.</p>
   <div class="relative flex flex-col items-center">
-    <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-neutral-800">
+    <button class="relative w-full max-w-xs sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-base sm:text-lg font-normal transition hover:bg-neutral-800">
       Transformá tu negocio ahora
-      <span class="ml-3 text-2xl">→</span>
+      <span class="ml-3 text-xl sm:text-2xl">→</span>
     </button>
   </div>
 </section>
