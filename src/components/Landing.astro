@@ -13,7 +13,7 @@ import rectangle5 from '../assets/rectangle5.png';
 import rectangle6 from '../assets/rectangle6.png';
 import rectangle7 from '../assets/rectangle7.png';
 import desktop1 from '../assets/desktop1.jpeg';
-import globe from '../assets/globe.png';
+import globe from '../assets/globe.svg';
 import heic0604a from '../assets/heic0604a.png';
 import testimonial from '../assets/15542441146671.png';
 import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
@@ -59,10 +59,10 @@ import imago from '../assets/logos/imago.png';
 <div class="relative w-screen h-screen min-h-[400px] font-sans" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
   <div class="absolute inset-0 bg-black/10 z-10"></div>
   <section class="absolute left-0 bottom-0 z-20 text-neutral-100 max-w-full md:max-w-[60vw] p-4 sm:p-8 md:p-16">
-    <div class="fade-in text-2xl sm:text-3xl md:text-5xl leading-tight mb-4 md:mb-6 tracking-wide">
+    <div class="fade-in text-2xl sm:text-3xl md:text-5xl leading-tight mb-4 md:mb-6 tracking-wider">
       LA MAYORÍA DIGITALIZA <br />PROCESOS. NOSOTROS <br />TRANSFORMAMOS NEGOCIOS.
     </div>
-    <div class="fade-in text-base sm:text-lg md:text-xl font-medium mt-2 md:mt-4 text-neutral-100 opacity-95">
+    <div class="fade-in text-base sm:text-lg md:text-xl mt-2 md:mt-4 text-neutral-100 opacity-95 tracking-wider">
       No venimos a hacer que todo se vea más lindo.<br />
       Venimos a hacer que funcione mejor.
     </div>
@@ -104,8 +104,8 @@ import imago from '../assets/logos/imago.png';
 
 <!-- Nueva sección: NACIMOS EN COSTA RICA -->
 <section class="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden bg-linear-to-t from-[#0d0d11] to-[#07070a]">
-  <img src={globe.src} alt="Globe background" class="absolute w-full h-full object-contain" />
-  <div class="relative z-10 flex flex-col justify-between items-center w-full h-full py-15">
+  <img src={globe.src} alt="Globe background" class="absolute w-full h-full object-cover opacity-20" />
+  <div class="relative z-10 flex flex-col justify-between items-center w-full h-full py-25">
     <div class="text-center mb-20 md:mb-180">
       <h2 class="fade-in text-2xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">NACIMOS EN COSTA RICA.</h2>
       <p class="fade-in text-base md:text-2xl text-neutral-100 text-center max-w-4xl uppercase tracking-wide drop-shadow-lg">
@@ -289,7 +289,7 @@ import imago from '../assets/logos/imago.png';
     <!-- Columna izquierda: imagen y testimonio -->
     <div class="flex-1 flex flex-col items-center md:items-start">
       <img src={testimonial.src} alt="Marilis Llobet" class="w-90 h-90 object-cover rounded mb-8" />
-      <p class="fade-intext-neutral-100 text-base md:text-lg max-w-xs">
+      <p class="fade-in text-neutral-100 text-base md:text-lg max-w-xs">
         I invited the owner of Akronym, Sergio Chang, to be a partner of my company because I understood we need a world class provider to create our training platform. Akronym is a strategic business partner for companies looking to use technology as a key differentiator.
       </p>
     </div>
