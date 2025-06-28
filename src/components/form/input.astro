@@ -1,0 +1,182 @@
+---
+import '../../styles/flags.css';
+import { getSortedCountries } from '../../data/countries.js';
+
+// Props
+const {
+  type = 'text',
+  label = '',
+  placeholder = '',
+  hint = '',
+  error = false,
+  disabled = false,
+  value = '',
+  countryCode = '+1',
+  onInput = () => {},
+  onCountryChange = () => {},
+  name = '',
+  id = '',
+} = Astro.props;
+
+const inputId = id || `input-${Math.random().toString(36).slice(2, 8)}`;
+
+// Obtener países ordenados
+const countryOptions = getSortedCountries();
+
+// Encontrar el país seleccionado por defecto
+const selectedCountry = countryOptions.find(country => `+${country.dialCode}` === countryCode) || countryOptions[0];
+---
+
+<div class="w-full">
+  {label && (
+    <label for={inputId} class="block text-sm mb-1 text-gray-300 font-medium">
+      {label}
+    </label>
+  )}
+  <div class={
+    `flex items-center border-b transition-colors bg-transparent ` +
+    (error
+      ? 'border-red-500 focus-within:border-red-500'
+      : disabled
+        ? 'border-gray-600'
+        : 'border-gray-400 focus-within:border-white')
+  }>
+    <input
+      id={inputId}
+      name={name}
+      type={type}
+      class={
+        `flex-1 bg-transparent text-white placeholder-gray-400 px-2 py-2 outline-none ` +
+        (disabled ? 'opacity-60 cursor-not-allowed' : '')
+      }
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+      aria-invalid={error}
+      aria-describedby={hint ? `${inputId}-hint` : undefined}
+      autocomplete={type === 'tel' ? 'tel' : 'off'}
+    />
+    {type === 'tel' && (
+      <div class="relative">
+        <!-- Select personalizado con bandera -->
+        <div 
+          class="country-select-trigger flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-700 transition-colors"
+          data-country-code={`+${selectedCountry.dialCode}`}
+          data-country-iso={selectedCountry.iso2}
+        >
+          <span class={`iti__flag iti__${selectedCountry.iso2}`}></span>
+          <span class="text-white text-sm">+{selectedCountry.dialCode}</span>
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        
+        <!-- Dropdown de países -->
+        <div class="country-dropdown absolute top-full right-0 mt-1 bg-[#232228] border border-gray-600 rounded-md shadow-lg max-h-60 overflow-y-auto z-50 hidden">
+          {countryOptions.map((opt: any) => (
+            <div 
+              class="country-option flex items-center gap-3 px-3 py-2 hover:bg-gray-700 cursor-pointer transition-colors"
+              data-country-code={`+${opt.dialCode}`}
+              data-country-iso={opt.iso2}
+            >
+              <span class={`iti__flag iti__${opt.iso2}`}></span>
+              <span class="text-white text-sm">{opt.name}</span>
+              <span class="text-gray-400 text-sm">+{opt.dialCode}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+  {hint && (
+    <div
+      id={`${inputId}-hint`}
+      class={
+        `text-xs mt-1 transition-colors ` +
+        (error ? 'text-red-500' : 'text-gray-400')
+      }
+    >
+      {hint}
+    </div>
+  )}
+</div>
+
+<script>
+  // Manejar eventos de input y select personalizado
+  document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"]');
+    const countryTriggers = document.querySelectorAll('.country-select-trigger');
+    
+    // Eventos para inputs
+    inputs.forEach(input => {
+      input.addEventListener('input', function(e) {
+        const target = e.target as HTMLInputElement;
+        if (target) {
+          const event = new CustomEvent('input-change', {
+            detail: { value: target.value, name: target.name }
+          });
+          document.dispatchEvent(event);
+        }
+      });
+    });
+    
+    // Eventos para select personalizado de países
+    countryTriggers.forEach(trigger => {
+      const dropdown = trigger.nextElementSibling as HTMLElement;
+      
+      // Abrir/cerrar dropdown
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !dropdown.classList.contains('hidden');
+        
+        // Cerrar todos los dropdowns
+        document.querySelectorAll('.country-dropdown').forEach(dd => {
+          dd.classList.add('hidden');
+        });
+        
+        // Abrir/cerrar este dropdown
+        if (!isOpen) {
+          dropdown.classList.remove('hidden');
+        }
+      });
+      
+      // Seleccionar país
+      dropdown?.addEventListener('click', function(e) {
+        const option = (e.target as HTMLElement).closest('.country-option');
+        if (option) {
+          const countryCode = option.getAttribute('data-country-code');
+          const countryIso = option.getAttribute('data-country-iso');
+          
+          // Actualizar el trigger
+          const flagSpan = trigger.querySelector('.iti__flag');
+          const codeSpan = trigger.querySelector('span:last-of-type');
+          
+          if (flagSpan && codeSpan) {
+            flagSpan.className = `iti__flag iti__${countryIso}`;
+            codeSpan.textContent = countryCode;
+          }
+          
+          // Actualizar atributos
+          trigger.setAttribute('data-country-code', countryCode || '');
+          trigger.setAttribute('data-country-iso', countryIso || '');
+          
+          // Cerrar dropdown
+          dropdown.classList.add('hidden');
+          
+          // Emitir evento
+          const event = new CustomEvent('country-change', {
+            detail: { value: countryCode, name: 'telefono' }
+          });
+          document.dispatchEvent(event);
+        }
+      });
+    });
+    
+    // Cerrar dropdowns al hacer clic fuera
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.country-dropdown').forEach(dd => {
+        dd.classList.add('hidden');
+      });
+    });
+  });
+</script>

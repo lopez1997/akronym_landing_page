@@ -1,0 +1,410 @@
+---
+import "../styles/global.css";
+import Input from "../components/form/input.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <div
+        class="min-h-screen flex flex-col items-center justify-center bg-[#0D0D12] px-4"
+    >
+        <form id="wizard-form" class="w-full max-w-5xl mt-8" autocomplete="off">
+            <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
+                ¡GRACIAS POR TU INTERÉS EN<br />TRANSFORMAR TU NEGOCIO!
+            </h1>
+            <p class="text-gray-300 mb-8 max-w-5xl text-xl">
+                Este formulario nos ayudará a entender mejor tus necesidades y
+                cómo podemos ayudarte a alcanzar tus metas de digitalización.
+                Por favor, tómate unos minutos para completarlo.
+            </p>
+
+            <!-- Step 1 -->
+            <div id="step-1">
+                <div class="mb-6">
+                    <span
+                        class="text-xl text-white underline underline-offset-4"
+                        >1. INFORMACIÓN DE CONTACTO</span
+                    >
+                </div>
+                <div class="mb-4">
+                    <Input
+                        label=""
+                        placeholder="Nombre Completo"
+                        value=""
+                        name="nombre"
+                        data-input="nombre"
+                    />
+                </div>
+                <div class="mb-4">
+                    <Input
+                        label=""
+                        placeholder="Correo Electrónico"
+                        value=""
+                        name="email"
+                        data-input="email"
+                    />
+                </div>
+                <div class="mb-4">
+                    <Input
+                        type="tel"
+                        label=""
+                        placeholder="Número de Teléfono"
+                        value=""
+                        countryCode="+1"
+                        name="telefono"
+                        data-input="telefono"
+                    />
+                </div>
+                <div class="mb-20">
+                    <Input
+                        label=""
+                        placeholder="Cargo / Puesto en la Empresa"
+                        value=""
+                        name="cargo"
+                        data-input="cargo"
+                    />
+                </div>
+                <div class="flex justify-center">
+                    <button
+                        type="button"
+                        id="btn-next"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                    >
+                        Continuar
+                        <span class="ml-2">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step-2" class="hidden">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xl text-white underline underline-offset-4">2. INFORMACIÓN DE TU NEGOCIO</span>
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Nombre de la Empresa"
+                            value=""
+                            name="empresa"
+                            data-input="empresa"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Industria / Sector"
+                            value=""
+                            name="industria"
+                            data-input="industria"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Número de Empleados"
+                            value=""
+                            name="empleados"
+                            data-input="empleados"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Cargo / Puesto de la Empresa"
+                            value=""
+                            name="cargo_empresa"
+                            data-input="cargo_empresa"
+                        />
+                    </div>
+                    <div class="mb-2">
+                        <Input
+                            label=""
+                            placeholder="Website (si aplica)"
+                            value=""
+                            name="website"
+                            data-input="website"
+                        />
+                    </div>
+                    <div class="text-sm text-gray-400">Pregunta no obligatoria*</div>
+                    <div class="flex justify-between mt-20">
+                        <button
+                            type="button"
+                            id="btn-prev"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            <span class="mr-2">→</span> Anterior
+                        </button>
+                        <button
+                            type="button"
+                            id="btn-next-2"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            Continuar
+                            <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="step-3" class="hidden">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xl text-white underline underline-offset-4">3. CAPACIDAD DE INVERSIÓN EN SOFTWARE Y AUTOMATIZACIÓN (ANUAL)</span>
+                    </div>
+                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                        Para asegurarnos de que podemos ofrecerte las soluciones más adecuadas, por favor, indícanos tu rango de inversión anual estimado para software y automatización. Esto nos ayuda a dimensionar el proyecto.
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value="<36k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>Menos de $36,000 USD</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value="36k-60k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>$36,000 – 60,000 USD</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value="60k-96k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>$60,001 – 96,000 USD</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value="96k-144k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>$96,001 – 144,000 USD</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value="144k-240k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>$144,001 – 240,000 USD</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                            <input type="radio" name="inversion" value=">240k" class="custom-radio mr-5" data-input="inversion" />
+                            <span>Más de $240,000 USD</span>
+                        </label>
+                    </div>
+                    <div class="flex justify-between mt-20">
+                        <button
+                            type="button"
+                            id="btn-prev-3"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            <span class="mr-2">→</span> Anterior
+                        </button>
+                        <button
+                            type="submit"
+                            id="btn-submit"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            Continuar
+                            <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div id="step-4" class="hidden">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xl text-white underline underline-offset-4">4. DETALLES DE DIGITALIZACIÓN ACTUAL</span>
+                    </div>
+                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                        Queremos entender tu situación actual para saber cómo podemos potenciar tu negocio. Por favor, responde de forma breve y honesta
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-white mb-2">1. Describe el mayor desafío que enfrentas hoy en día con la gestión de tu información o procesos internos:</div>
+                        <div class="relative">
+                            <textarea maxlength="200" rows="3" name="desafio" data-input="desafio" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
+                            <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1"><span id="count-desafio">0</span>/200</div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-white mb-2">2. ¿Qué herramientas digitales (además de correo electrónico básico) utilizas actualmente en tu negocio para la gestión diaria (ej. hojas de cálculo, CRM, software de contabilidad, herramientas de comunicación)?</div>
+                        <div class="relative">
+                            <textarea maxlength="200" rows="3" name="herramientas" data-input="herramientas" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
+                            <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1"><span id="count-herramientas">0</span>/200</div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-white mb-2">3. Si pudieras automatizar una tarea repetitiva en tu negocio hoy mismo, ¿cuál sería y por qué?</div>
+                        <div class="relative">
+                            <textarea maxlength="200" rows="3" name="automatizar" data-input="automatizar" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
+                            <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1"><span id="count-automatizar">0</span>/200</div>
+                    </div>
+                    <div class="flex justify-between mt-20">
+                        <button
+                            type="button"
+                            id="btn-prev-4"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            <span class="mr-2">→</span> Anterior
+                        </button>
+                        <button
+                            type="submit"
+                            id="btn-submit-4"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            Continuar
+                            <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Step 5 -->
+            <div id="step-5" class="hidden">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xl text-white underline underline-offset-4">5. MOTIVACIÓN PARA LA TRANSFORMACIÓN DIGITAL</span>
+                    </div>
+                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                        Comprender tu visión es clave para nosotros. Por favor, comparte tu principal motivación para buscar la transformación digital en tu empresa
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-white mb-2">¿Qué te impulsa a buscar la transformación digital en este momento? ¿Qué problema(s) esperas resolver o qué oportunidad(es) esperas aprovechar al digitalizar tu negocio?</div>
+                        <div class="relative">
+                            <textarea maxlength="200" rows="3" name="motivacion" data-input="motivacion" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
+                            <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1"><span id="count-motivacion">0</span>/200</div>
+                    </div>
+                    <div class="flex justify-between mt-20">
+                        <button
+                            type="button"
+                            id="btn-prev-5"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            <span class="mr-2">→</span> Anterior
+                        </button>
+                        <button
+                            type="submit"
+                            id="btn-submit-final"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
+                        >
+                            Enviar
+                            <span class="ml-2">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</Layout>
+
+<script>
+    const step1 = document.getElementById("step-1") as HTMLElement;
+    const step2 = document.getElementById("step-2") as HTMLElement;
+    const step3 = document.getElementById("step-3") as HTMLElement;
+    const step4 = document.getElementById("step-4") as HTMLElement;
+    const step5 = document.getElementById("step-5") as HTMLElement;
+    const btnNext = document.getElementById("btn-next") as HTMLElement;
+    const btnPrev = document.getElementById("btn-prev") as HTMLElement;
+    const btnPrev3 = document.getElementById("btn-prev-3") as HTMLElement;
+    const btnPrev4 = document.getElementById("btn-prev-4") as HTMLElement;
+    const btnPrev5 = document.getElementById("btn-prev-5") as HTMLElement;
+    const form = document.getElementById("wizard-form") as HTMLElement;
+    const btnNext2 = document.getElementById("btn-next-2") as HTMLElement;
+    const btnNext3 = document.getElementById("btn-submit") as HTMLElement;
+    const btnNext4 = document.getElementById("btn-submit-4") as HTMLElement;
+    const btnNextFinal = document.getElementById("btn-submit-final") as HTMLElement;
+
+    // Estado simple en JS
+    const formData = {
+        nombre: "",
+        email: "",
+        telefono: "",
+        cargo: "",
+        pais: "+1",
+        empresa: "",
+        industria: "",
+        empleados: "",
+        cargo_empresa: "",
+        website: "",
+        inversion: "",
+        desafio: "",
+        herramientas: "",
+        automatizar: "",
+        motivacion: "",
+    };
+
+    // Manejar eventos de input personalizados
+    document.addEventListener('input-change', function(e: any) {
+        const { value, name } = e.detail;
+        formData[name as keyof typeof formData] = value;
+    });
+
+    // Manejar eventos de cambio de país
+    document.addEventListener('country-change', function(e: any) {
+        const { value, name } = e.detail;
+        if (name === 'telefono') {
+            formData.pais = value;
+        }
+    });
+
+    // Contadores de caracteres para textareas
+    const textareas = document.querySelectorAll('textarea[data-input]');
+    textareas.forEach((textarea: any) => {
+        const inputName = textarea.getAttribute('data-input');
+        const counter = document.getElementById(`count-${inputName}`);
+        
+        if (counter) {
+            // Actualizar contador inicial
+            counter.textContent = textarea.value.length;
+            
+            // Evento para actualizar contador
+            textarea.addEventListener('input', (e: any) => {
+                const target = e.target as HTMLTextAreaElement;
+                counter.textContent = target.value.length.toString();
+                formData[inputName as keyof typeof formData] = target.value;
+            });
+        }
+    });
+
+    // Wizard navigation
+    btnNext?.addEventListener("click", () => {
+        step1?.classList.add("hidden");
+        step2?.classList.remove("hidden");
+    });
+    btnPrev?.addEventListener("click", () => {
+        step2?.classList.add("hidden");
+        step1?.classList.remove("hidden");
+    });
+    btnPrev3?.addEventListener("click", () => {
+        step3?.classList.add("hidden");
+        step2?.classList.remove("hidden");
+    });
+    btnPrev4?.addEventListener("click", () => {
+        step4?.classList.add("hidden");
+        step3?.classList.remove("hidden");
+    });
+    btnPrev5?.addEventListener("click", () => {
+        step5?.classList.add("hidden");
+        step4?.classList.remove("hidden");
+    });
+    btnNext2?.addEventListener("click", () => {
+        step2?.classList.add("hidden");
+        step3?.classList.remove("hidden");
+    });
+    btnNext3?.addEventListener("click", (e) => {
+        e.preventDefault();
+        step3?.classList.add("hidden");
+        step4?.classList.remove("hidden");
+    });
+    btnNext4?.addEventListener("click", (e) => {
+        e.preventDefault();
+        step4?.classList.add("hidden");
+        step5?.classList.remove("hidden");
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Form data:', formData);
+        // Aquí podrías hacer un fetch/ajax para enviar los datos
+        window.location.href = '/gracias';
+    });
+</script>

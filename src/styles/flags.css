@@ -1,0 +1,192 @@
+/* Estilos para las banderas de países */
+.iti__flag {
+  width: 20px;
+  height: 15px;
+  background-image: url('../assets/flags.webp');
+  background-repeat: no-repeat;
+  background-size: 5630px 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Posiciones de las banderas más comunes */
+.iti__flag.iti__us { background-position: -4862px 0; }
+.iti__flag.iti__mx { background-position: -2816px 0; }
+.iti__flag.iti__co { background-position: -946px 0; }
+.iti__flag.iti__ar { background-position: -176px 0; }
+.iti__flag.iti__es { background-position: -4268px 0; }
+.iti__flag.iti__ca { background-position: -792px 0; }
+.iti__flag.iti__br { background-position: -594px 0; }
+.iti__flag.iti__cl { background-position: -902px 0; }
+.iti__flag.iti__pe { background-position: -3498px 0; }
+.iti__flag.iti__ec { background-position: -1276px 0; }
+.iti__flag.iti__uy { background-position: -4884px 0; }
+.iti__flag.iti__py { background-position: -3476px 0; }
+.iti__flag.iti__bo { background-position: -528px 0; }
+.iti__flag.iti__ve { background-position: -4972px 0; }
+.iti__flag.iti__cr { background-position: -1012px 0; }
+.iti__flag.iti__pa { background-position: -3432px 0; }
+.iti__flag.iti__ni { background-position: -3168px 0; }
+.iti__flag.iti__hn { background-position: -1892px 0; }
+.iti__flag.iti__sv { background-position: -1320px 0; }
+.iti__flag.iti__gt { background-position: -1782px 0; }
+.iti__flag.iti__bz { background-position: -440px 0; }
+.iti__flag.iti__do { background-position: -1232px 0; }
+.iti__flag.iti__cu { background-position: -1078px 0; }
+.iti__flag.iti__pr { background-position: -3586px 0; }
+.iti__flag.iti__jm { background-position: -2134px 0; }
+.iti__flag.iti__ht { background-position: -1870px 0; }
+.iti__flag.iti__tt { background-position: -4620px 0; }
+.iti__flag.iti__bb { background-position: -374px 0; }
+.iti__flag.iti__gd { background-position: -1738px 0; }
+.iti__flag.iti__lc { background-position: -3806px 0; }
+.iti__flag.iti__vc { background-position: -3872px 0; }
+.iti__flag.iti__ag { background-position: -154px 0; }
+.iti__flag.iti__kn { background-position: -3784px 0; }
+.iti__flag.iti__dm { background-position: -1210px 0; }
+.iti__flag.iti__ai { background-position: -132px 0; }
+.iti__flag.iti__vg { background-position: -638px 0; }
+.iti__flag.iti__ky { background-position: -836px 0; }
+.iti__flag.iti__tc { background-position: -4708px 0; }
+.iti__flag.iti__ms { background-position: -2948px 0; }
+.iti__flag.iti__bm { background-position: -484px 0; }
+.iti__flag.iti__fk { background-position: -1430px 0; }
+.iti__flag.iti__gi { background-position: -1672px 0; }
+.iti__flag.iti__aw { background-position: -220px 0; }
+.iti__flag.iti__bl { background-position: -3740px 0; }
+.iti__flag.iti__mf { background-position: -3828px 0; }
+.iti__flag.iti__sx { background-position: -4092px 0; }
+.iti__flag.iti__pf { background-position: -1540px 0; }
+.iti__flag.iti__nc { background-position: -3124px 0; }
+.iti__flag.iti__ws { background-position: -3894px 0; }
+.iti__flag.iti__to { background-position: -4598px 0; }
+.iti__flag.iti__fj { background-position: -1474px 0; }
+.iti__flag.iti__pg { background-position: -3454px 0; }
+.iti__flag.iti__ck { background-position: -990px 0; }
+.iti__flag.iti__nu { background-position: -3234px 0; }
+.iti__flag.iti__tk { background-position: -4576px 0; }
+.iti__flag.iti__tv { background-position: -4730px 0; }
+.iti__flag.iti__nr { background-position: -3058px 0; }
+.iti__flag.iti__ki { background-position: -2244px 0; }
+.iti__flag.iti__vu { background-position: -4928px 0; }
+.iti__flag.iti__wf { background-position: -5016px 0; }
+.iti__flag.iti__gu { background-position: -1760px 0; }
+.iti__flag.iti__mp { background-position: -3300px 0; }
+.iti__flag.iti__as { background-position: -66px 0; }
+.iti__flag.iti__vi { background-position: -4752px 0; }
+
+/* Estilos para el select de países */
+.country-select {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  padding: 8px 12px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  min-width: 80px;
+}
+
+.country-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.country-select option {
+  background: #232228;
+  color: white;
+  padding: 8px;
+}
+
+/* Contenedor del select con bandera */
+.country-select-container {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos para mostrar la bandera en el select */
+.country-select-container::before {
+  content: '';
+  width: 20px;
+  height: 15px;
+  background-image: url('../assets/flags.webp');
+  background-repeat: no-repeat;
+  background-size: 5630px 15px;
+  display: inline-block;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+/* Aplicar la bandera correcta según el valor seleccionado */
+.country-select-container[data-country="us"]::before { background-position: -4862px 0; }
+.country-select-container[data-country="mx"]::before { background-position: -2816px 0; }
+.country-select-container[data-country="co"]::before { background-position: -946px 0; }
+.country-select-container[data-country="ar"]::before { background-position: -176px 0; }
+.country-select-container[data-country="es"]::before { background-position: -4268px 0; }
+.country-select-container[data-country="ca"]::before { background-position: -792px 0; }
+.country-select-container[data-country="br"]::before { background-position: -594px 0; }
+.country-select-container[data-country="cl"]::before { background-position: -902px 0; }
+.country-select-container[data-country="pe"]::before { background-position: -3498px 0; }
+.country-select-container[data-country="ec"]::before { background-position: -1276px 0; }
+.country-select-container[data-country="uy"]::before { background-position: -4884px 0; }
+.country-select-container[data-country="py"]::before { background-position: -3476px 0; }
+.country-select-container[data-country="bo"]::before { background-position: -528px 0; }
+.country-select-container[data-country="ve"]::before { background-position: -4972px 0; }
+.country-select-container[data-country="cr"]::before { background-position: -1012px 0; }
+.country-select-container[data-country="pa"]::before { background-position: -3432px 0; }
+.country-select-container[data-country="ni"]::before { background-position: -3168px 0; }
+.country-select-container[data-country="hn"]::before { background-position: -1892px 0; }
+.country-select-container[data-country="sv"]::before { background-position: -1320px 0; }
+.country-select-container[data-country="gt"]::before { background-position: -1782px 0; }
+.country-select-container[data-country="bz"]::before { background-position: -440px 0; }
+.country-select-container[data-country="do"]::before { background-position: -1232px 0; }
+.country-select-container[data-country="cu"]::before { background-position: -1078px 0; }
+.country-select-container[data-country="pr"]::before { background-position: -3586px 0; }
+.country-select-container[data-country="jm"]::before { background-position: -2134px 0; }
+.country-select-container[data-country="ht"]::before { background-position: -1870px 0; }
+.country-select-container[data-country="tt"]::before { background-position: -4620px 0; }
+.country-select-container[data-country="bb"]::before { background-position: -374px 0; }
+.country-select-container[data-country="gd"]::before { background-position: -1738px 0; }
+.country-select-container[data-country="lc"]::before { background-position: -3806px 0; }
+.country-select-container[data-country="vc"]::before { background-position: -3872px 0; }
+.country-select-container[data-country="ag"]::before { background-position: -154px 0; }
+.country-select-container[data-country="kn"]::before { background-position: -3784px 0; }
+.country-select-container[data-country="dm"]::before { background-position: -1210px 0; }
+.country-select-container[data-country="ai"]::before { background-position: -132px 0; }
+.country-select-container[data-country="vg"]::before { background-position: -638px 0; }
+.country-select-container[data-country="ky"]::before { background-position: -836px 0; }
+.country-select-container[data-country="tc"]::before { background-position: -4708px 0; }
+.country-select-container[data-country="ms"]::before { background-position: -2948px 0; }
+.country-select-container[data-country="bm"]::before { background-position: -484px 0; }
+.country-select-container[data-country="fk"]::before { background-position: -1430px 0; }
+.country-select-container[data-country="gi"]::before { background-position: -1672px 0; }
+.country-select-container[data-country="aw"]::before { background-position: -220px 0; }
+.country-select-container[data-country="bl"]::before { background-position: -3740px 0; }
+.country-select-container[data-country="mf"]::before { background-position: -3828px 0; }
+.country-select-container[data-country="sx"]::before { background-position: -4092px 0; }
+.country-select-container[data-country="pf"]::before { background-position: -1540px 0; }
+.country-select-container[data-country="nc"]::before { background-position: -3124px 0; }
+.country-select-container[data-country="ws"]::before { background-position: -3894px 0; }
+.country-select-container[data-country="to"]::before { background-position: -4598px 0; }
+.country-select-container[data-country="fj"]::before { background-position: -1474px 0; }
+.country-select-container[data-country="pg"]::before { background-position: -3454px 0; }
+.country-select-container[data-country="ck"]::before { background-position: -990px 0; }
+.country-select-container[data-country="nu"]::before { background-position: -3234px 0; }
+.country-select-container[data-country="tk"]::before { background-position: -4576px 0; }
+.country-select-container[data-country="tv"]::before { background-position: -4730px 0; }
+.country-select-container[data-country="nr"]::before { background-position: -3058px 0; }
+.country-select-container[data-country="ki"]::before { background-position: -2244px 0; }
+.country-select-container[data-country="vu"]::before { background-position: -4928px 0; }
+.country-select-container[data-country="wf"]::before { background-position: -5016px 0; }
+.country-select-container[data-country="gu"]::before { background-position: -1760px 0; }
+.country-select-container[data-country="mp"]::before { background-position: -3300px 0; }
+.country-select-container[data-country="as"]::before { background-position: -66px 0; }
+.country-select-container[data-country="vi"]::before { background-position: -4752px 0; } 

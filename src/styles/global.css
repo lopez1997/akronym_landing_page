@@ -107,4 +107,26 @@ html, body {
 .testimonial-name:hover h4,
 .testimonial-name:hover div {
   color: #f5f5f5 !important; /* text-neutral-100 */
-} 
+}
+
+.custom-radio {
+  @apply appearance-none w-7 h-7 rounded-full border border-white bg-transparent flex items-center justify-center transition-colors duration-150 cursor-pointer;
+  box-shadow: none;
+  outline: none;
+  position: relative;
+}
+.custom-radio:checked {
+  @apply border-white bg-transparent;
+}
+.custom-radio:checked::before {
+  content: '';
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.3rem auto;
+  border-radius: 9999px;
+  background: white;
+}
+.custom-radio:hover {
+  @apply border-gray-300;
+}
