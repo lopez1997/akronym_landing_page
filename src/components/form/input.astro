@@ -41,21 +41,6 @@ const selectedCountry = countryOptions.find(country => `+${country.dialCode}` ==
         ? 'border-gray-600'
         : 'border-gray-400 focus-within:border-white')
   }>
-    <input
-      id={inputId}
-      name={name}
-      type={type}
-      class={
-        `flex-1 bg-transparent text-white placeholder-gray-400 px-2 py-2 outline-none ` +
-        (disabled ? 'opacity-60 cursor-not-allowed' : '')
-      }
-      placeholder={placeholder}
-      value={value}
-      disabled={disabled}
-      aria-invalid={error}
-      aria-describedby={hint ? `${inputId}-hint` : undefined}
-      autocomplete={type === 'tel' ? 'tel' : 'off'}
-    />
     {type === 'tel' && (
       <div class="relative">
         <!-- Select personalizado con bandera -->
@@ -87,6 +72,21 @@ const selectedCountry = countryOptions.find(country => `+${country.dialCode}` ==
         </div>
       </div>
     )}
+    <input
+      id={inputId}
+      name={name}
+      type={type}
+      class={
+        `flex-1 bg-transparent text-white placeholder-gray-400 px-2 py-2 outline-none ` +
+        (disabled ? 'opacity-60 cursor-not-allowed' : '')
+      }
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+      aria-invalid={error}
+      aria-describedby={hint ? `${inputId}-hint` : undefined}
+      autocomplete={type === 'tel' ? 'tel' : 'off'}
+    />
   </div>
   {hint && (
     <div
