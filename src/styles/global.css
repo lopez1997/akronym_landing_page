@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -31,6 +31,7 @@
   --neutral-13: #262626;
   --neutral-15: #141414;
   --neutral-16: #000000;
+  --black: #191B1C;
 
   /* Colores de éxito */
   --success-50: #e0f9f8;
@@ -55,6 +56,22 @@
   --error-300: #eb6889;
   --error-400: #f16772;
   --error-500: #fe444f;
+}
+
+.text-gray-300 {
+  color: #F8FAFB !important;
+}
+
+.text-gray-400 {
+  color: #C1C7D0 !important;
+}
+
+.text-red-500 {
+  color: #ED8296 !important;
+}
+
+.bg-black {
+  background-color: var(--black) !important;
 }
 
 html {

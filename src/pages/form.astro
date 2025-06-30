@@ -6,13 +6,13 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
     <div
-        class="min-h-screen flex flex-col items-center justify-center bg-[#0D0D12] px-4"
+        class="min-h-screen flex flex-col items-center justify-center bg-black px-4"
     >
         <form id="wizard-form" class="w-full max-w-5xl mt-8" autocomplete="off">
             <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
                 ¡GRACIAS POR TU INTERÉS EN<br />TRANSFORMAR TU NEGOCIO!
             </h1>
-            <p class="text-gray-300 mb-8 max-w-5xl text-xl">
+            <p class="text-gray-300 mb-8 max-w-5xl text-xl font-extralight">
                 Este formulario nos ayudará a entender mejor tus necesidades y
                 cómo podemos ayudarte a alcanzar tus metas de digitalización.
                 Por favor, tómate unos minutos para completarlo.
@@ -21,10 +21,7 @@ import Layout from "../layouts/Layout.astro";
             <!-- Step 1 -->
             <div id="step-1">
                 <div class="mb-6">
-                    <span
-                        class="text-xl text-white underline underline-offset-4"
-                        >1. INFORMACIÓN DE CONTACTO</span
-                    >
+                    <span class="text-xl text-white underline underline-offset-4">1. INFORMACIÓN DE CONTACTO</span>
                 </div>
                 <div class="mb-4">
                     <Input
@@ -34,6 +31,12 @@ import Layout from "../layouts/Layout.astro";
                         name="nombre"
                         data-input="nombre"
                     />
+                    <div id="error-nombre" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="mb-4">
                     <Input
@@ -43,6 +46,12 @@ import Layout from "../layouts/Layout.astro";
                         name="email"
                         data-input="email"
                     />
+                    <div id="error-email" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="mb-4">
                     <Input
@@ -54,6 +63,12 @@ import Layout from "../layouts/Layout.astro";
                         name="telefono"
                         data-input="telefono"
                     />
+                    <div id="error-telefono" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="mb-20">
                     <Input
@@ -63,6 +78,12 @@ import Layout from "../layouts/Layout.astro";
                         name="cargo"
                         data-input="cargo"
                     />
+                    <div id="error-cargo" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="flex justify-center">
                     <button
@@ -90,6 +111,12 @@ import Layout from "../layouts/Layout.astro";
                             name="empresa"
                             data-input="empresa"
                         />
+                        <div id="error-empresa" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <Input
@@ -99,6 +126,12 @@ import Layout from "../layouts/Layout.astro";
                             name="industria"
                             data-input="industria"
                         />
+                        <div id="error-industria" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <Input
@@ -108,6 +141,12 @@ import Layout from "../layouts/Layout.astro";
                             name="empleados"
                             data-input="empleados"
                         />
+                        <div id="error-empleados" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <Input
@@ -117,6 +156,12 @@ import Layout from "../layouts/Layout.astro";
                             name="cargo_empresa"
                             data-input="cargo_empresa"
                         />
+                        <div id="error-cargo_empresa" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-2">
                         <Input
@@ -126,6 +171,12 @@ import Layout from "../layouts/Layout.astro";
                             name="website"
                             data-input="website"
                         />
+                        <div id="error-website" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="text-sm text-gray-400">Pregunta no obligatoria*</div>
                     <div class="flex justify-between mt-20">
@@ -134,7 +185,7 @@ import Layout from "../layouts/Layout.astro";
                             id="btn-prev"
                             class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
                         >
-                            <span class="mr-2">→</span> Anterior
+                            <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="button"
@@ -154,34 +205,40 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">3. CAPACIDAD DE INVERSIÓN EN SOFTWARE Y AUTOMATIZACIÓN (ANUAL)</span>
                     </div>
-                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                    <div class="text-gray-300 text-sm mb-6 max-w-5xl font-extralight">
                         Para asegurarnos de que podemos ofrecerte las soluciones más adecuadas, por favor, indícanos tu rango de inversión anual estimado para software y automatización. Esto nos ayuda a dimensionar el proyecto.
                     </div>
                     <div class="flex flex-col gap-4">
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="<36k" class="custom-radio mr-5" data-input="inversion" />
                             <span>Menos de $36,000 USD</span>
                         </label>
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="36k-60k" class="custom-radio mr-5" data-input="inversion" />
                             <span>$36,000 – 60,000 USD</span>
                         </label>
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="60k-96k" class="custom-radio mr-5" data-input="inversion" />
                             <span>$60,001 – 96,000 USD</span>
                         </label>
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="96k-144k" class="custom-radio mr-5" data-input="inversion" />
                             <span>$96,001 – 144,000 USD</span>
                         </label>
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="144k-240k" class="custom-radio mr-5" data-input="inversion" />
                             <span>$144,001 – 240,000 USD</span>
                         </label>
-                        <label class="flex items-center gap-3 text-gray-200 cursor-pointer">
+                        <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value=">240k" class="custom-radio mr-5" data-input="inversion" />
                             <span>Más de $240,000 USD</span>
                         </label>
+                    </div>
+                    <div id="error-inversion" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span></span>
                     </div>
                     <div class="flex justify-between mt-20">
                         <button
@@ -189,7 +246,7 @@ import Layout from "../layouts/Layout.astro";
                             id="btn-prev-3"
                             class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
                         >
-                            <span class="mr-2">→</span> Anterior
+                            <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
@@ -209,32 +266,50 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">4. DETALLES DE DIGITALIZACIÓN ACTUAL</span>
                     </div>
-                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                    <div class="text-gray-300 text-md font-extralight mb-6 max-w-5xl">
                         Queremos entender tu situación actual para saber cómo podemos potenciar tu negocio. Por favor, responde de forma breve y honesta
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2">1. Describe el mayor desafío que enfrentas hoy en día con la gestión de tu información o procesos internos:</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">1. Describe el mayor desafío que enfrentas hoy en día con la gestión de tu información o procesos internos:</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="desafio" data-input="desafio" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
                         </div>
                         <div class="text-xs text-gray-400 mt-1"><span id="count-desafio">0</span>/200</div>
+                        <div id="error-desafio" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2">2. ¿Qué herramientas digitales (además de correo electrónico básico) utilizas actualmente en tu negocio para la gestión diaria (ej. hojas de cálculo, CRM, software de contabilidad, herramientas de comunicación)?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">2. ¿Qué herramientas digitales (además de correo electrónico básico) utilizas actualmente en tu negocio para la gestión diaria (ej. hojas de cálculo, CRM, software de contabilidad, herramientas de comunicación)?</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="herramientas" data-input="herramientas" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
                         </div>
                         <div class="text-xs text-gray-400 mt-1"><span id="count-herramientas">0</span>/200</div>
+                        <div id="error-herramientas" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2">3. Si pudieras automatizar una tarea repetitiva en tu negocio hoy mismo, ¿cuál sería y por qué?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">3. Si pudieras automatizar una tarea repetitiva en tu negocio hoy mismo, ¿cuál sería y por qué?</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="automatizar" data-input="automatizar" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
                         </div>
                         <div class="text-xs text-gray-400 mt-1"><span id="count-automatizar">0</span>/200</div>
+                        <div id="error-automatizar" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="flex justify-between mt-20">
                         <button
@@ -242,7 +317,7 @@ import Layout from "../layouts/Layout.astro";
                             id="btn-prev-4"
                             class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
                         >
-                            <span class="mr-2">→</span> Anterior
+                            <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
@@ -262,16 +337,22 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">5. MOTIVACIÓN PARA LA TRANSFORMACIÓN DIGITAL</span>
                     </div>
-                    <div class="text-gray-300 text-sm mb-6 max-w-5xl">
+                    <div class="text-gray-300 text-md font-extralight mb-6 max-w-5xl">
                         Comprender tu visión es clave para nosotros. Por favor, comparte tu principal motivación para buscar la transformación digital en tu empresa
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2">¿Qué te impulsa a buscar la transformación digital en este momento? ¿Qué problema(s) esperas resolver o qué oportunidad(es) esperas aprovechar al digitalizar tu negocio?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">¿Qué te impulsa a buscar la transformación digital en este momento? ¿Qué problema(s) esperas resolver o qué oportunidad(es) esperas aprovechar al digitalizar tu negocio?</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="motivacion" data-input="motivacion" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
                         </div>
                         <div class="text-xs text-gray-400 mt-1"><span id="count-motivacion">0</span>/200</div>
+                        <div id="error-motivacion" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="flex justify-between mt-20">
                         <button
@@ -279,7 +360,7 @@ import Layout from "../layouts/Layout.astro";
                             id="btn-prev-5"
                             class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#232228] transition"
                         >
-                            <span class="mr-2">→</span> Anterior
+                            <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
@@ -332,10 +413,236 @@ import Layout from "../layouts/Layout.astro";
         motivacion: "",
     };
 
+    // Funciones de validación
+    function showError(fieldName: string, message: string) {
+        const errorElement = document.getElementById(`error-${fieldName}`);
+        if (errorElement) {
+            const spanElement = errorElement.querySelector('span');
+            if (spanElement) {
+                spanElement.textContent = message;
+            }
+            errorElement.classList.remove('hidden');
+        }
+        
+        // Agregar borde rojo al input
+        const inputElement = document.querySelector(`[data-input="${fieldName}"]`) as HTMLElement;
+        if (inputElement) {
+            const inputContainer = inputElement.closest('.flex.items-center.border-b');
+            if (inputContainer) {
+                inputContainer.classList.remove('border-gray-400', 'focus-within:border-white');
+                inputContainer.classList.add('border-red-500', 'focus-within:border-red-500');
+            }
+        }
+        
+        // Para textareas
+        const textareaElement = document.querySelector(`textarea[data-input="${fieldName}"]`) as HTMLTextAreaElement;
+        if (textareaElement) {
+            textareaElement.classList.remove('border-gray-400', 'focus:border-white');
+            textareaElement.classList.add('border-red-500', 'focus:border-red-500');
+        }
+    }
+
+    function hideError(fieldName: string) {
+        const errorElement = document.getElementById(`error-${fieldName}`);
+        if (errorElement) {
+            errorElement.classList.add('hidden');
+        }
+        
+        // Remover borde rojo del input
+        const inputElement = document.querySelector(`[data-input="${fieldName}"]`) as HTMLElement;
+        if (inputElement) {
+            const inputContainer = inputElement.closest('.flex.items-center.border-b');
+            if (inputContainer) {
+                inputContainer.classList.remove('border-red-500', 'focus-within:border-red-500');
+                inputContainer.classList.add('border-gray-400', 'focus-within:border-white');
+            }
+        }
+        
+        // Para textareas
+        const textareaElement = document.querySelector(`textarea[data-input="${fieldName}"]`) as HTMLTextAreaElement;
+        if (textareaElement) {
+            textareaElement.classList.remove('border-red-500', 'focus:border-red-500');
+            textareaElement.classList.add('border-gray-400', 'focus:border-white');
+        }
+    }
+
+    function validateEmail(email: string): boolean {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function validatePhone(phone: string): boolean {
+        const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
+        return phoneRegex.test(phone);
+    }
+
+    function validateWebsite(website: string): boolean {
+        if (!website) return true; // Website es opcional
+        const websiteRegex = /^https?:\/\/.+/;
+        return websiteRegex.test(website);
+    }
+
+    function validateStep1(): boolean {
+        let isValid = true;
+        
+        // Validar nombre
+        if (!formData.nombre.trim()) {
+            showError('nombre', 'El nombre es obligatorio');
+            isValid = false;
+        } else if (formData.nombre.trim().length < 2) {
+            showError('nombre', 'El nombre debe tener al menos 2 caracteres');
+            isValid = false;
+        } else {
+            hideError('nombre');
+        }
+
+        // Validar email
+        if (!formData.email.trim()) {
+            showError('email', 'El correo electrónico es obligatorio');
+            isValid = false;
+        } else if (!validateEmail(formData.email)) {
+            showError('email', 'Ingresa un correo electrónico válido');
+            isValid = false;
+        } else {
+            hideError('email');
+        }
+
+        // Validar teléfono
+        if (!formData.telefono.trim()) {
+            showError('telefono', 'El número de teléfono es obligatorio');
+            isValid = false;
+        } else if (!validatePhone(formData.telefono)) {
+            showError('telefono', 'Ingresa un número de teléfono válido');
+            isValid = false;
+        } else {
+            hideError('telefono');
+        }
+
+        // Validar cargo
+        if (!formData.cargo.trim()) {
+            showError('cargo', 'El cargo es obligatorio');
+            isValid = false;
+        } else {
+            hideError('cargo');
+        }
+
+        return isValid;
+    }
+
+    function validateStep2(): boolean {
+        let isValid = true;
+        
+        // Validar empresa
+        if (!formData.empresa.trim()) {
+            showError('empresa', 'El nombre de la empresa es obligatorio');
+            isValid = false;
+        } else {
+            hideError('empresa');
+        }
+
+        // Validar industria
+        if (!formData.industria.trim()) {
+            showError('industria', 'La industria es obligatoria');
+            isValid = false;
+        } else {
+            hideError('industria');
+        }
+
+        // Validar empleados
+        if (!formData.empleados.trim()) {
+            showError('empleados', 'El número de empleados es obligatorio');
+            isValid = false;
+        } else {
+            hideError('empleados');
+        }
+
+        // Validar cargo empresa
+        if (!formData.cargo_empresa.trim()) {
+            showError('cargo_empresa', 'El cargo en la empresa es obligatorio');
+            isValid = false;
+        } else {
+            hideError('cargo_empresa');
+        }
+
+        // Validar website (opcional)
+        if (formData.website && !validateWebsite(formData.website)) {
+            showError('website', 'Ingresa una URL válida (debe comenzar con http:// o https://)');
+            isValid = false;
+        } else {
+            hideError('website');
+        }
+
+        return isValid;
+    }
+
+    function validateStep3(): boolean {
+        if (!formData.inversion) {
+            showError('inversion', 'Debes seleccionar un rango de inversión');
+            return false;
+        } else {
+            hideError('inversion');
+            return true;
+        }
+    }
+
+    function validateStep4(): boolean {
+        let isValid = true;
+        
+        // Validar desafío
+        if (!formData.desafio.trim()) {
+            showError('desafio', 'Debes describir el mayor desafío que enfrentas');
+            isValid = false;
+        } else if (formData.desafio.trim().length < 10) {
+            showError('desafio', 'La descripción debe tener al menos 10 caracteres');
+            isValid = false;
+        } else {
+            hideError('desafio');
+        }
+
+        // Validar herramientas
+        if (!formData.herramientas.trim()) {
+            showError('herramientas', 'Debes describir las herramientas digitales que utilizas');
+            isValid = false;
+        } else if (formData.herramientas.trim().length < 10) {
+            showError('herramientas', 'La descripción debe tener al menos 10 caracteres');
+            isValid = false;
+        } else {
+            hideError('herramientas');
+        }
+
+        // Validar automatizar
+        if (!formData.automatizar.trim()) {
+            showError('automatizar', 'Debes describir qué tarea te gustaría automatizar');
+            isValid = false;
+        } else if (formData.automatizar.trim().length < 10) {
+            showError('automatizar', 'La descripción debe tener al menos 10 caracteres');
+            isValid = false;
+        } else {
+            hideError('automatizar');
+        }
+
+        return isValid;
+    }
+
+    function validateStep5(): boolean {
+        if (!formData.motivacion.trim()) {
+            showError('motivacion', 'Debes describir tu motivación para la transformación digital');
+            return false;
+        } else if (formData.motivacion.trim().length < 10) {
+            showError('motivacion', 'La descripción debe tener al menos 10 caracteres');
+            return false;
+        } else {
+            hideError('motivacion');
+            return true;
+        }
+    }
+
     // Manejar eventos de input personalizados
     document.addEventListener('input-change', function(e: any) {
         const { value, name } = e.detail;
         formData[name as keyof typeof formData] = value;
+        // Ocultar error cuando el usuario empiece a escribir
+        hideError(name);
     });
 
     // Manejar eventos de cambio de país
@@ -343,6 +650,15 @@ import Layout from "../layouts/Layout.astro";
         const { value, name } = e.detail;
         if (name === 'telefono') {
             formData.pais = value;
+        }
+    });
+
+    // Manejar eventos de radio buttons
+    document.addEventListener('change', function(e: any) {
+        const target = e.target as HTMLInputElement;
+        if (target.type === 'radio' && target.name === 'inversion') {
+            formData.inversion = target.value;
+            hideError('inversion');
         }
     });
 
@@ -361,50 +677,105 @@ import Layout from "../layouts/Layout.astro";
                 const target = e.target as HTMLTextAreaElement;
                 counter.textContent = target.value.length.toString();
                 formData[inputName as keyof typeof formData] = target.value;
+                // Ocultar error cuando el usuario empiece a escribir
+                hideError(inputName);
             });
         }
     });
 
-    // Wizard navigation
+    // Wizard navigation con validación
     btnNext?.addEventListener("click", () => {
-        step1?.classList.add("hidden");
-        step2?.classList.remove("hidden");
+        if (validateStep1()) {
+            step1?.classList.add("hidden");
+            step2?.classList.remove("hidden");
+        }
     });
+    
     btnPrev?.addEventListener("click", () => {
         step2?.classList.add("hidden");
         step1?.classList.remove("hidden");
     });
+    
     btnPrev3?.addEventListener("click", () => {
         step3?.classList.add("hidden");
         step2?.classList.remove("hidden");
     });
+    
     btnPrev4?.addEventListener("click", () => {
         step4?.classList.add("hidden");
         step3?.classList.remove("hidden");
     });
+    
     btnPrev5?.addEventListener("click", () => {
         step5?.classList.add("hidden");
         step4?.classList.remove("hidden");
     });
+    
     btnNext2?.addEventListener("click", () => {
-        step2?.classList.add("hidden");
-        step3?.classList.remove("hidden");
+        if (validateStep2()) {
+            step2?.classList.add("hidden");
+            step3?.classList.remove("hidden");
+        }
     });
+    
     btnNext3?.addEventListener("click", (e) => {
         e.preventDefault();
-        step3?.classList.add("hidden");
-        step4?.classList.remove("hidden");
+        if (validateStep3()) {
+            step3?.classList.add("hidden");
+            step4?.classList.remove("hidden");
+        }
     });
+    
     btnNext4?.addEventListener("click", (e) => {
         e.preventDefault();
-        step4?.classList.add("hidden");
-        step5?.classList.remove("hidden");
+        if (validateStep4()) {
+            step4?.classList.add("hidden");
+            step5?.classList.remove("hidden");
+        }
     });
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log('Form data:', formData);
-        // Aquí podrías hacer un fetch/ajax para enviar los datos
-        window.location.href = '/gracias';
+        
+        // Validar el paso final
+        if (validateStep5()) {
+            // Mostrar toda la información en la consola
+            console.log('=== DATOS DEL FORMULARIO ENVIADO ===');
+            console.log('📋 INFORMACIÓN DE CONTACTO:');
+            console.log('   Nombre:', formData.nombre);
+            console.log('   Email:', formData.email);
+            console.log('   Teléfono:', formData.pais + ' ' + formData.telefono);
+            // console.log('   País:', formData.pais);
+            console.log('   Cargo:', formData.cargo);
+            
+            console.log('🏢 INFORMACIÓN DE LA EMPRESA:');
+            console.log('   Empresa:', formData.empresa);
+            console.log('   Industria:', formData.industria);
+            console.log('   Empleados:', formData.empleados);
+            console.log('   Cargo en la empresa:', formData.cargo_empresa);
+            console.log('   Website:', formData.website || 'No especificado');
+            
+            console.log('💰 CAPACIDAD DE INVERSIÓN:');
+            console.log('   Rango de inversión:', formData.inversion);
+            
+            console.log('💻 DETALLES DE DIGITALIZACIÓN:');
+            console.log('   Mayor desafío:', formData.desafio);
+            console.log('   Herramientas digitales:', formData.herramientas);
+            console.log('   Tarea a automatizar:', formData.automatizar);
+            
+            console.log('🎯 MOTIVACIÓN:');
+            console.log('   Motivación para transformación digital:', formData.motivacion);
+            
+            console.log('=== FIN DE DATOS ===');
+            
+            // Aquí podrías hacer un fetch/ajax para enviar los datos al servidor
+            // fetch('/api/submit-form', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+            
+            // window.location.href = '/gracias';
+        }
     });
 </script>
