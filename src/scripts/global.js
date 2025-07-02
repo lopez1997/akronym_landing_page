@@ -41,7 +41,6 @@ $(".aliados-carousel").slick({
 
 // Magic Mouse initiaization
 magicMouse({
-	"cursorOuter": "circle",
 	"hoverEffect": "circle-move",
 	"hoverItemMove": false,
 	"defaultCursor": false,
