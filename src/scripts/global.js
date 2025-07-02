@@ -39,6 +39,16 @@ $(".aliados-carousel").slick({
 ],
 });
 
+// Magic Mouse initiaization
+magicMouse({
+	"cursorOuter": "circle",
+	"hoverEffect": "circle-move",
+	"hoverItemMove": false,
+	"defaultCursor": false,
+	"outerWidth": 30,
+	"outerHeight": 30
+});
+
 // Sticky navbar al hacer scroll
 document.addEventListener('DOMContentLoaded', function () {
 	const navbar = document.getElementById('main-navbar');
@@ -70,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // FadeIn effect for important texts and logo
-
 document.addEventListener('DOMContentLoaded', function () {
 	const fadeEls = document.querySelectorAll('.fade-in');
 	const observer = new window.IntersectionObserver((entries) => {
