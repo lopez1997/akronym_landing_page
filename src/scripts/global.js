@@ -5,8 +5,29 @@ $(".slick-slider").slick({
 	autoplay: true,
 	autoplaySpeed: 1000,
 	infinite: true,
-	slidesToShow: 3,
+	slidesToShow: 4,
 	slidesToScroll: 1,
+	arrows: false,
+	dots: false,
+	responsive: [
+		{
+			breakpoint: 1024,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			},
+		},
+],
+});
+
+$(".aliados-carousel").slick({
+	autoplay: true,
+	autoplaySpeed: 1000,
+	infinite: true,
+	slidesToShow: 5,
+	slidesToScroll: 1,
+	arrows: false,
+	dots: false,
 	responsive: [
 		{
 			breakpoint: 1024,

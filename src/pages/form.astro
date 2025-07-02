@@ -74,10 +74,10 @@ import Layout from "../layouts/Layout.astro";
                     <button
                         type="button"
                         id="btn-next"
-                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                     >
                         Continuar
-                        <span class="ml-2">→</span>
+                        <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
                     </button>
                 </div>
             </div>
@@ -168,17 +168,17 @@ import Layout from "../layouts/Layout.astro";
                         <button
                             type="button"
                             id="btn-prev"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="button"
                             id="btn-next-2"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             Continuar
-                            <span class="ml-2">→</span>
+                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
                         </button>
                     </div>
                 </div>
@@ -229,17 +229,17 @@ import Layout from "../layouts/Layout.astro";
                         <button
                             type="button"
                             id="btn-prev-3"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
                             id="btn-submit"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             Continuar
-                            <span class="ml-2">→</span>
+                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
                         </button>
                     </div>
                 </div>
@@ -300,17 +300,17 @@ import Layout from "../layouts/Layout.astro";
                         <button
                             type="button"
                             id="btn-prev-4"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
                             id="btn-submit-4"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             Continuar
-                            <span class="ml-2">→</span>
+                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
                         </button>
                     </div>
                 </div>
@@ -343,17 +343,17 @@ import Layout from "../layouts/Layout.astro";
                         <button
                             type="button"
                             id="btn-prev-5"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             <span class="mr-2">←</span> Anterior
                         </button>
                         <button
                             type="submit"
                             id="btn-submit-final"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] transition"
+                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                         >
                             Enviar
-                            <span class="ml-2">→</span>
+                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
                         </button>
                     </div>
                 </div>
@@ -756,3 +756,12 @@ import Layout from "../layouts/Layout.astro";
         }
     });
 </script>
+
+<style>
+.arrow-svg {
+  transition: filter 0.2s;
+}
+button:hover .arrow-svg, a:hover .arrow-svg {
+  filter: invert(1);
+}
+</style>

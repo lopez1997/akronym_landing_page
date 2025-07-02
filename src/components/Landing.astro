@@ -11,7 +11,6 @@ import rectangle3 from '../assets/rectangle3.png';
 import rectangle4 from '../assets/rectangle4.png';
 import rectangle5 from '../assets/rectangle5.png';
 import rectangle6 from '../assets/rectangle6.png';
-import rectangle7 from '../assets/rectangle7.png';
 import desktop1 from '../assets/desktop1.jpeg';
 import globe from '../assets/globe.svg';
 import heic0604a from '../assets/heic0604a.png';
@@ -35,31 +34,54 @@ import terre from '../assets/logos/terre.png';
 import imago from '../assets/logos/imago.png';
 ---
 
-<!-- Sección de logo Akronym centrado pantalla completa -->
-<section class="w-screen h-screen min-h-[400px] bg-black flex flex-col items-center justify-center">
-  <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="fade-in w-48 sm:w-64 md:w-80 lg:w-[30rem] max-w-[80vw] mb-6" />
-</section>
-
-<!-- Navbar -->
-<nav id="main-navbar" class="absolute top-0 left-0 w-full flex flex-col md:flex-row items-start justify-between px-4 sm:px-8 md:px-16 py-4 md:py-6 z-20">
-  <div class="flex-1 flex items-start justify-start mb-2 md:mb-0">
-    <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="w-30" />
-  </div>
-  <div class="flex items-start justify-between gap-2 md:gap-5">
-    <div>
-      <a href="#sobre-nosotros" class="text-neutral-100 text-sm md:text-base font-normal tracking-wider text-center leading-tight hover:opacity-70 transition-opacity">SOBRE NOSOTROS</a><br>
-    </div>
-    <div>
-      <a href="#contacto" class="text-neutral-100 text-sm md:text-base font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
-    </div>
-  </div>
-</nav>
+<!-- Pantalla de carga con logo Akronym -->
+<div id="loading-screen" class="fixed inset-0 w-screen h-screen bg-black flex flex-col items-center justify-center z-50 transition-opacity duration-1000">
+  <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="w-48 sm:w-64 md:w-80 lg:w-[30rem] max-w-[80vw] mb-6" />
+</div>
 
 <!-- Hero Section -->
-<div class="relative w-screen h-screen min-h-[400px] font-sans" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
+<div class="relative w-screen h-screen min-h-[400px]" style={`background: url('${desktop1.src}') center center/cover no-repeat;`}>
   <div class="absolute inset-0 bg-black/10 z-10"></div>
+  <!-- Navbar -->
+  <nav id="main-navbar" class="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 py-4 md:py-6 z-20" style="background: linear-gradient(180deg, rgba(25, 27, 28, 0.70) 16.81%, rgba(54, 54, 54, 0.00) 86.28%);">
+    <div class="flex items-center">
+      <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="w-30" />
+    </div>
+    
+    <!-- Menú desktop -->
+    <div class="hidden md:flex items-center gap-5">
+      <div>
+        <a href="#sobre-nosotros" class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">SOBRE NOSOTROS</a>
+      </div>
+      <div>
+        <a href="#contacto" class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
+      </div>
+    </div>
+    
+    <!-- Botón hamburguesa móvil -->
+    <button id="mobile-menu-btn" class="md:hidden p-2">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 7H30M0 23H30M0 15H30" stroke="white"/>
+      </svg>
+    </button>
+  </nav>
+  
+  <!-- Menú móvil desplegable -->
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black/95 z-30 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="flex flex-col items-center justify-center h-full space-y-8">
+      <button id="close-menu-btn" class="absolute top-6 right-6 p-2">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L24 24M24 6L6 24" stroke="white" stroke-width="2"/>
+        </svg>
+      </button>
+      <a href="#sobre-nosotros" class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity">SOBRE NOSOTROS</a>
+      <a href="#contacto" class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
+    </div>
+  </div>
+  
+  <!-- Texto de la hero section -->
   <section class="absolute left-0 bottom-0 z-20 text-neutral-100 max-w-full md:max-w-[60vw] p-4 sm:p-8 md:p-16">
-    <div class="fade-in text-2xl sm:text-3xl md:text-5xl leading-tight mb-4 md:mb-6 tracking-wider">
+    <div class="fade-in text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 md:mb-6 tracking-wider">
       LA MAYORÍA DIGITALIZA <br />PROCESOS. NOSOTROS <br />TRANSFORMAMOS NEGOCIOS.
     </div>
     <div class="fade-in text-base sm:text-lg md:text-xl mt-2 md:mt-4 text-neutral-100 opacity-95 tracking-wider">
@@ -71,14 +93,16 @@ import imago from '../assets/logos/imago.png';
 
 <!-- Nueva sección: MÁS CLARO -->
 <section class="w-full min-h-[40vh] sm:min-h-[60vh] bg-black flex flex-col items-center justify-center py-12 sm:py-24 px-2">
-  <h2 class="fade-in text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 mb-4 sm:mb-8 tracking-wide text-center">MÁS CLARO</h2>
-  <p class="fade-in text-base sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">con lo que realmente querés lograr.</p>
+  <div class="relative h-32 mb-10 flex items-center justify-center overflow-hidden">
+    <h2 id="changing-text" class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 tracking-wide text-center">MÁS CLARO</h2>
+  </div>
+  <p class="fade-in text-lg sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">con lo que realmente querés lograr.</p>
   <div class="relative flex flex-col items-center">
     <button
       onclick="window.location.href = '/form'"
-      class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+      class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
       Transformá tu negocio ahora
-      <span class="ml-3 text-2xl">→</span>
+      <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
     </button>
   </div>
 </section>
@@ -86,49 +110,53 @@ import imago from '../assets/logos/imago.png';
 <!-- Nueva sección: TECNOLOGÍA QUE SIRVE -->
 <section class="w-full min-h-[80vh] bg-black flex flex-col items-center justify-center py-24">
   <h2 class="fade-in text-3xl md:text-3xl lg:text-4xl font-normal text-neutral-100 mb-16 tracking-wide text-center max-w-4xl">
-    TECNOLOGÍA QUE SIRVE. CON PROPÓSITO
+    TECNOLOGÍA QUE SIRVE. <br>CON PROPÓSITO
   </h2>
   <div class="mb-16">
-    <svg width="48" height="64" viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 16V48" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"/>
-      <path d="M16 40L24 48L32 40" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="73" height="79" viewBox="0 0 73 79" fill="none">
+      <path d="M36.5001 71.1001L55.9668 50.0334M36.5001 71.1001L17.0334 50.0334M36.5001 71.1001V5.26672" stroke="white"/>
     </svg>
   </div>
   <div class="fade-in text-xl md:text-2xl text-neutral-100 uppercase text-center mb-14 max-w-5xl px-4">
     LO PENSAMOS CON ESTRATEGIA, LO DISEÑAMOS CON INTENCION Y LO MEJORAMOS CONSTANTEMENTE. ASÍ DE SIMPLE.
   </div>
-  <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+  <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
     Transformá tu negocio ahora
-    <span class="ml-3 text-2xl">→</span>
+    <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
   </button>
 </section>
 
-<!-- Nueva sección: NACIMOS EN COSTA RICA -->
-<section class="w-full min-h-[100vh] flex flex-col items-center justify-center relative overflow-hidden bg-linear-to-t from-[#0d0d11] to-[#191B1C]">
-  <img src={globe.src} alt="Globe background" class="absolute w-full h-full object-cover opacity-20" />
-  <div class="relative z-10 flex flex-col justify-between items-center w-full h-full py-25">
-    <div class="text-center mb-20 md:mb-180">
-      <h2 class="fade-in text-2xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">NACIMOS EN COSTA RICA.</h2>
-      <p class="fade-in text-base md:text-2xl text-neutral-100 text-center max-w-4xl uppercase tracking-wide drop-shadow-lg">
-        PERO NUESTRA FORMA DE TRABAJAR NO TIENE GEOGRAFÍA:<br>
-        TIENE INTENCIÓN, DIRECCIÓN Y COMPROMISO REAL.
-      </p>
-    </div>
+<!-- Sección 1: NACIMOS EN COSTA RICA -->
+<section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C]">
+  <div class="text-center">
+    <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">NACIMOS EN COSTA RICA.</h2>
+    <p class="fade-in text-base md:text-2xl text-neutral-100 text-center max-w-4xl uppercase tracking-wide drop-shadow-lg">
+      PERO NUESTRA FORMA DE TRABAJAR NO TIENE GEOGRAFÍA:<br>
+      TIENE INTENCIÓN, DIRECCIÓN Y COMPROMISO REAL.
+    </p>
+  </div>
+</section>
 
-    <div class="text-center flex flex-col items-center">
-      <h3 class="fade-in text-2xl md:text-4xl font-normal text-neutral-100 uppercase tracking-wide drop-shadow-lg">SI QUERÉS QUE TU NEGOCIO<br>EVOLUCIONE EN SERIO, ACÁ ES.</h3>
-      <div class="my-20 fade-in">
-        <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-10 md:h-20 mb-2 drop-shadow-lg" />
-      </div>
-      <p class="fade-in text-base md:text-2xl text-neutral-100 mb-20 text-center max-w-2xl drop-shadow-lg">
-        LOS ACRÓNIMOS RESUMEN LO ESENCIAL.<br>
-        AKRONYM LO TRANSFORMA EN MOVIMIENTO REAL.
-      </p>
-      <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] shadow-lg">
-        Transformá tu negocio ahora
-        <span class="ml-3 text-2xl">→</span>
-      </button>
+<!-- Sección 2: Imagen del globo -->
+<section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C]">
+  <img src={globe.src} alt="Globe background" class="w-full h-full object-cover" />
+</section>
+
+<!-- Sección 3: Contenido final -->
+<section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C] pb-20">
+  <div class="text-center flex flex-col items-center">
+    <h3 class="fade-in text-3xl md:text-4xl font-normal text-neutral-100 uppercase tracking-wide drop-shadow-lg mb-8">SI QUERÉS QUE TU NEGOCIO<br>EVOLUCIONE EN SERIO, ACÁ ES.</h3>
+    <div class="my-15 fade-in">
+      <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-10 md:h-20 mb-2 drop-shadow-lg" />
     </div>
+    <p class="fade-in text-lg md:text-2xl text-neutral-100 mb-20 text-center max-w-2xl drop-shadow-lg">
+      LOS ACRÓNIMOS RESUMEN LO ESENCIAL.<br>
+      AKRONYM LO TRANSFORMA EN MOVIMIENTO REAL.
+    </p>
+    <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white shadow-lg">
+      Transformá tu negocio ahora
+      <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
+    </button>
   </div>
 </section>
 
@@ -147,15 +175,15 @@ import imago from '../assets/logos/imago.png';
       <div class="px-3"><img src={slide5.src} alt="slide5" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
     </div>
   </div>
-  <p class="fade-in text-lg text-neutral-900 mb-8 text-center max-w-5xl">
+  <p class="fade-in text-xl text-neutral-900 mb-8 text-center max-w-5xl">
     Acompañamos negocios que están listos para cuestionar  cómo vienen haciendo las cosas.
   </p>
-  <p class="fade-in text-lg text-neutral-900 mb-10 text-center max-w-5xl">
+  <p class="fade-in text-xl text-neutral-900 mb-10 text-center max-w-5xl">
     Que no buscan soluciones rápidas, sino evolución real. Trabajamos para generar impacto que se siente en los números, en las decisiones, y en la forma en que el negocio vuelve a moverse.
   </p>
-  <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-400 rounded-full flex items-center justify-center bg-transparent text-neutral-900 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+  <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-400 rounded-full flex items-center justify-center bg-transparent text-neutral-900 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
     Transformá tu negocio ahora
-    <span class="ml-3 text-2xl">→</span>
+    <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
   </button>
 </section>
 
@@ -170,9 +198,9 @@ import imago from '../assets/logos/imago.png';
   <div class="fade-in text-2xl md:text-3xl text-neutral-100 text-center mb-12 max-w-7xl px-4">
     QUEREMOS ESTAR AHÍ: CUANDO TODO SE REORDENA,<br />CUANDO LO IMPORTANTE VUELVE A TENER FOCO,<br />Y EL NEGOCIO AVANZA CON SENTIDO.
   </div>
-  <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+  <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
     Transformá tu negocio ahora
-    <span class="ml-3 text-2xl">→</span>
+    <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
   </button>
 </section>
 
@@ -201,15 +229,15 @@ import imago from '../assets/logos/imago.png';
   </svg>
 
   <h2 class="fade-in text-[10vw] md:text-9xl font-normal text-neutral-100 mb-6 text-center leading-tight">LO QUE<br>HACEMOS</h2>
-  <div class="fade-in text-lg md:text-2xl text-neutral-100 uppercase text-center mb-6 max-w-6xl px-4 tracking-wide">
+  <div class="fade-in text-xl md:text-3xl text-neutral-100 uppercase text-center mb-6 max-w-6xl px-4 tracking-wide">
     NO HACEMOS TAREAS. HACEMOS QUE LAS COSAS FUNCIONEN.
   </div>
-  <div class="fade-in text-base md:text-xl text-neutral-300 text-center mb-10 max-w-7xl px-4">
+  <div class="fade-in text-lg md:text-xl text-neutral-300 text-center mb-10 max-w-7xl px-4">
     Trabajamos con negocios que quieren dejar de adivinar, y empezar a operar con claridad, foco y dirección real.
   </div>
-  <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+  <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
     Transformá tu negocio ahora
-    <span class="ml-3 text-2xl">→</span>
+    <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
   </button>
 </section>
 
@@ -219,8 +247,8 @@ import imago from '../assets/logos/imago.png';
     <!-- Fila 1: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-2xl md:text-5xl mb-4">TRANSFORMACION QUE SE NOTA</h3>
-        <p class="fade-in text-lg md:text-xl opacity-80">Replanteamos cómo tu negocio opera en lo digital. <br> Desde los procesos hasta las herramientas: lo rediseñamos todo para que funcione mejor, con menos fricción y más resultados.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4">TRANSFORMACION QUE SE NOTA</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">Replanteamos cómo tu negocio opera en lo digital. <br> Desde los procesos hasta las herramientas: lo rediseñamos todo para que funcione mejor, con menos fricción y más resultados.</p>
       </div>
       <div class="flex-1">
         <img src={rectangle2.src} alt="Dirección que transforma" class="w-full object-cover rounded" />
@@ -233,16 +261,16 @@ import imago from '../assets/logos/imago.png';
         <img src={rectangle3.src} alt="Experiencia de usuario" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-2xl md:text-5xl mb-4 md:pl-5">EXPERIENCIA DE USUARIO (UX/UI)</h3>
-        <p class="fade-in text-lg md:text-xl opacity-80 md:pl-5">Diseñamos interfaces simples, intuitivas y efectivas.<br>Para que tus usuarios entiendan, usen y disfruten tu producto. Más claridad. Más conversiones.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">EXPERIENCIA DE USUARIO (UX/UI)</h3>
+        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">Diseñamos interfaces simples, intuitivas y efectivas.<br>Para que tus usuarios entiendan, usen y disfruten tu producto. Más claridad. Más conversiones.</p>
       </div>
     </div>
 
     <!-- Fila 3: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-2xl md:text-5xl mb-4 md:pr-5">PROCESOS QUE ESCALAN</h3>
-        <p class="fade-in text-lg md:text-xl opacity-80">Menos pasos. Menos esfuerzo. Más impacto.<br>Diseñamos automatizaciones inteligentes que simplifican tu operación y hacen que todo funcione con menos fricción.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pr-5">PROCESOS QUE ESCALAN</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">Menos pasos. Menos esfuerzo. Más impacto.<br>Diseñamos automatizaciones inteligentes que simplifican tu operación y hacen que todo funcione con menos fricción.</p>
       </div>
       <div class="flex-1">
         <img src={rectangle4.src} alt="Procesos sin fricción" class="w-full object-cover rounded" />
@@ -255,16 +283,16 @@ import imago from '../assets/logos/imago.png';
         <img src={rectangle5.src} alt="Tecnología que impulsa" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-2xl md:text-5xl mb-4 md:pl-5">ESTRATEGIA BASADA EN DATOS</h3>
-        <p class="fade-in text-lg md:text-xl opacity-80 md:pl-5">Convertimos tus métricas en decisiones.<br>Creamos estructuras de datos claras, visuales y accionables, para que sepas qué está funcionando, qué no, y hacia dónde ir.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">ESTRATEGIA BASADA EN DATOS</h3>
+        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">Convertimos tus métricas en decisiones.<br>Creamos estructuras de datos claras, visuales y accionables, para que sepas qué está funcionando, qué no, y hacia dónde ir.</p>
       </div>
     </div>
 
     <!-- Fila 5: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-2xl md:text-5xl mb-4">LA ENTREGA NO ES EL FINAL. ES CUANDO EMPIEZA LO BUENO</h3>
-        <p class="fade-in text-lg md:text-xl opacity-80">Ahí es donde aparecemos.<br>Donde otros se van, nosotros nos quedamos.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4">LA ENTREGA NO ES EL FINAL. ES CUANDO EMPIEZA LO BUENO</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">Ahí es donde aparecemos.<br>Donde otros se van, nosotros nos quedamos.</p>
       </div>
       <div class="flex-1">
         <img src={rectangle6.src} alt="--" class="w-full object-cover rounded" />
@@ -276,8 +304,31 @@ import imago from '../assets/logos/imago.png';
 <!-- Nueva sección: TESTIMONIOS -->
 <section class="w-full bg-black py-24 flex flex-col items-center justify-center">
   <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 px-4">
-    <!-- Columna izquierda: imagen y testimonio -->
-    <div class="flex-1 flex flex-col items-center md:items-start">
+    <!-- Columna derecha: nombres y descripciones (primera en móvil) -->
+    <div class="flex-1 flex flex-col justify-start text-center md:text-left order-1 md:order-2">
+      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="becky">
+        <h4 class="fade-in text-4xl md:text-6xl font-medium text-neutral-600 leading-tight">BECKY<br>VANNES</h4>
+        <div class="fade-in text-neutral-500 text-lg mt-1">Productions Manager at ACP Publishing</div>
+      </div>
+      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="david">
+        <h4 class="fade-in text-4xl md:text-6xl font-medium text-neutral-600 leading-tight">DR. DAVID<br>KUBES</h4>
+        <div class="fade-in text-neutral-500 text-lg mt-1">International Lawyer</div>
+      </div>
+      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="michael">
+        <h4 class="fade-in text-4xl md:text-6xl font-medium text-neutral-600 leading-tight">MICHAEL<br>SHANER</h4>
+        <div class="fade-in text-neutral-500 text-lg mt-1">CEO of The Flow Group & President of Shantou Media</div>
+      </div>
+      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="fatou">
+        <h4 class="fade-in text-4xl md:text-6xl font-medium text-neutral-600 leading-tight">FATOU<br>SOW</h4>
+        <div class="fade-in text-neutral-500 text-lg mt-1">President of Slingshots Music and Managing Director of Shantou Media</div>
+      </div>
+      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="marilis">
+        <h4 class="fade-in text-4xl md:text-6xl leading-tight text-neutral-600">MARILIS<br>LLOBET</h4>
+        <div class="fade-in text-neutral-600 text-lg mt-2">CEO of Ventas Cognitivas</div>
+      </div>
+    </div>
+    <!-- Columna izquierda: imagen y testimonio (segunda en móvil) -->
+    <div class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1">
       <div class="testimonial-content">
         <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="w-90 h-90 object-cover rounded mb-8" />
         <div id="testimonial-position" class="text-neutral-400 text-sm mb-4">Productions Manager at ACP Publishing</div>
@@ -286,100 +337,84 @@ import imago from '../assets/logos/imago.png';
         </p>
       </div>
     </div>
-    <!-- Columna derecha: nombres y descripciones -->
-    <div class="flex-1 flex flex-col justify-start text-center md:text-left">
-      <div class="testimonial-name mb-8" data-testimonial="becky">
-        <h4 class="fade-in text-4xl md:text-5xl font-medium text-neutral-600 leading-tight">BECKY<br>VANNES</h4>
-        <div class="fade-in text-neutral-500 text-sm mt-1">Productions Manager at ACP Publishing</div>
-      </div>
-      <div class="testimonial-name mb-8" data-testimonial="david">
-        <h4 class="fade-in text-4xl md:text-5xl font-medium text-neutral-600 leading-tight">DR. DAVID<br>KUBES</h4>
-        <div class="fade-in text-neutral-500 text-sm mt-1">International Lawyer</div>
-      </div>
-      <div class="testimonial-name mb-8" data-testimonial="michael">
-        <h4 class="fade-in text-4xl md:text-5xl font-medium text-neutral-600 leading-tight">MICHAEL<br>SHANER</h4>
-        <div class="fade-in text-neutral-500 text-sm mt-1">CEO of The Flow Group & President of Shantou Media</div>
-      </div>
-      <div class="testimonial-name mb-8" data-testimonial="fatou">
-        <h4 class="fade-in text-4xl md:text-5xl font-medium text-neutral-600 leading-tight">FATOU<br>SOW</h4>
-        <div class="fade-in text-neutral-500 text-sm mt-1">President of Slingshots Music and Managing Director of Shantou Media</div>
-      </div>
-      <div class="testimonial-name mb-8" data-testimonial="marilis">
-        <h4 class="fade-in text-5xl md:text-6xl leading-tight text-neutral-600">MARILIS<br>LLOBET</h4>
-        <div class="fade-in text-neutral-600 text-base mt-2">CEO of Ventas Cognitivas</div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- Nueva sección: ALIADOS (antes del footer) -->
+<!-- Nueva sección: ALIADOS -->
 <section class="w-full bg-black py-20 flex flex-col items-center justify-center">
   <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-12 text-center tracking-wide">ALGUNOS DE NUESTROS ALIADOS...</h2>
-  <div class="w-full max-w-5xl mb-12 px-2">
-    <div class="slick-slider aliados-carousel flex items-center">
-      <div class="px-6"><img src={victorurzola.src} alt="Dr. Victor Urzola" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={adastra.src} alt="Ad Astra" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={wc.src} alt="Wagner & Carter" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={pbs.src} alt="PBS" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={experience.src} alt="Experience Papagayo" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={acp.src} alt="ACP" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={k.src} alt="K" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={mg.src} alt="MG" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={trmi.src} alt="TRMI" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={triad.src} alt="Triad" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={bars.src} alt="Bars" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={lelevier.src} alt="Lelevier" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={ulb.src} alt="ULB" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={risingunited.src} alt="Rising United" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={terre.src} alt="Terre" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-6"><img src={imago.src} alt="Imago" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+  <div class="w-full max-w-6xl mb-12 relative">
+    <!-- Gradiente izquierdo -->
+    <div class="absolute left-0 top-0 w-[10%] h-full z-10" style="background: linear-gradient(270deg, rgba(13, 13, 18, 0.00) 9.13%, rgba(25, 27, 28, 0.80) 37.02%, #191B1C 82.21%);"></div>
+    
+    <!-- Gradiente derecho -->
+    <div class="absolute right-0 top-0 w-[10%] h-full z-10" style="background: linear-gradient(90deg, rgba(13, 13, 18, 0.00) 9.13%, rgba(25, 27, 28, 0.80) 37.02%, #191B1C 82.21%);"></div>
+    
+    <!-- Carrusel -->
+    <div class="aliados-carousel flex items-center relative z-0">
+      <div class="px-8"><img src={victorurzola.src} alt="Dr. Victor Urzola" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={adastra.src} alt="Ad Astra" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={wc.src} alt="Wagner & Carter" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={pbs.src} alt="PBS" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={experience.src} alt="Experience Papagayo" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={acp.src} alt="ACP" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={k.src} alt="K" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={mg.src} alt="MG" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={trmi.src} alt="TRMI" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={triad.src} alt="Triad" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={bars.src} alt="Bars" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={lelevier.src} alt="Lelevier" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={ulb.src} alt="ULB" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={risingunited.src} alt="Rising United" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={terre.src} alt="Terre" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+      <div class="px-8"><img src={imago.src} alt="Imago" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
     </div>
   </div>
-  <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+  
+  <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
     Transformá tu negocio ahora
-    <span class="ml-3 text-2xl">→</span>
+    <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
   </button>
 </section>
 
 <!-- Nueva sección: DESDE AQUÍ ARRIBA, TODO SE VE DIFERENTE -->
-<section class="w-full min-h-[120vh] flex flex-col items-center justify-center relative overflow-hidden" style={`background: url('${heic0604a.src}') center no-repeat;`}>
-  <div class="absolute inset-0 bg-black/60 z-0"></div>
-  <div class="relative z-10 flex flex-col items-center justify-center w-full h-full py-50">
-    <h2 class="fade-in text-5xl md:text-7xl lg:text-8xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl mb-200">
+<section class="w-full min-h-[120vh] flex flex-col items-center justify-center relative overflow-hidden" style={`background: url('${heic0604a.src}') center/cover no-repeat;`}>
+  <div class="absolute inset-0 bg-black/20 z-0"></div>
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(180deg, #191B1C 0%, rgba(25,27,28,0) 50%, #191B1C 100%);"></div>
+  <div class="relative z-20 flex flex-col items-center justify-center w-full h-full py-50">
+    <h2 class="fade-in text-4xl md:text-7xl lg:text-8xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl mb-200">
       DESDE AQUÍ<br />ARRIBA, TODO SE<br />VE DIFERENTE
     </h2>
-    <p class="fade-in text-base md:text-xl text-neutral-100 text-center mb-10 max-w-7xl">
+    <p class="fade-in text-lg md:text-xl text-neutral-100 text-center mb-10 max-w-7xl">
       Cuando alcances tus objetivos con Akronym, verás tu empresa desde una nueva perspectiva. Los problemas que hoy parecen enormes se convertirán en pequeños desafíos superados. Tu tiempo volverá a ser tuyo, tus procesos funcionarán como un reloj suizo, y tendrás el equipo que siempre necesitaste.
     </p>
-    <button class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C]">
+    <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
       Transformá tu negocio ahora
-      <span class="ml-3 text-2xl">→</span>
+      <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3" />
     </button>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="w-full bg-black pt-20 pb-8 px-4 text-neutral-100">
-  <div class="fade-in w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
+<footer class="w-full bg-black pt-12 pb-4 px-4 text-white">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
     <!-- Productos -->
-    <div class="flex flex-col min-w-0">
-      <div class="font-semibold mb-3">Productos</div>
-      <ul class="space-y-1">
-        <li>Escala Donovan</li>
-        <li>Motor de Datos de Escala</li>
-        <li>Plataforma GenAI de Escala</li>
+    <div>
+      <div class="text-lg font-light mb-4">Productos</div>
+      <ul class="mb-6 space-y-1 font-light">
+        <li>Transformación Digital</li>
+        <li>Experiencia de usuario<br/>(UX/UI)</li>
+        <li>Procesos que escalan</li>
       </ul>
-      <div class="font-semibold mt-6 mb-3">Gobierno</div>
-      <ul class="space-y-1">
-        <li>Federal</li>
-        <li>Defensa</li>
-        <li>Sector Público</li>
+      <div class="text-lg font-light mb-2 mt-6">Gobierno</div>
+      <ul class="space-y-1 font-light">
+        <li>Costa Rica</li>
       </ul>
     </div>
     <!-- Empresa -->
-    <div class="flex flex-col min-w-0">
-      <div class="font-semibold mb-3">Empresa</div>
-      <ul class="space-y-1">
+    <div>
+      <div class="text-lg font-light mb-4">Empresa</div>
+      <ul class="space-y-1 font-light">
         <li>Acerca de</li>
         <li>Carreras</li>
         <li>Seguridad</li>
@@ -388,55 +423,73 @@ import imago from '../assets/logos/imago.png';
       </ul>
     </div>
     <!-- Recursos -->
-    <div class="flex flex-col min-w-0">
-      <div class="font-semibold mb-3">Recursos</div>
-      <ul class="space-y-1">
+    <div>
+      <div class="text-lg font-light mb-4">Recursos</div>
+      <ul class="space-y-1 font-light">
         <li>Blog</li>
         <li>Clientes</li>
-        <li>Eventos</li>
         <li>Conjuntos de Datos Abiertos</li>
         <li>Documentación</li>
         <li>Guías</li>
         <li>Comunidad</li>
-        <li>Informe de Preparación de IA 2023</li>
-      </ul>
-    </div>
-    <!-- Guías -->
-    <div class="flex flex-col min-w-0">
-      <div class="font-semibold mb-3">Guías</div>
-      <ul class="space-y-1">
-        <li>Etiquetado de Datos</li>
-        <li>Entrenamiento de Modelos de ML</li>
-        <li>Modelos de Difusión</li>
-        <li>Guía de IA para Comercio Electrónico</li>
-        <li>Modelos de Lenguaje Grande</li>
-        <li>Aplicaciones de Visión por Computadora</li>
       </ul>
     </div>
     <!-- Contacto -->
-    <div class="flex flex-col min-w-0">
-      <div class="font-semibold mb-3">Contacto</div>
-      <ul class="space-y-1">
-        <li>ventas@lelevier.com</li>
-        <li>soporte@lelevier.com</li>
-        <li>carreras@lelevier.com</li>
-        <li>prensa@lelevier.com</li>
+    <div>
+      <div class="text-lg font-light mb-4">Contacto</div>
+      <ul class="space-y-1 mb-4 font-light">
+        <li>connect@akronym.com</li>
+        <li>Celular Costa Rica :<br/>+506 8813 4614</li>
+        <li>Celular Estados Unidos :<br/>+506 8813 4614</li>
       </ul>
-      <div class="flex space-x-3 mt-4">
-        <a href="#" aria-label="X"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 6.47a.75.75 0 0 0-1.06 0L12 10.94 7.53 6.47A.75.75 0 1 0 6.47 7.53L10.94 12l-4.47 4.47a.75.75 0 1 0 1.06 1.06L12 13.06l4.47 4.47a.75.75 0 0 0 1.06-1.06L13.06 12l4.47-4.47a.75.75 0 0 0 0-1.06z"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/></svg></a>
+      <div class="flex justify-center md:justify-start space-x-4 mt-2">
+        <a href="#" aria-label="X" class="hover:opacity-80"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 6.47a.75.75 0 0 0-1.06 0L12 10.94 7.53 6.47A.75.75 0 1 0 6.47 7.53L10.94 12l-4.47 4.47a.75.75 0 1 0 1.06 1.06L12 13.06l4.47 4.47a.75.75 0 0 0 1.06-1.06L13.06 12l4.47-4.47a.75.75 0 0 0 0-1.06z"/></svg></a>
+        <a href="#" aria-label="Facebook" class="hover:opacity-80"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
+        <a href="#" aria-label="LinkedIn" class="hover:opacity-80"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/></svg></a>
       </div>
     </div>
   </div>
-  <div class="border-t max-w-7xl mx-auto border-neutral-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between w-full text-xs text-neutral-400">
-    <div>Copyright © 2024 Dr. Lelevier. All rights reserved.</div>
+  <div class="border-t border-neutral-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-center md:justify-between w-full text-md max-w-7xl mx-auto text-center">
+    <div>Copyright © 2025 AKRONYM. All rights reserved.</div>
     <div class="mt-2 md:mt-0">Terms of Use & Privacy Policy</div>
   </div>
 </footer>
 
 <!-- SCRITPS -->
 <script>
+  // Control de pantalla de carga
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const navbar = document.getElementById('main-navbar');
+    
+    // Ocultar navbar inicialmente
+    if (navbar) {
+      navbar.style.opacity = '0';
+      navbar.style.visibility = 'hidden';
+    }
+    
+    // Después de 2 segundos, iniciar fadeOut de la pantalla de carga
+    setTimeout(() => {
+      if (loadingScreen) {
+        loadingScreen.style.opacity = '0';
+        
+        // Después de 1 segundo (duración del fadeOut), ocultar completamente la pantalla de carga
+        setTimeout(() => {
+          if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+          }
+          
+          // Mostrar navbar con fadeIn
+          if (navbar) {
+            navbar.style.visibility = 'visible';
+            navbar.style.opacity = '1';
+            navbar.style.transition = 'opacity 0.5s ease-in-out';
+          }
+        }, 500);
+      }
+    }, 1000);
+  });
+
   // Datos de testimonios con referencias de imágenes importadas
   const testimonialImages = {
     becky: '/src/assets/testimonial/becky.png',
@@ -502,6 +555,52 @@ import imago from '../assets/logos/imago.png';
     }
   }
 
+  // Animación de texto cambiante
+  function initTextAnimation() {
+    const changingText = document.getElementById('changing-text');
+    if (!changingText) return;
+
+    const texts = ['MÁS CLARO', 'MÁS RÁPIDO', 'MÁS ALINEADO'];
+    let currentIndex = 0;
+
+    function changeText() {
+      if (!changingText) return;
+      
+      // El texto actual se mueve hacia arriba y desaparece
+      changingText.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+      changingText.style.transform = 'translateY(-100%)';
+      changingText.style.opacity = '0';
+      
+      setTimeout(() => {
+        if (!changingText) return;
+        
+        // Cambiar al siguiente texto sin transición para que no se vea
+        changingText.style.transition = 'none';
+        currentIndex = (currentIndex + 1) % texts.length;
+        changingText.textContent = texts[currentIndex];
+        
+        // Posicionar el nuevo texto abajo sin que se vea
+        changingText.style.transform = 'translateY(100%)';
+        changingText.style.opacity = '0';
+        
+        // Forzar un reflow para que el navegador aplique los cambios
+        changingText.offsetHeight;
+        
+        // Ahora activar la transición y mover el texto hacia arriba
+        setTimeout(() => {
+          if (!changingText) return;
+          
+          changingText.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+          changingText.style.transform = 'translateY(0)';
+          changingText.style.opacity = '1';
+        }, 10);
+      }, 500);
+    }
+
+    // Cambiar texto cada 3 segundos
+    setInterval(changeText, 1500);
+  }
+
   // Agregar event listeners para hover
   document.addEventListener('DOMContentLoaded', function() {
     const testimonialNames = document.querySelectorAll('.testimonial-name');
@@ -515,5 +614,36 @@ import imago from '../assets/logos/imago.png';
         });
       }
     });
+
+    // Inicializar animación de texto
+    initTextAnimation();
+    
+    // Funcionalidad del menú móvil
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    
+    if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+      // Abrir menú
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+      });
+      
+      // Cerrar menú
+      closeMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+      });
+      
+      // Cerrar menú al hacer clic en un enlace
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('translate-x-0');
+          mobileMenu.classList.add('translate-x-full');
+        });
+      });
+    }
   });
 </script>
