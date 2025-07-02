@@ -44,38 +44,8 @@ magicMouse({
 	"hoverEffect": "circle-move",
 	"hoverItemMove": false,
 	"defaultCursor": false,
-	"outerWidth": 30,
-	"outerHeight": 30
-});
-
-// Sticky navbar al hacer scroll
-document.addEventListener('DOMContentLoaded', function () {
-	const navbar = document.getElementById('main-navbar');
-	if (!navbar) return;
-
-	let lastScroll = window.scrollY;
-	let isSticky = false;
-
-	function onScroll() {
-		const currentScroll = window.scrollY;
-		console.log(currentScroll);
-		if (currentScroll > 0) {
-			if (!isSticky) {
-				navbar.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'shadow-lg', 'bg-black/80', 'z-50');
-				navbar.classList.remove('absolute');
-				isSticky = true;
-			}
-		} else {
-			if (isSticky) {
-				navbar.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'shadow-lg', 'bg-black/80', 'z-50');
-				navbar.classList.add('absolute');
-				isSticky = false;
-			}
-		}
-		lastScroll = currentScroll;
-	}
-
-	document.getElementById('body').addEventListener('scroll', onScroll);
+	"outerWidth": 50,
+	"outerHeight": 50
 });
 
 // FadeIn effect for important texts and logo
