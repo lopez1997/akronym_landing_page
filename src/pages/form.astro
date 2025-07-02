@@ -502,8 +502,6 @@ import Layout from "../layouts/Layout.astro";
             hideError('telefono');
         }
 
-
-
         return isValid;
     }
 
@@ -712,47 +710,77 @@ import Layout from "../layouts/Layout.astro";
         }
     });
 
-    form.addEventListener('submit', function(e) {
+    // URL del webhook de Make
+    const MAKE_WEBHOOK_URL = 'https://hook.us1.make.com/ch0o1ng2r1i1657gcy5gkw24nfwpnwia';
+
+    async function enviarDatosAMake(datos: any) {
+        try {
+            const response = await fetch(MAKE_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fecha_hora: new Date().toISOString(),
+                    nombre: datos.nombre,
+                    email: datos.email,
+                    telefono: datos.pais + ' ' + datos.telefono,
+                    empresa: datos.empresa,
+                    industria: datos.industria,
+                    empleados: datos.empleados,
+                    cargo: datos.cargo_empresa,
+                    website: datos.website || 'No especificado',
+                    inversion: datos.inversion,
+                    desafio: datos.desafio,
+                    herramientas: datos.herramientas,
+                    automatizar: datos.automatizar,
+                    motivacion: datos.motivacion
+                })
+            });
+
+            if (response.ok) {
+                console.log('✅ Datos enviados exitosamente a Google Sheets');
+                return true;
+            } else {
+                console.error('❌ Error al enviar datos:', response.statusText);
+                return false;
+            }
+        } catch (error) {
+            console.error('❌ Error de conexión:', error);
+            return false;
+        }
+    }
+
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Validar el paso final
         if (validateStep5()) {
-            // Mostrar toda la información en la consola
-            console.log('=== DATOS DEL FORMULARIO ENVIADO ===');
-            console.log('📋 INFORMACIÓN DE CONTACTO:');
-            console.log('   Nombre:', formData.nombre);
-            console.log('   Email:', formData.email);
-            console.log('   Teléfono:', formData.pais + ' ' + formData.telefono);
-            // console.log('   País:', formData.pais);
+            // Deshabilitar botón para evitar envíos múltiples
+            const submitBtn = document.getElementById('btn-submit-final') as HTMLButtonElement;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Enviando... <span class="ml-2">⏳</span>';
+            }
+
+            // Mostrar datos en consola (opcional para debug)
+            console.log('=== ENVIANDO DATOS A GOOGLE SHEETS ===');
+            console.log('Datos del formulario:', formData);
             
-            console.log('🏢 INFORMACIÓN DE LA EMPRESA:');
-            console.log('   Empresa:', formData.empresa);
-            console.log('   Industria:', formData.industria);
-            console.log('   Empleados:', formData.empleados);
-            console.log('   Cargo en la empresa:', formData.cargo_empresa);
-            console.log('   Website:', formData.website || 'No especificado');
+            // Enviar datos a Make
+            const exitoso = await enviarDatosAMake(formData);
             
-            console.log('💰 CAPACIDAD DE INVERSIÓN:');
-            console.log('   Rango de inversión:', formData.inversion);
-            
-            console.log('💻 DETALLES DE DIGITALIZACIÓN:');
-            console.log('   Mayor desafío:', formData.desafio);
-            console.log('   Herramientas digitales:', formData.herramientas);
-            console.log('   Tarea a automatizar:', formData.automatizar);
-            
-            console.log('🎯 MOTIVACIÓN:');
-            console.log('   Motivación para transformación digital:', formData.motivacion);
-            
-            console.log('=== FIN DE DATOS ===');
-            
-            // Aquí podrías hacer un fetch/ajax para enviar los datos al servidor
-            // fetch('/api/submit-form', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(formData)
-            // });
-            
-            // window.location.href = '/gracias';
+            if (exitoso) {
+                // Redirigir a página de agradecimiento
+                window.location.href = '/gracias';
+            } else {
+                // Mostrar error y reactivar botón
+                alert('❌ Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Enviar <span class="ml-2">→</span>';
+                }
+            }
         }
     });
 </script>
