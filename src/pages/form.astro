@@ -58,7 +58,7 @@ import Layout from "../layouts/Layout.astro";
                             label=""
                             placeholder="Número de Teléfono"
                             value=""
-                            countryCode="+1"
+                            countryCode="+506"
                             name="telefono"
                             data-input="telefono"
                         />
@@ -394,7 +394,7 @@ import Layout from "../layouts/Layout.astro";
         nombre: "",
         email: "",
         telefono: "",
-        pais: "+1",
+        pais: "+506", // Cambiar a Costa Rica por defecto
         empresa: "",
         industria: "",
         empleados: "",
@@ -465,9 +465,171 @@ import Layout from "../layouts/Layout.astro";
         return emailRegex.test(email);
     }
 
+    // Información de validación de teléfonos por país
+    const phoneValidationInfo = {
+        cr: { // Costa Rica
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "81234567",
+            example: "81234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        us: { // Estados Unidos
+            pattern: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
+            placeholder: "(555) 123-4567",
+            example: "5551234567",
+            description: "10 dígitos"
+        },
+        mx: { // México
+            pattern: /^[1-9]\d{9}$/,
+            placeholder: "5512345678",
+            example: "5512345678",
+            description: "10 dígitos, comenzando con 1-9"
+        },
+        es: { // España
+            pattern: /^[6-9]\d{8}$/,
+            placeholder: "612345678",
+            example: "612345678",
+            description: "9 dígitos, comenzando con 6-9"
+        },
+        ar: { // Argentina
+            pattern: /^[1-9]\d{9}$/,
+            placeholder: "1123456789",
+            example: "1123456789",
+            description: "10 dígitos, comenzando con 1-9"
+        },
+        br: { // Brasil
+            pattern: /^[1-9]{2}[0-9]{8,9}$/,
+            placeholder: "11987654321",
+            example: "11987654321",
+            description: "10-11 dígitos"
+        },
+        co: { // Colombia
+            pattern: /^[1-9]\d{9}$/,
+            placeholder: "3001234567",
+            example: "3001234567",
+            description: "10 dígitos, comenzando con 1-9"
+        },
+        pe: { // Perú
+            pattern: /^[1-9]\d{8}$/,
+            placeholder: "912345678",
+            example: "912345678",
+            description: "9 dígitos, comenzando con 1-9"
+        },
+        cl: { // Chile
+            pattern: /^[2-9]\d{8}$/,
+            placeholder: "912345678",
+            example: "912345678",
+            description: "9 dígitos, comenzando con 2-9"
+        },
+        uy: { // Uruguay
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "91234567",
+            example: "91234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        py: { // Paraguay
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "91234567",
+            example: "91234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        bo: { // Bolivia
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "71234567",
+            example: "71234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        ec: { // Ecuador
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "91234567",
+            example: "91234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        ve: { // Venezuela
+            pattern: /^[2-9]\d{9}$/,
+            placeholder: "4121234567",
+            example: "4121234567",
+            description: "10 dígitos, comenzando con 2-9"
+        },
+        pa: { // Panamá
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "61234567",
+            example: "61234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        ni: { // Nicaragua
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "81234567",
+            example: "81234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        hn: { // Honduras
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "91234567",
+            example: "91234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        sv: { // El Salvador
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "71234567",
+            example: "71234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        gt: { // Guatemala
+            pattern: /^[2-9]\d{7}$/,
+            placeholder: "51234567",
+            example: "51234567",
+            description: "8 dígitos, comenzando con 2-9"
+        },
+        bz: { // Belice
+            pattern: /^[2-9]\d{6}$/,
+            placeholder: "6123456",
+            example: "6123456",
+            description: "7 dígitos, comenzando con 2-9"
+        }
+    };
+
+    // Función para obtener información de validación por código ISO
+    function getPhoneValidationInfo(iso2: string) {
+        return phoneValidationInfo[iso2 as keyof typeof phoneValidationInfo] || {
+            pattern: /^\+?[\d\s\-\(\)]{7,}$/,
+            placeholder: "Número de teléfono",
+            example: "123456789",
+            description: "Número de teléfono válido"
+        };
+    }
+
+    // Función para obtener código ISO del país desde el código de marcación
+    function getCountryIsoFromDialCode(dialCode: string): string {
+        const countryMap: { [key: string]: string } = {
+            '+506': 'cr', // Costa Rica
+            '+1': 'us',   // Estados Unidos
+            '+52': 'mx',  // México
+            '+34': 'es',  // España
+            '+54': 'ar',  // Argentina
+            '+55': 'br',  // Brasil
+            '+57': 'co',  // Colombia
+            '+51': 'pe',  // Perú
+            '+56': 'cl',  // Chile
+            '+598': 'uy', // Uruguay
+            '+595': 'py', // Paraguay
+            '+591': 'bo', // Bolivia
+            '+593': 'ec', // Ecuador
+            '+58': 've',  // Venezuela
+            '+507': 'pa', // Panamá
+            '+505': 'ni', // Nicaragua
+            '+504': 'hn', // Honduras
+            '+503': 'sv', // El Salvador
+            '+502': 'gt', // Guatemala
+            '+501': 'bz'  // Belice
+        };
+        return countryMap[dialCode] || 'us';
+    }
+
     function validatePhone(phone: string): boolean {
-        const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
-        return phoneRegex.test(phone);
+        const countryIso = getCountryIsoFromDialCode(formData.pais);
+        const validationInfo = getPhoneValidationInfo(countryIso);
+        return validationInfo.pattern.test(phone);
     }
 
     function validateWebsite(website: string): boolean {
@@ -506,7 +668,9 @@ import Layout from "../layouts/Layout.astro";
             showError('telefono', 'El número de teléfono es obligatorio');
             isValid = false;
         } else if (!validatePhone(formData.telefono)) {
-            showError('telefono', 'Ingresa un número de teléfono válido');
+            const countryIso = getCountryIsoFromDialCode(formData.pais);
+            const validationInfo = getPhoneValidationInfo(countryIso);
+            showError('telefono', `Ingresa un número válido: ${validationInfo.description}`);
             isValid = false;
         } else {
             hideError('telefono');
