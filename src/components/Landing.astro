@@ -30,6 +30,10 @@ import risingunited from '../assets/logos/risingunited.png';
 import terre from '../assets/logos/terre.png';
 import imago from '../assets/logos/imago.png';
 import becky from '../assets/testimonial/becky.png';
+import david from '../assets/testimonial/david.png';
+import michael from '../assets/testimonial/michael.png';
+import fatou from '../assets/testimonial/fatou.png';
+import marilis from '../assets/testimonial/marilis_llobet.png';
 
 ---
 
@@ -469,12 +473,7 @@ import becky from '../assets/testimonial/becky.png';
 </footer>
 
 <!-- SCRITPS -->
-<script>
-  import becky from '../assets/testimonial/becky.png';
-  import david from '../assets/testimonial/david.png';
-  import michael from '../assets/testimonial/michael.png';
-  import fatou from '../assets/testimonial/fatou.png';
-  import marilis from '../assets/testimonial/marilis_llobet.png';
+<script define:vars={{ becky, david, michael, fatou, marilis }}>
 
   // Control de pantalla de carga
   document.addEventListener('DOMContentLoaded', function() {
@@ -518,7 +517,7 @@ import becky from '../assets/testimonial/becky.png';
     marilis: marilis.src
   };
 
-  const testimonials: Record<string, { name: string; position: string; text: string; imageKey: string }> = {
+  const testimonials = {
     becky: {
       name: "BECKY VANNES",
       position: "Productions Manager at ACP Publishing",
@@ -552,16 +551,16 @@ import becky from '../assets/testimonial/becky.png';
   };
 
   // Función para cambiar testimonio
-  function changeTestimonial(testimonialKey: string) {
+  function changeTestimonial(testimonialKey) {
     const testimonial = testimonials[testimonialKey];
     if (!testimonial) return;
 
-    const imageElement = document.getElementById('testimonial-image') as HTMLImageElement;
+    const imageElement = document.getElementById('testimonial-image');
     const positionElement = document.getElementById('testimonial-position');
     const textElement = document.getElementById('testimonial-text');
 
     if (imageElement) {
-      imageElement.src = testimonialImages[testimonial.imageKey as keyof typeof testimonialImages];
+      imageElement.src = testimonialImages[testimonial.imageKey];
       imageElement.alt = testimonial.name;
     }
 
