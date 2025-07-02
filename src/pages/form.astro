@@ -5,10 +5,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <div
-        class="min-h-screen flex flex-col items-center justify-center bg-black px-4"
-    >
-        <form id="wizard-form" class="w-full max-w-5xl mt-8" autocomplete="off">
+    <div class="h-screen flex flex-col bg-black p-10">
+        <form id="wizard-form" class="w-full max-w-5xl mx-auto flex flex-col h-full justify-between" autocomplete="off">
             <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
                 ¡GRACIAS POR TU INTERÉS EN<br />TRANSFORMAR TU NEGOCIO!
             </h1>
@@ -19,72 +17,76 @@ import Layout from "../layouts/Layout.astro";
             </p>
 
             <!-- Step 1 -->
-            <div id="step-1">
-                <div class="mb-6">
-                    <span class="text-xl text-white underline underline-offset-4">1. INFORMACIÓN DE CONTACTO</span>
-                </div>
-                <div class="mb-4">
-                    <Input
-                        label=""
-                        placeholder="Nombre Completo"
-                        value=""
-                        name="nombre"
-                        data-input="nombre"
-                    />
-                    <div id="error-nombre" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span></span>
+            <div id="step-1" class="flex flex-col h-full">
+                <div class="flex-1">
+                    <div class="mb-6">
+                        <span class="text-xl text-white underline underline-offset-4">1. INFORMACIÓN DE CONTACTO</span>
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Nombre Completo"
+                            value=""
+                            name="nombre"
+                            data-input="nombre"
+                        />
+                        <div id="error-nombre" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            label=""
+                            placeholder="Correo Electrónico"
+                            value=""
+                            name="email"
+                            data-input="email"
+                        />
+                        <div id="error-email" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <Input
+                            type="tel"
+                            label=""
+                            placeholder="Número de Teléfono"
+                            value=""
+                            countryCode="+1"
+                            name="telefono"
+                            data-input="telefono"
+                        />
+                        <div id="error-telefono" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-4">
-                    <Input
-                        label=""
-                        placeholder="Correo Electrónico"
-                        value=""
-                        name="email"
-                        data-input="email"
-                    />
-                    <div id="error-email" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <Input
-                        type="tel"
-                        label=""
-                        placeholder="Número de Teléfono"
-                        value=""
-                        countryCode="+1"
-                        name="telefono"
-                        data-input="telefono"
-                    />
-                    <div id="error-telefono" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="flex justify-center">
+                <div class="flex justify-center btn-container">
                     <button
                         type="button"
                         id="btn-next"
                         class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
                     >
                         Continuar
-                        <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
+                            <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
+                        </svg>
                     </button>
                 </div>
             </div>
 
             <!-- Step 2 -->
-            <div id="step-2" class="hidden">
-                <div>
+            <div id="step-2" class="hidden flex flex-col h-full">
+                <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">2. INFORMACIÓN DE TU NEGOCIO</span>
                     </div>
@@ -164,29 +166,31 @@ import Layout from "../layouts/Layout.astro";
                         </div>
                     </div>
                     <div class="text-sm text-gray-400">Pregunta no obligatoria*</div>
-                    <div class="flex justify-between mt-20">
-                        <button
-                            type="button"
-                            id="btn-prev"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            <span class="mr-2">←</span> Anterior
-                        </button>
-                        <button
-                            type="button"
-                            id="btn-next-2"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            Continuar
-                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
-                        </button>
-                    </div>
+                </div>
+                <div class="flex justify-between btn-container">
+                    <button
+                        type="button"
+                        id="btn-prev"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        <span class="mr-2">←</span> Anterior
+                    </button>
+                    <button
+                        type="button"
+                        id="btn-next-2"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        Continuar
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
+                            <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
             <!-- Step 3 -->
-            <div id="step-3" class="hidden">
-                <div>
+            <div id="step-3" class="hidden flex flex-col h-full">
+                <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">3. CAPACIDAD DE INVERSIÓN EN SOFTWARE Y AUTOMATIZACIÓN (ANUAL)</span>
                     </div>
@@ -225,29 +229,31 @@ import Layout from "../layouts/Layout.astro";
                         </svg>
                         <span></span>
                     </div>
-                    <div class="flex justify-between mt-20">
-                        <button
-                            type="button"
-                            id="btn-prev-3"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            <span class="mr-2">←</span> Anterior
-                        </button>
-                        <button
-                            type="submit"
-                            id="btn-submit"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            Continuar
-                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
-                        </button>
-                    </div>
+                </div>
+                <div class="flex justify-between btn-container">
+                    <button
+                        type="button"
+                        id="btn-prev-3"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        <span class="mr-2">←</span> Anterior
+                    </button>
+                    <button
+                        type="submit"
+                        id="btn-submit"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        Continuar
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
+                            <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
             <!-- Step 4 -->
-            <div id="step-4" class="hidden">
-                <div>
+            <div id="step-4" class="hidden flex flex-col h-full">
+                <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">4. DETALLES DE DIGITALIZACIÓN ACTUAL</span>
                     </div>
@@ -296,29 +302,31 @@ import Layout from "../layouts/Layout.astro";
                             <span></span>
                         </div>
                     </div>
-                    <div class="flex justify-between mt-20">
-                        <button
-                            type="button"
-                            id="btn-prev-4"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            <span class="mr-2">←</span> Anterior
-                        </button>
-                        <button
-                            type="submit"
-                            id="btn-submit-4"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            Continuar
-                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
-                        </button>
-                    </div>
+                </div>
+                <div class="flex justify-between btn-container">
+                    <button
+                        type="button"
+                        id="btn-prev-4"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        <span class="mr-2">←</span> Anterior
+                    </button>
+                    <button
+                        type="submit"
+                        id="btn-submit-4"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        Continuar
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
+                            <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
            
             <!-- Step 5 -->
-            <div id="step-5" class="hidden">
-                <div>
+            <div id="step-5" class="hidden flex flex-col h-full">
+                <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">5. MOTIVACIÓN PARA LA TRANSFORMACIÓN DIGITAL</span>
                     </div>
@@ -339,23 +347,25 @@ import Layout from "../layouts/Layout.astro";
                             <span></span>
                         </div>
                     </div>
-                    <div class="flex justify-between mt-20">
-                        <button
-                            type="button"
-                            id="btn-prev-5"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            <span class="mr-2">←</span> Anterior
-                        </button>
-                        <button
-                            type="submit"
-                            id="btn-submit-final"
-                            class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
-                        >
-                            Enviar
-                            <img src="/src/assets/arrow-right.svg" alt="Flecha derecha" class="inline w-5 h-5 ml-3 arrow-svg" />
-                        </button>
-                    </div>
+                </div>
+                <div class="flex justify-between btn-container">
+                    <button
+                        type="button"
+                        id="btn-prev-5"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        <span class="mr-2">←</span> Anterior
+                    </button>
+                    <button
+                        type="submit"
+                        id="btn-submit-final"
+                        class="flex items-center gap-2 border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition"
+                    >
+                        Enviar
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
+                            <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </form>
@@ -755,13 +765,37 @@ import Layout from "../layouts/Layout.astro";
             // window.location.href = '/gracias';
         }
     });
+
+    // Función para ajustar el posicionamiento de los botones según el scroll
+    function adjustButtonPosition() {
+        const btnContainers = document.querySelectorAll('.btn-container');
+        const hasScroll = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+        
+        btnContainers.forEach(container => {
+            if (hasScroll) {
+                container.classList.add('mb-40');
+            } else {
+                container.classList.remove('mb-40');
+            }
+        });
+    }
+
+    // Ejecutar al cargar la página
+    adjustButtonPosition();
+    
+    // Ejecutar cuando cambie el tamaño de la ventana
+    window.addEventListener('resize', adjustButtonPosition);
+    
+    // Ejecutar cuando cambie el contenido (para detectar cambios en el scroll)
+    const observer = new MutationObserver(adjustButtonPosition);
+    observer.observe(document.body, { childList: true, subtree: true });
 </script>
 
 <style>
 .arrow-svg {
-  transition: filter 0.2s;
+  transition: color 0.2s, filter 0.2s;
 }
 button:hover .arrow-svg, a:hover .arrow-svg {
-  filter: invert(1);
+  /* No filter needed, color is controlled by currentColor */
 }
 </style>
