@@ -14,24 +14,23 @@ import rectangle6 from '../assets/rectangle6.png';
 import desktop1 from '../assets/desktop1.jpeg';
 import globe from '../assets/globe.svg';
 import heic0604a from '../assets/heic0604a.png';
-import becky from '../assets/testimonial/becky.png';
 import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 import victorurzola from '../assets/logos/victorurzola.png';
 import adastra from '../assets/logos/adastra.png';
 import wc from '../assets/logos/wc.png';
 import pbs from '../assets/logos/pbs.png';
-import experience from '../assets/logos/experience.png';
 import acp from '../assets/logos/acp.png';
 import k from '../assets/logos/k.png';
 import mdo from '../assets/logos/mdo.png';
 import trmi from '../assets/logos/trmi.png';
 import triad from '../assets/logos/triad.png';
-import bars from '../assets/logos/bars.png';
 import lelevier from '../assets/logos/lelevier.png';
 import ulb from '../assets/logos/ulb.png';
 import risingunited from '../assets/logos/risingunited.png';
 import terre from '../assets/logos/terre.png';
 import imago from '../assets/logos/imago.png';
+import becky from '../assets/testimonial/becky.png';
+
 ---
 
 <!-- Pantalla de carga con logo Akronym -->
@@ -368,13 +367,11 @@ import imago from '../assets/logos/imago.png';
       <div class="px-8"><img src={adastra.src} alt="Ad Astra" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={wc.src} alt="Wagner & Carter" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={pbs.src} alt="PBS" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={experience.src} alt="Experience Papagayo" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={acp.src} alt="ACP" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={k.src} alt="K" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={mdo.src} alt="MG" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={trmi.src} alt="TRMI" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={triad.src} alt="Triad" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={bars.src} alt="Bars" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={lelevier.src} alt="Lelevier" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={ulb.src} alt="ULB" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
       <div class="px-8"><img src={risingunited.src} alt="Rising United" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
@@ -473,6 +470,12 @@ import imago from '../assets/logos/imago.png';
 
 <!-- SCRITPS -->
 <script>
+  import becky from '../assets/testimonial/becky.png';
+  import david from '../assets/testimonial/david.png';
+  import michael from '../assets/testimonial/michael.png';
+  import fatou from '../assets/testimonial/fatou.png';
+  import marilis from '../assets/testimonial/marilis_llobet.png';
+
   // Control de pantalla de carga
   document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loading-screen');
@@ -508,11 +511,11 @@ import imago from '../assets/logos/imago.png';
 
   // Datos de testimonios con referencias de imágenes importadas
   const testimonialImages = {
-    becky: '/src/assets/testimonial/becky.png',
-    david: '/src/assets/testimonial/david.png', 
-    michael: '/src/assets/testimonial/michael.png',
-    fatou: '/src/assets/testimonial/fatou.png',
-    marilis: '/src/assets/testimonial/marilis_llobet.png'
+    becky: becky.src,
+    david: david.src, 
+    michael: michael.src,
+    fatou: fatou.src,
+    marilis: marilis.src
   };
 
   const testimonials: Record<string, { name: string; position: string; text: string; imageKey: string }> = {
