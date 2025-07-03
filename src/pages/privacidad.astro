@@ -1,0 +1,340 @@
+---
+import "../styles/global.css";
+import akronymLogoBlanco from "../assets/AkronymLogoBlanco.png";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <!-- Navbar -->
+    <nav
+        id="main-navbar"
+        class="fixed top-0 left-0 w-full flex items-center justify-between px-4 sm:px-8 md:px-16 py-4 md:py-6 z-20"
+        style="background: linear-gradient(180deg, rgba(25, 27, 28, 0.70) 16.81%, rgba(54, 54, 54, 0.00) 86.28%);"
+    >
+        <div class="flex items-center">
+            <a href="/">
+                <img
+                    src={akronymLogoBlanco.src}
+                    alt="Akronym Logo"
+                    class="w-30"
+                />
+            </a>
+        </div>
+
+        <!-- Menú desktop -->
+        <div class="hidden md:flex items-center gap-5">
+            <div>
+                <a
+                    href="/"
+                    class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity"
+                    >INICIO</a
+                >
+            </div>
+        </div>
+
+        <!-- Botón hamburguesa móvil -->
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+            <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path d="M0 7H30M0 23H30M0 15H30" stroke="white"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-screen bg-black z-30 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+    >
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 p-2">
+                <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M6 6L24 24M24 6L6 24"
+                        stroke="white"
+                        stroke-width="2"></path>
+                </svg>
+            </button>
+            <a
+                href="/"
+                class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity"
+                >INICIO</a
+            >
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <section class="w-full bg-black py-24">
+        <div class="max-w-4xl mx-auto px-4 text-neutral-100">
+            <div class="prose prose-invert max-w-none">
+                <h2 class="text-4xl md:text-5xl font-normal mb-15 text-center">
+                    POLÍTICA DE PRIVACIDAD
+                </h2>
+
+                <p class="text-lg mb-8">
+                    Bienvenido a AKRONYM ("nosotros", "nuestro", "nos"). Estos
+                    Términos y Condiciones rigen su uso de nuestro sitio web
+                    ubicado en <strong>akronym.cr</strong> (el "Sitio Web"). Al acceder
+                    o usar el Sitio Web, usted acepta estar sujeto a estos Términos
+                    y Condiciones y nuestra Política de Privacidad. Si no está de
+                    acuerdo con estos Términos, no debe usar nuestro Sitio Web.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Datos de Uso
+                </h3>
+                <p class="text-lg mb-8">
+                    También podemos recopilar información que su navegador envía
+                    cada vez que visita nuestro Sitio Web o cuando accede al
+                    Sitio Web a través de un dispositivo móvil ("Datos de Uso").
+                    Estos Datos de Uso pueden incluir información como la
+                    dirección del Protocolo de Internet (IP) de su computadora,
+                    tipo de navegador, versión del navegador, las páginas de
+                    nuestro Sitio Web que visita, la hora y fecha de su visita,
+                    el tiempo dedicado a esas páginas, identificadores únicos de
+                    dispositivos y otros datos de diagnóstico.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Cookies y Tecnologías de Seguimiento
+                </h3>
+                <p class="text-lg mb-8">
+                    Utilizamos cookies y tecnologías de seguimiento similares
+                    para rastrear la actividad en nuestro Sitio Web y mantener
+                    cierta información. Las cookies son archivos con una pequeña
+                    cantidad de datos que pueden incluir un identificador único
+                    anónimo. Puede instruir a su navegador para que rechace
+                    todas las cookies o para que indique cuándo se está enviando
+                    una cookie. Sin embargo, si no acepta las cookies, es
+                    posible que no pueda usar algunas partes de nuestro Sitio
+                    Web.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Cómo Usamos Su Información
+                </h3>
+                <ul class="text-lg mb-8 space-y-2">
+                    <li>• Para proporcionar y mantener nuestro Sitio Web</li>
+                    <li>
+                        • Para notificarle sobre cambios en nuestro Sitio Web
+                    </li>
+                    <li>
+                        • Para permitirle participar en funciones interactivas
+                        de nuestro Sitio Web cuando elija hacerlo
+                    </li>
+                    <li>• Para proporcionar soporte al cliente</li>
+                    <li>
+                        • Para recopilar análisis o información valiosa para que
+                        podamos mejorar nuestro Sitio Web
+                    </li>
+                    <li>• Para monitorear el uso de nuestro Sitio Web</li>
+                    <li>
+                        • Para detectar, prevenir y abordar problemas técnicos
+                    </li>
+                    <li>
+                        • Para enviarle boletines, materiales de marketing o
+                        promocionales, y otra información que pueda ser de su
+                        interés
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Cómo Compartimos Su Información
+                </h3>
+                <p class="text-lg mb-8">
+                    No vendemos, comercializamos o transferimos a terceros su
+                    Información de Identificación Personal. Esto no incluye a
+                    terceros de confianza que nos ayudan a operar nuestro Sitio
+                    Web, conducir nuestro negocio o brindarle servicios, siempre
+                    que esas partes acuerden mantener esta información
+                    confidencial. También podemos liberar su información cuando
+                    creemos que la liberación es apropiada para cumplir con la
+                    ley, hacer cumplir las políticas de nuestro sitio, o
+                    proteger nuestros derechos, propiedad o seguridad, o los de
+                    otros.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Seguridad de Su Información
+                </h3>
+                <p class="text-lg mb-8">
+                    La seguridad de su información personal es importante para
+                    nosotros. Utilizamos medidas de seguridad administrativas,
+                    técnicas y físicas para ayudar a proteger su información
+                    personal. Sin embargo, ningún método de transmisión por
+                    Internet, o método de almacenamiento electrónico, es 100%
+                    seguro, y no podemos garantizar su seguridad absoluta.
+                </p>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Sus Derechos de Protección de Datos
+                </h3>
+                <ul class="text-lg mb-8 space-y-2">
+                    <li>
+                        • <strong>El derecho de acceso</strong> – Tiene derecho a
+                        solicitar copias de su información personal.
+                    </li>
+                    <li>
+                        • <strong>El derecho de rectificación</strong> – Tiene derecho
+                        a solicitar que corrijamos cualquier información que crea
+                        que es inexacta o completemos información que crea que está
+                        incompleta.
+                    </li>
+                    <li>
+                        • <strong>El derecho de supresión</strong> – Tiene derecho
+                        a solicitar que borremos su información personal, bajo ciertas
+                        condiciones.
+                    </li>
+                    <li>
+                        • <strong
+                            >El derecho a restringir el procesamiento</strong
+                        > – Tiene derecho a solicitar que restrinjamos el procesamiento
+                        de su información personal, bajo ciertas condiciones.
+                    </li>
+                    <li>
+                        • <strong>El derecho a objetar el procesamiento</strong>
+                        – Tiene derecho a objetar nuestro procesamiento de su información
+                        personal, bajo ciertas condiciones.
+                    </li>
+                    <li>
+                        • <strong>El derecho a la portabilidad de datos</strong>
+                        – Tiene derecho a solicitar que transfiramos los datos que
+                        hemos recopilado a otra organización, o directamente a usted,
+                        bajo ciertas condiciones.
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl md:text-3xl font-normal mb-6">
+                    Cambios a Esta Política de Privacidad
+                </h3>
+                <p class="text-lg mb-8">
+                    Podemos actualizar nuestra Política de Privacidad de vez en
+                    cuando. Le notificaremos sobre cualquier cambio publicando
+                    la nueva Política de Privacidad en esta página. Se le
+                    aconseja revisar esta Política de Privacidad de manera
+                    consistente.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-black pt-12 pb-4 px-4 text-white">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+        >
+            <!-- columna 1 -->
+            <div>
+                <ul class="space-y-1 mb-4 font-light">
+                    <li>
+                        <a href="mailto:connect@akronym.com"
+                            >connect@akronym.com</a>
+                    </li>
+                    <li><a href="tel:+50688134614">+506 8813 4614</a></li>
+                </ul>
+            </div>
+            <!-- columna 2 -->
+            <div>
+                <div class="flex justify-center">
+                    <ul class="space-y-1 font-light">
+                        <li>
+                            <a href="/terminos" class="hover:opacity-80"
+                                >Términos y condiciones</a>
+                        </li>
+                        <li>
+                            <a href="/privacidad" class="hover:opacity-80"
+                                >Políticas de privacidad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- columna 3 -->
+            <div class="flex justify-end items-center">
+                <div class="flex">
+                    <a
+                        href="https://www.instagram.com/akronym.cr?igsh=MWllMjB3ajB5bGExNg=="
+                        target="_blank"
+                        aria-label="Instagram"
+                        class="hover:opacity-80 mr-3"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                            ></path>
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/company/akronymcr?originalSubdomain=co"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                        class="hover:opacity-80"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"
+                            ></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="border-t border-neutral-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-center md:justify-between w-full text-md max-w-7xl mx-auto text-center"
+        >
+            <div>Copyright © 2025 AKRONYM. All rights reserved.</div>
+        </div>
+    </footer>
+</Layout>
+
+<!-- SCRIPTS -->
+<script>
+    // Funcionalidad del menú móvil
+    document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+
+        if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+            // Abrir menú
+            mobileMenuBtn.addEventListener("click", function () {
+                mobileMenu.classList.remove("translate-x-full");
+                mobileMenu.classList.add("translate-x-0");
+            });
+
+            // Cerrar menú
+            closeMenuBtn.addEventListener("click", function () {
+                mobileMenu.classList.remove("translate-x-0");
+                mobileMenu.classList.add("translate-x-full");
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+            mobileMenuLinks.forEach((link) => {
+                link.addEventListener("click", function () {
+                    mobileMenu.classList.remove("translate-x-0");
+                    mobileMenu.classList.add("translate-x-full");
+                });
+            });
+        }
+    });
+</script>
