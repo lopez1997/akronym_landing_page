@@ -3,7 +3,7 @@ import "slick-carousel";
 
 $(".slick-slider").slick({
 	autoplay: true,
-	autoplaySpeed: 2000,
+	autoplaySpeed: 500,
 	infinite: true,
 	slidesToShow: 4,
 	slidesToScroll: 1,
@@ -22,7 +22,7 @@ $(".slick-slider").slick({
 
 $(".aliados-carousel").slick({
 	autoplay: true,
-	autoplaySpeed: 1000,
+	autoplaySpeed: 500,
 	infinite: true,
 	slidesToShow: 5,
 	slidesToScroll: 1,
