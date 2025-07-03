@@ -347,9 +347,9 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <!-- Columna izquierda: imagen y testimonio (segunda en móvil) -->
     <div class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1">
       <div class="testimonial-content">
-        <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded mb-8" />
+        <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded mb-8 max-w-xs" />
         <div id="testimonial-position" class="text-neutral-400 text-sm mb-4">Productions Manager at ACP Publishing</div>
-        <p id="testimonial-text" class="fade-in text-neutral-100 text-base md:text-lg max-w-xs">
+        <p id="testimonial-text" class="fade-in text-neutral-100 text-base md:text-lg max-w-xs text-justify">
           Thanks to Akronym's expertise and dedication, our online presence has flourished, and our sales of self-help books have soared. We wholeheartedly recommend Akronym to anyone looking for top-notch website development services. They are a true asset to our business!
         </p>
       </div>
@@ -406,7 +406,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <h2 class="fade-in text-4xl md:text-7xl lg:text-8xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl mb-200">
       DESDE AQUÍ<br />ARRIBA, TODO SE<br />VE DIFERENTE
     </h2>
-    <p class="fade-in text-3xl md:text-5xl text-neutral-100 text-center mb-10 max-w-7xl">
+    <p class="fade-in text-md text-neutral-100 text-center mb-10 max-w-7xl">
       Con AKRONYM, las piezas encajan. <br> Tu operación avanza.<br> Y vos volvés a tener el control.
     </p>
     <button onclick="window.location.href = '/form'" class="relative w-[350px] md:w-[420px] h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
@@ -440,7 +440,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     </div>
 
     <!-- columna 3 -->
-    <div class="flex justify-end">
+    <div class="flex justify-center md:justify-end">
       <div class="flex">
         <a href="https://www.instagram.com/akronym.cr?igsh=MWllMjB3ajB5bGExNg==" target="_blank" aria-label="Instagram" class="hover:opacity-80 mr-3">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
