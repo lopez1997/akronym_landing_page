@@ -20,19 +20,11 @@ const {
 
 const inputId = id || `input-${Math.random().toString(36).slice(2, 8)}`;
 
-console.log('🔧 Input component - type:', type);
-console.log('🔧 Input component - countryCode:', countryCode);
-
 // Obtener países ordenados
 const countryOptions = getSortedCountries();
 
-console.log('🌍 Total países obtenidos:', countryOptions.length);
-console.log('🌍 Primer país:', countryOptions[0]?.name, countryOptions[0]?.iso2);
-
 // Encontrar el país seleccionado por defecto (Costa Rica)
 const selectedCountry = countryOptions.find(country => `+${country.dialCode}` === countryCode) || countryOptions[0];
-
-console.log('🎯 País seleccionado:', selectedCountry?.name, selectedCountry?.iso2, `+${selectedCountry?.dialCode}`);
 
 // Obtener información de validación para el país seleccionado
 const phoneValidationInfo = getPhoneValidationInfo(selectedCountry.iso2);
@@ -120,121 +112,121 @@ const dynamicPlaceholder = type === 'tel' ? phoneValidationInfo.placeholder : pl
   const phoneValidationInfo = {
     cr: { // Costa Rica
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "81234567",
+      placeholder: "Número de teléfono",
       example: "81234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     us: { // Estados Unidos
       pattern: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-      placeholder: "(555) 123-4567",
+      placeholder: "Número de teléfono",
       example: "5551234567",
       description: "10 dígitos"
     },
     mx: { // México
       pattern: /^[1-9]\d{9}$/,
-      placeholder: "5512345678",
+      placeholder: "Número de teléfono",
       example: "5512345678",
       description: "10 dígitos, comenzando con 1-9"
     },
     es: { // España
       pattern: /^[6-9]\d{8}$/,
-      placeholder: "612345678",
+      placeholder: "Número de teléfono",
       example: "612345678",
       description: "9 dígitos, comenzando con 6-9"
     },
     ar: { // Argentina
       pattern: /^[1-9]\d{9}$/,
-      placeholder: "1123456789",
+      placeholder: "Número de teléfono",
       example: "1123456789",
       description: "10 dígitos, comenzando con 1-9"
     },
     br: { // Brasil
       pattern: /^[1-9]{2}[0-9]{8,9}$/,
-      placeholder: "11987654321",
+      placeholder: "Número de teléfono",
       example: "11987654321",
       description: "10-11 dígitos"
     },
     co: { // Colombia
       pattern: /^[1-9]\d{9}$/,
-      placeholder: "3001234567",
+      placeholder: "Número de teléfono",
       example: "3001234567",
       description: "10 dígitos, comenzando con 1-9"
     },
     pe: { // Perú
       pattern: /^[1-9]\d{8}$/,
-      placeholder: "912345678",
+      placeholder: "Número de teléfono",
       example: "912345678",
       description: "9 dígitos, comenzando con 1-9"
     },
     cl: { // Chile
       pattern: /^[2-9]\d{8}$/,
-      placeholder: "912345678",
+      placeholder: "Número de teléfono",
       example: "912345678",
       description: "9 dígitos, comenzando con 2-9"
     },
     uy: { // Uruguay
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "91234567",
+      placeholder: "Número de teléfono",
       example: "91234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     py: { // Paraguay
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "91234567",
+      placeholder: "Número de teléfono",
       example: "91234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     bo: { // Bolivia
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "71234567",
+      placeholder: "Número de teléfono",
       example: "71234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     ec: { // Ecuador
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "91234567",
+      placeholder: "Número de teléfono",
       example: "91234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     ve: { // Venezuela
       pattern: /^[2-9]\d{9}$/,
-      placeholder: "4121234567",
+      placeholder: "Número de teléfono",
       example: "4121234567",
       description: "10 dígitos, comenzando con 2-9"
     },
     pa: { // Panamá
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "61234567",
+      placeholder: "Número de teléfono",
       example: "61234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     ni: { // Nicaragua
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "81234567",
+      placeholder: "Número de teléfono",
       example: "81234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     hn: { // Honduras
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "91234567",
+      placeholder: "Número de teléfono",
       example: "91234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     sv: { // El Salvador
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "71234567",
+      placeholder: "Número de teléfono",
       example: "71234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     gt: { // Guatemala
       pattern: /^[2-9]\d{7}$/,
-      placeholder: "51234567",
+      placeholder: "Número de teléfono",
       example: "51234567",
       description: "8 dígitos, comenzando con 2-9"
     },
     bz: { // Belice
       pattern: /^[2-9]\d{6}$/,
-      placeholder: "6123456",
+      placeholder: "Número de teléfono",
       example: "6123456",
       description: "7 dígitos, comenzando con 2-9"
     }

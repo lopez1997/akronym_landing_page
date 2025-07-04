@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import '../styles/global.css';
 
 import slide1 from '../assets/slide-1.png';
@@ -12,7 +14,7 @@ import rectangle4 from '../assets/rectangle4.png';
 import rectangle5 from '../assets/rectangle5.png';
 import rectangle6 from '../assets/rectangle6.png';
 import desktop1 from '../assets/desktop1.jpeg';
-import globe from '../assets/globe.svg';
+import globe from '../assets/Earth-min.svg';
 import heic0604a from '../assets/heic0604a.png';
 import akronymLogoBlanco from '../assets/AkronymLogoBlanco.png';
 import urzola from '../assets/logos/urzola.png';
@@ -154,7 +156,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 
 <!-- Sección 2: Imagen del globo -->
 <section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C]">
-  <img src={globe.src} alt="Globe background" class="w-full h-full object-cover" />
+  <Image src={globe} alt="Globe background" class="w-full h-full object-cover" />
 </section>
 
 <!-- Sección 3: Contenido final -->
@@ -182,14 +184,37 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
   <h2 class="fade-in text-4xl md:text-6xl font-normal text-neutral-900 mb-15 text-center max-w-7xl">
     TRANSFORMAR NO ES UNA PROMESA.<br />ES UNA FORMA DE TRABAJAR.
   </h2>
-  <!-- Carousel Slick -->
+  <!-- Swiper Carousel -->
   <div class="w-full max-w-7xl mb-12 px-2">
-    <div class="slick-slider">
-      <div class="px-3"><img src={slide1.src} alt="slide1" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src={slide2.src} alt="slide2" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src={slide3.src} alt="slide3" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src={slide4.src} alt="slide4" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
-      <div class="px-3"><img src={slide5.src} alt="slide5" class="object-cover w-full h-[350px] md:h-[420px]" /></div>
+    <div class="swiper swiper-main">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="px-3">
+            <img src={slide1.src} alt="slide1" class="object-cover w-full h-[350px] md:h-[420px] rounded" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-3">
+            <img src={slide2.src} alt="slide2" class="object-cover w-full h-[350px] md:h-[420px] rounded" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-3">
+            <img src={slide3.src} alt="slide3" class="object-cover w-full h-[350px] md:h-[420px] rounded" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-3">
+            <img src={slide4.src} alt="slide4" class="object-cover w-full h-[350px] md:h-[420px] rounded" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-3">
+            <img src={slide5.src} alt="slide5" class="object-cover w-full h-[350px] md:h-[420px] rounded" />
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
   <p class="fade-in text-xl text-neutral-900 mb-8 text-center max-w-5xl">
@@ -323,24 +348,24 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
   <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 px-4">
     <!-- Columna derecha: nombres y descripciones (primera en móvil) -->
     <div class="flex-1 flex flex-col justify-start order-1 md:order-2">
-      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="becky">
-        <h4 class="fade-in text-3xl md:text-6xl font-medium text-neutral-600 leading-tight">BECKY VANNES</h4>
+      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="becky">
+        <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">BECKY VANNES</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">Productions Manager at ACP Publishing</div>
       </div>
-      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="david">
-        <h4 class="fade-in text-3xl md:text-6xl font-medium text-neutral-600 leading-tight">DR. DAVID KUBES</h4>
+      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="david">
+        <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">DR. DAVID KUBES</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">International Lawyer</div>
       </div>
-      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="michael">
-        <h4 class="fade-in text-3xl md:text-6xl font-medium text-neutral-600 leading-tight">MICHAEL SHANER</h4>
+      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="michael">
+        <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">MICHAEL SHANER</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">CEO of The Flow Group & President of Shantou Media</div>
       </div>
-      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="fatou">
-        <h4 class="fade-in text-3xl md:text-6xl font-medium text-neutral-600 leading-tight">FATOU SOW</h4>
+      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="fatou">
+        <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">FATOU SOW</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">President of Slingshots Music and Managing Director of Shantou Media</div>
       </div>
-      <div class="testimonial-name mb-8 cursor-pointer" data-testimonial="marilis">
-        <h4 class="fade-in text-3xl md:text-6xl leading-tight text-neutral-600">MARILIS LLOBET</h4>
+      <div class="testimonial-name md:mb-8 cursor-pointer" data-testimonial="marilis">
+        <h4 class="fade-in text-2xl md:text-6xl leading-tight text-neutral-600">MARILIS LLOBET</h4>
         <div class="fade-in text-neutral-600 text-md md:text-lg mt-2">CEO of Ventas Cognitivas</div>
       </div>
     </div>
@@ -348,7 +373,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <div class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1">
       <div class="testimonial-content">
         <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded mb-8 max-w-xs" />
-        <div id="testimonial-position" class="text-neutral-400 text-sm mb-4">Productions Manager at ACP Publishing</div>
+        <div id="testimonial-position" class="text-neutral-400 text-sm mb-4 max-w-xs">Productions Manager at ACP Publishing</div>
         <p id="testimonial-text" class="fade-in text-neutral-100 text-base md:text-lg max-w-xs text-justify">
           Thanks to Akronym's expertise and dedication, our online presence has flourished, and our sales of self-help books have soared. We wholeheartedly recommend Akronym to anyone looking for top-notch website development services. They are a true asset to our business!
         </p>
@@ -368,25 +393,100 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <div class="absolute right-0 top-0 w-[10%] h-full z-10" style="background: linear-gradient(90deg, rgba(13, 13, 18, 0.00) 9.13%, rgba(25, 27, 28, 0.80) 37.02%, #191B1C 82.21%);"></div>
     
     <!-- Carrusel -->
-    <div class="aliados-carousel flex items-center relative z-0">
-      <div class="px-8"><img src={urzola.src} alt="Dr. Victor Urzola" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={adastra.src} alt="Ad Astra" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={wc.src} alt="Wagner & Carter" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={pbs.src} alt="PBS" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={acp.src} alt="ACP" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={k.src} alt="K" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={mdo.src} alt="MG" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={trmi.src} alt="TRMI" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={triad.src} alt="Triad" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={lelevier.src} alt="Lelevier" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={ulb.src} alt="ULB" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={risingunited.src} alt="Rising United" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={terre.src} alt="Terre" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={imago.src} alt="Imago" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={cloudhouse.src} alt="Cloudhouse" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={kenia.src} alt="Kenia" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={ellugar.src} alt="El Lugar" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
-      <div class="px-8"><img src={caballo.src} alt="Caballo" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" /></div>
+    <div class="swiper swiper-aliados">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={urzola.src} alt="Dr. Victor Urzola" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={adastra.src} alt="Ad Astra" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={wc.src} alt="Wagner & Carter" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={pbs.src} alt="PBS" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={acp.src} alt="ACP" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={k.src} alt="K" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={mdo.src} alt="MG" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={trmi.src} alt="TRMI" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={triad.src} alt="Triad" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={lelevier.src} alt="Lelevier" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={ulb.src} alt="ULB" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={risingunited.src} alt="Rising United" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={terre.src} alt="Terre" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={imago.src} alt="Imago" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={cloudhouse.src} alt="Cloudhouse" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={kenia.src} alt="Kenia" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={ellugar.src} alt="El Lugar" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="px-8">
+            <img src={caballo.src} alt="Caballo" class="h-20 md:h-24 object-contain grayscale opacity-80 mx-auto" />
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
   
@@ -425,7 +525,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <div>
       <!-- <div class="text-lg font-light mb-4">Empresa</div> -->
       <ul class="space-y-1 mb-4 font-light">
-        <li><a href="mailto:connect@akronym.com">connect@akronym.com</a></li>
+        <li><a href="mailto:connect@akronym.cr">connect@akronym.cr</a></li>
         <li><a href="tel:+50688134614">+506 8813 4614</a></li>
       </ul>
     </div>

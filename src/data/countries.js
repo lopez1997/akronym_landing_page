@@ -236,8 +236,6 @@ export const countries = [
 
 // Función para obtener países ordenados por nombre
 export const getSortedCountries = () => {
-  console.log('🔍 getSortedCountries() llamado');
-  
   // Crear una copia del array para no mutar el original
   const countriesCopy = [...countries];
   
@@ -249,9 +247,6 @@ export const getSortedCountries = () => {
     // El resto se ordena alfabéticamente
     return a.name.localeCompare(b.name);
   });
-  
-  console.log('📋 Primeros 5 países ordenados:', sortedCountries.slice(0, 5).map(c => `${c.name} (${c.iso2})`));
-  console.log('🇨🇷 Costa Rica encontrada en posición:', sortedCountries.findIndex(c => c.iso2 === 'cr'));
   
   return sortedCountries;
 };
@@ -270,121 +265,121 @@ export const getCountryByDialCode = (dialCode) => {
 export const phoneValidationInfo = {
   cr: { // Costa Rica
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "81234567",
+    placeholder: "",
     example: "81234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   us: { // Estados Unidos
     pattern: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
-    placeholder: "(555) 123-4567",
+    placeholder: "",
     example: "5551234567",
     description: "10 dígitos"
   },
   mx: { // México
     pattern: /^[1-9]\d{9}$/,
-    placeholder: "5512345678",
+    placeholder: "",
     example: "5512345678",
     description: "10 dígitos, comenzando con 1-9"
   },
   es: { // España
     pattern: /^[6-9]\d{8}$/,
-    placeholder: "612345678",
+    placeholder: "",
     example: "612345678",
     description: "9 dígitos, comenzando con 6-9"
   },
   ar: { // Argentina
     pattern: /^[1-9]\d{9}$/,
-    placeholder: "1123456789",
+    placeholder: "",
     example: "1123456789",
     description: "10 dígitos, comenzando con 1-9"
   },
   br: { // Brasil
     pattern: /^[1-9]{2}[0-9]{8,9}$/,
-    placeholder: "11987654321",
+    placeholder: "",
     example: "11987654321",
     description: "10-11 dígitos"
   },
   co: { // Colombia
     pattern: /^[1-9]\d{9}$/,
-    placeholder: "3001234567",
+    placeholder: "",
     example: "3001234567",
     description: "10 dígitos, comenzando con 1-9"
   },
   pe: { // Perú
     pattern: /^[1-9]\d{8}$/,
-    placeholder: "912345678",
+    placeholder: "",
     example: "912345678",
     description: "9 dígitos, comenzando con 1-9"
   },
   cl: { // Chile
     pattern: /^[2-9]\d{8}$/,
-    placeholder: "912345678",
+    placeholder: "",
     example: "912345678",
     description: "9 dígitos, comenzando con 2-9"
   },
   uy: { // Uruguay
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "91234567",
+    placeholder: "",
     example: "91234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   py: { // Paraguay
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "91234567",
+    placeholder: "",
     example: "91234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   bo: { // Bolivia
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "71234567",
+    placeholder: "",
     example: "71234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   ec: { // Ecuador
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "91234567",
+    placeholder: "",
     example: "91234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   ve: { // Venezuela
     pattern: /^[2-9]\d{9}$/,
-    placeholder: "4121234567",
+    placeholder: "",
     example: "4121234567",
     description: "10 dígitos, comenzando con 2-9"
   },
   pa: { // Panamá
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "61234567",
+    placeholder: "",
     example: "61234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   ni: { // Nicaragua
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "81234567",
+    placeholder: "",
     example: "81234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   hn: { // Honduras
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "91234567",
+    placeholder: "",
     example: "91234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   sv: { // El Salvador
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "71234567",
+    placeholder: "",
     example: "71234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   gt: { // Guatemala
     pattern: /^[2-9]\d{7}$/,
-    placeholder: "51234567",
+    placeholder: "",
     example: "51234567",
     description: "8 dígitos, comenzando con 2-9"
   },
   bz: { // Belice
     pattern: /^[2-9]\d{6}$/,
-    placeholder: "6123456",
+    placeholder: "",
     example: "6123456",
     description: "7 dígitos, comenzando con 2-9"
   }

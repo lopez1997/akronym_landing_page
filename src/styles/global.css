@@ -157,3 +157,104 @@ html, body {
 .custom-radio:hover {
   @apply border-gray-300;
 }
+
+/* Swiper Styles */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pagination styles */
+.swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #6b7280;
+  opacity: 0.5;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  background: #9ca3af;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Custom pagination for aliados section */
+.swiper-aliados .swiper-pagination {
+  margin-top: 30px;
+}
+
+.swiper-aliados .swiper-pagination-bullet {
+  background: #6b7280;
+}
+
+.swiper-aliados .swiper-pagination-bullet-active {
+  background: #9ca3af;
+}
+
+/* Ensure pagination is always visible */
+.swiper-main .swiper-pagination,
+.swiper-aliados .swiper-pagination {
+  position: relative !important;
+  bottom: auto !important;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+/* Responsive adjustments for pagination */
+@media (max-width: 768px) {
+  .swiper-pagination {
+    margin-top: 15px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Touch/swipe indicators */
+.swiper {
+  cursor: grab;
+}
+
+.swiper:active {
+  cursor: grabbing;
+}
+
+/* Smooth transitions for all swiper elements */
+.swiper-wrapper {
+  transition-timing-function: ease-out;
+}
+
+.swiper-slide {
+  transition: transform 0.3s ease;
+}

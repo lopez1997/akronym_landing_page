@@ -1,45 +1,8 @@
-import $ from "jquery";
-import "slick-carousel";
-
-$(".slick-slider").slick({
-	autoplay: true,
-	autoplaySpeed: 500,
-	infinite: true,
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	arrows: false,
-	dots: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-			},
-		},
-],
-});
-
-$(".aliados-carousel").slick({
-	autoplay: true,
-	autoplaySpeed: 500,
-	infinite: true,
-	slidesToShow: 5,
-	slidesToScroll: 1,
-	arrows: false,
-	dots: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-			},
-		},
-],
-});
-
 // Magic Mouse initiaization
+import $ from "jquery";
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+
 magicMouse({
 	"hoverEffect": "circle-move",
 	"hoverItemMove": false,
@@ -61,4 +24,102 @@ document.addEventListener('DOMContentLoaded', function () {
 	}, { threshold: 0.15 });
 
 	fadeEls.forEach(el => observer.observe(el));
+});
+
+// Initialize Swiper after everything is loaded
+function initializeSwipers() {
+	// Initialize main swiper (slides)
+	const mainSwiperElement = document.querySelector('.swiper-main');
+	if (mainSwiperElement) {
+		const mainSwiper = new Swiper('.swiper-main', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 1000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: '.swiper-main .swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 30,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1280: {
+					slidesPerView: 4,
+					spaceBetween: 50,
+				},
+			},
+			// Enable touch/swipe functionality
+			allowTouchMove: true,
+			grabCursor: true,
+			// Smooth transitions
+			speed: 600,
+			effect: 'slide',
+		});
+	}
+
+	// Initialize aliados swiper
+	const aliadosSwiperElement = document.querySelector('.swiper-aliados');
+	if (aliadosSwiperElement) {
+		const aliadosSwiper = new Swiper('.swiper-aliados', {
+			slidesPerView: 2,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: {
+				delay: 1000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: '.swiper-aliados .swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+			},
+			breakpoints: {
+				480: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				640: {
+					slidesPerView: 4,
+					spaceBetween: 25,
+				},
+				768: {
+					slidesPerView: 5,
+					spaceBetween: 30,
+				}
+			},
+			// Enable touch/swipe functionality
+			allowTouchMove: true,
+			grabCursor: true,
+			// Smooth transitions
+			speed: 500,
+			effect: 'slide',
+		});
+	}
+}
+
+// Start initialization when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+	// Give a small delay to ensure all scripts are loaded
+	setTimeout(initializeSwipers, 500);
+});
+
+// Also try to initialize when window is fully loaded
+window.addEventListener('load', function() {
+	setTimeout(initializeSwipers, 100);
 });
