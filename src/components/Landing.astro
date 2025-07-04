@@ -1,7 +1,15 @@
 ---
 import { Image } from 'astro:assets';
+import { useTranslations } from '../i18n/ui';
 
-import '../styles/global.css';
+// CSS is imported in Layout, so we don't need to import it here when using Layout
+
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 
 import slide1 from '../assets/slide-1.png';
 import slide2 from '../assets/slide-2.png';
@@ -61,7 +69,12 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <!-- Menú desktop -->
     <div class="hidden md:flex items-center gap-5">
       <div>
-        <a href="/form" class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
+        <a href={lang === 'en' ? '/en/form' : '/form'} class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">{t('nav.contact')}</a>
+      </div>
+      <div>
+        <a href={lang === 'es' ? '/en' : '/'} class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">
+          {lang === 'es' ? 'EN' : 'ES'}
+        </a>
       </div>
     </div>
     
@@ -81,22 +94,21 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
           <path d="M6 6L24 24M24 6L6 24" stroke="white" stroke-width="2"/>
         </svg>
       </button>
-      <a href="/form" class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity">CONTACTO</a>
+      <a href={lang === 'en' ? '/en/form' : '/form'} class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity">{t('nav.contact')}</a>
     </div>
   </div>
   
   <!-- Texto de la hero section -->
   <section class="absolute left-0 bottom-0 z-20 text-neutral-100 max-w-full md:max-w-[60vw] p-4 sm:p-8 md:p-20">
     <div class="fade-in text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 md:mb-6 tracking-wider">
-      LA MAYORÍA DIGITALIZA <br />PROCESOS. NOSOTROS <br />TRANSFORMAMOS NEGOCIOS.
+      {t('hero.title')}
     </div>
     <div class="fade-in text-base sm:text-lg md:text-xl mt-2 md:mt-4 text-neutral-100 opacity-95 tracking-wider">
-      Las herramientas sobran.<br />
-      Lo que falta es dirección.
+      {t('hero.subtitle')}
     </div>
 
-    <button onclick="window.location.href = '/form'" class="mt-10 relative w-[200px] sm:w-[250px] md:w-[320px] h-10 sm:h-12 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-xs sm:text-sm font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-      Transformá tu negocio ahora
+    <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="mt-10 relative w-[200px] sm:w-[250px] md:w-[320px] h-10 sm:h-12 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-xs sm:text-sm font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+      {t('hero.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>
@@ -107,14 +119,14 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Nueva sección: MÁS CLARO -->
 <section class="w-full min-h-[40vh] sm:min-h-[60vh] bg-black flex flex-col items-center justify-center py-12 sm:py-24 px-2">
   <div class="relative h-32 mb-10 flex items-center justify-center overflow-hidden">
-    <h2 id="changing-text" class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 tracking-wide text-center">MÁS CLARO</h2>
+    <h2 id="changing-text" class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-normal text-neutral-100 tracking-wide text-center">{t('more.clear.title')}</h2>
   </div>
-  <p class="fade-in text-lg sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">con lo que realmente querés lograr.</p>
+  <p class="fade-in text-lg sm:text-xl md:text-2xl text-neutral-300 mb-6 sm:mb-10 text-center">{t('more.clear.subtitle')}</p>
   <div class="relative flex flex-col items-center">
     <button
-      onclick="window.location.href = '/form'"
+      onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`}
       class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-      Transformá tu negocio ahora
+      {t('hero.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>
@@ -125,7 +137,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Nueva sección: TECNOLOGÍA QUE SIRVE -->
 <section class="w-full min-h-[80vh] bg-black flex flex-col items-center justify-center py-24 px-4">
   <h2 class="fade-in text-3xl md:text-3xl lg:text-4xl font-normal text-neutral-100 mb-16 tracking-wide text-center max-w-4xl">
-    TECNOLOGÍA QUE SIRVE. <br>CON PROPÓSITO
+    {t('tech.title')}
   </h2>
   <div class="mb-16">
     <svg xmlns="http://www.w3.org/2000/svg" width="73" height="79" viewBox="0 0 73 79" fill="none">
@@ -133,10 +145,10 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     </svg>
   </div>
   <div class="fade-in text-xl md:text-2xl text-neutral-100 uppercase text-center mb-14 max-w-5xl px-4">
-    LO PENSAMOS CON ESTRATEGIA, LO DISEÑAMOS CON INTENCIÓN Y LO MEJORAMOS CONSTANTEMENTE. ASÍ DE SIMPLE.
+    {t('tech.description')}
   </div>
-  <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    Transformá tu negocio ahora
+  <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    {t('hero.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -146,11 +158,9 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Sección 1: NACIMOS EN COSTA RICA -->
 <section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C] px-4">
   <div class="text-center">
-    <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">NACIMOS EN COSTA RICA.</h2>
+    <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-8 text-center drop-shadow-lg">{t('costa.rica.title')}</h2>
     <p class="fade-in text-base md:text-2xl text-neutral-100 text-center max-w-4xl uppercase tracking-wide drop-shadow-lg">
-      PERO NUESTRA FORMA DE TRABAJAR NO TIENE GEOGRAFÍA:<br>
-      TIENE INTENCIÓN, DIRECCIÓN Y COMPROMISO REAL.<br>
-      POR ESO, CADA PUNTO EN EL MAPA ES UN NEGOCIO QUE CONFÍO EN NOSOTROS.
+      {t('costa.rica.description')}
     </p>
   </div>
 </section>
@@ -163,16 +173,15 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Sección 3: Contenido final -->
 <section class="w-full min-h-[30vh] flex flex-col items-center justify-center relative overflow-hidden bg-[#191B1C] pb-20 px-4">
   <div class="text-center flex flex-col items-center">
-    <h3 class="fade-in text-3xl md:text-4xl font-normal text-neutral-100 uppercase tracking-wide drop-shadow-lg mb-8">SI QUERÉS QUE TU NEGOCIO<br>EVOLUCIONE EN SERIO, ACÁ ES.</h3>
+    <h3 class="fade-in text-3xl md:text-4xl font-normal text-neutral-100 uppercase tracking-wide drop-shadow-lg mb-8">{t('evolution.title')}</h3>
     <div class="my-15 fade-in">
       <img src={akronymLogoBlanco.src} alt="Akronym Logo" class="h-10 md:h-20 mb-2 drop-shadow-lg" />
     </div>
     <p class="fade-in text-lg md:text-2xl text-neutral-100 mb-20 text-center max-w-2xl drop-shadow-lg">
-      LOS ACRÓNIMOS RESUMEN LO ESENCIAL.<br>
-      AKRONYM LO TRANSFORMA EN MOVIMIENTO REAL.
+      {t('evolution.description')}
     </p>
-    <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white shadow-lg">
-      Transformá tu negocio ahora
+    <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white shadow-lg">
+      {t('hero.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>
@@ -183,7 +192,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Nueva sección: TRANSFORMAR NO ES UNA PROMESA -->
 <section class="w-full bg-neutral-100 py-20 flex flex-col items-center justify-center px-4">
   <h2 class="fade-in text-4xl md:text-6xl font-normal text-neutral-900 mb-15 text-center max-w-7xl">
-    TRANSFORMAR NO ES UNA PROMESA.<br />ES UNA FORMA DE TRABAJAR.
+    {t('transform.title')}
   </h2>
   <!-- Swiper Carousel -->
   <div class="w-full max-w-7xl mb-12">
@@ -209,13 +218,13 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     </div>
   </div>
   <p class="fade-in text-xl text-neutral-900 mb-8 text-center max-w-5xl">
-    Acompañamos negocios que están listos para cuestionar  cómo vienen haciendo las cosas.
+    {t('transform.description1')}
   </p>
   <p class="fade-in text-xl text-neutral-900 mb-10 text-center max-w-5xl">
-    Que no buscan soluciones rápidas, sino evolución real. Trabajamos para generar impacto que se siente en los números, en las decisiones, y en la forma en que el negocio vuelve a moverse.
+    {t('transform.description2')}
   </p>
-  <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-400 rounded-full flex items-center justify-center bg-transparent text-neutral-900 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    Transformá tu negocio ahora
+  <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-400 rounded-full flex items-center justify-center bg-transparent text-neutral-900 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    {t('hero.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -225,10 +234,10 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 <!-- Nueva sección: CREEN EN NEGOCIOS QUE PIENSAN DISTINTO -->
 <section class="w-full min-h-[70vh] bg-black flex flex-col items-center justify-center py-24 px-4">
   <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-10 text-center max-w-7xl">
-    CREEMOS EN NEGOCIOS QUE PIENSAN DISTINTO.<br />Y QUE SE ANIMAN A ACTUAR DISTINTO.
+    {t('believe.title')}
   </h2>
-  <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    Transformá tu negocio ahora
+  <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    {t('hero.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -259,15 +268,15 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <polyline points="52,32 52,52 32,52" />
   </svg>
 
-  <h2 class="fade-in text-[10vw] md:text-9xl font-normal text-neutral-100 mb-6 text-center leading-tight">LO QUE<br>HACEMOS</h2>
+  <h2 class="fade-in text-[10vw] md:text-9xl font-normal text-neutral-100 mb-6 text-center leading-tight">{t('what.we.do.title')}</h2>
   <div class="fade-in text-xl md:text-3xl text-neutral-100 uppercase text-center mb-6 max-w-6xl px-4 tracking-wide">
-    NO HACEMOS TAREAS. HACEMOS QUE LAS COSAS FUNCIONEN.
+    {t('what.we.do.subtitle')}
   </div>
   <div class="fade-in text-lg md:text-xl text-neutral-300 text-center mb-10 max-w-7xl px-4">
-    Trabajamos con negocios que quieren dejar de adivinar, y empezar a operar con claridad, foco y dirección real.
+    {t('what.we.do.description')}
   </div>
-  <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    Transformá tu negocio ahora
+  <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    {t('hero.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -280,8 +289,8 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     <!-- Fila 1: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-3xl md:text-5xl mb-4">TRANSFORMACIÓN QUE SE NOTA</h3>
-        <p class="fade-in text-md md:text-lg opacity-80">Replanteamos cómo tu negocio opera en lo digital. <br> Desde los procesos hasta las herramientas: lo rediseñamos todo para que funcione mejor, con menos fricción y más resultados.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4">{t('transformation.title')}</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">{t('transformation.description')}</p>
       </div>
       <div class="flex-1">
         <img src={rectangle2.src} alt="Dirección que transforma" class="w-full object-cover rounded" />
@@ -294,16 +303,16 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
         <img src={rectangle3.src} alt="Experiencia de usuario" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">EXPERIENCIA DE USUARIO (UX/UI)</h3>
-        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">Diseñamos interfaces simples, intuitivas y efectivas.<br>Para que tus usuarios entiendan, usen y disfruten tu producto. Más claridad. Más conversiones.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">{t('ux.title')}</h3>
+        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">{t('ux.description')}</p>
       </div>
     </div>
 
     <!-- Fila 3: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pr-5">PROCESOS QUE ESCALAN</h3>
-        <p class="fade-in text-md md:text-lg opacity-80">Menos pasos. Menos esfuerzo. Más impacto.<br>Diseñamos automatizaciones inteligentes que simplifican tu operación y hacen que todo funcione con menos fricción.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pr-5">{t('processes.title')}</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">{t('processes.description')}</p>
       </div>
       <div class="flex-1">
         <img src={rectangle4.src} alt="Procesos sin fricción" class="w-full object-cover rounded" />
@@ -316,16 +325,16 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
         <img src={rectangle5.src} alt="Tecnología que impulsa" class="w-full object-cover rounded" />
       </div>
       <div class="flex-1 order-1 md:order-2 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">ESTRATEGIA BASADA EN DATOS</h3>
-        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">Convertimos tus métricas en decisiones.<br>Creamos estructuras de datos claras, visuales y accionables, para que sepas qué está funcionando, qué no, y hacia dónde ir.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4 md:pl-5">{t('strategy.title')}</h3>
+        <p class="fade-in text-md md:text-lg opacity-80 md:pl-5">{t('strategy.description')}</p>
       </div>
     </div>
 
     <!-- Fila 5: texto - imagen -->
     <div class="flex flex-col md:flex-row items-start md:items-end mb-5 md:mb-0">
       <div class="flex-1 text-left text-neutral-100 pb-5">
-        <h3 class="fade-in text-3xl md:text-5xl mb-4">LA ENTREGA NO ES EL FINAL. ES CUANDO EMPIEZA LO BUENO</h3>
-        <p class="fade-in text-md md:text-lg opacity-80">Ahí es donde aparecemos.<br>Donde otros se van, nosotros nos quedamos.</p>
+        <h3 class="fade-in text-3xl md:text-5xl mb-4">{t('delivery.title')}</h3>
+        <p class="fade-in text-md md:text-lg opacity-80">{t('delivery.description')}</p>
       </div>
       <div class="flex-1">
         <img src={rectangle6.src} alt="--" class="w-full object-cover rounded" />
@@ -375,7 +384,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
 
 <!-- Nueva sección: ALIADOS -->
 <section class="w-full bg-black py-20 flex flex-col items-center justify-center px-4">
-  <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-12 text-center tracking-wide">ALGUNOS DE NUESTROS ALIADOS...</h2>
+  <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-12 text-center tracking-wide">{t('allies.title')}</h2>
   <div class="w-full max-w-6xl mb-12 relative">
     <!-- Gradiente izquierdo -->
     <div class="absolute left-0 top-0 w-[10%] h-full z-10" style="background: linear-gradient(270deg, rgba(13, 13, 18, 0.00) 9.13%, rgba(25, 27, 28, 0.80) 37.02%, #191B1C 82.21%);"></div>
@@ -486,8 +495,8 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     </div>
   </div>
   
-  <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    Transformá tu negocio ahora
+  <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    {t('hero.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -500,13 +509,13 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
   <div class="absolute inset-0 z-10" style="background: linear-gradient(180deg, #191B1C 0%, rgba(25,27,28,0) 50%, #191B1C 100%);"></div>
   <div class="relative z-20 flex flex-col items-center justify-center w-full h-full py-50">
     <h2 class="fade-in text-4xl md:text-7xl lg:text-8xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl mb-200">
-      DESDE AQUÍ<br />ARRIBA, TODO SE<br />VE DIFERENTE
+      {t('perspective.title')}
     </h2>
     <p class="fade-in text-md text-neutral-100 text-center mb-10 max-w-7xl">
-      Con AKRONYM, las piezas encajan. <br> Tu operación avanza.<br> Y vos volvés a tener el control.
+      {t('perspective.description')}
     </p>
-    <button onclick="window.location.href = '/form'" class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-      Transformá tu negocio ahora
+    <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+      {t('hero.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>
@@ -519,18 +528,17 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
     <!-- columna 1 -->
     <div>
-      <!-- <div class="text-lg font-light mb-4">Empresa</div> -->
       <ul class="space-y-1 mb-4 font-light">
-        <li><a href="mailto:connect@akronym.cr">connect@akronym.cr</a></li>
-        <li><a href="tel:+50688134614">+506 8813 4614</a></li>
+        <li><a href="mailto:connect@akronym.cr">{t('footer.email')}</a></li>
+        <li><a href="tel:+50688134614">{t('footer.phone')}</a></li>
       </ul>
     </div>
     <!-- columna 2 -->
     <div>
       <div class="flex justify-center">
         <ul class="space-y-1 font-light">
-          <li><a href="/terminos" class="hover:opacity-80">Términos y condiciones</a></li>
-          <li><a href="/privacidad" class="hover:opacity-80">Políticas de privacidad</a></li>
+          <li><a href="/terminos" class="hover:opacity-80">{t('footer.terms')}</a></li>
+          <li><a href="/privacidad" class="hover:opacity-80">{t('footer.privacy')}</a></li>
         </ul>
       </div>
     </div>
@@ -552,13 +560,12 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     </div>
   </div>
   <div class="border-t border-neutral-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-center w-full text-md max-w-7xl mx-auto text-center">
-    <div>Copyright © 2025 AKRONYM. All rights reserved.</div>
-    <!-- <div class="mt-2 md:mt-0">Terms of Use & Privacy Policy</div> -->
+    <div>{t('footer.copyright')}</div>
   </div>
 </footer>
 
 <!-- SCRITPS -->
-<script define:vars={{ becky, david, michael, fatou, marilis }}>
+<script define:vars={{ becky, david, michael, fatou, marilis, lang }}>
 
   // Control de pantalla de carga
   document.addEventListener('DOMContentLoaded', function() {
@@ -663,7 +670,9 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     const changingText = document.getElementById('changing-text');
     if (!changingText) return;
 
-    const texts = ['MÁS CLARO', 'MÁS RÁPIDO', 'MÁS ALINEADO'];
+    const texts = lang === 'en' 
+      ? ['CLEARER', 'FASTER', 'MORE ALIGNED']
+      : ['MÁS CLARO', 'MÁS RÁPIDO', 'MÁS ALINEADO'];
     let currentIndex = 0;
 
     function changeText() {

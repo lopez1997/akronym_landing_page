@@ -1,15 +1,16 @@
 // Magic Mouse initiaization
-import $ from "jquery";
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+// Note: jQuery and Swiper are loaded via CDN in the HTML
 
-magicMouse({
-	"hoverEffect": "circle-move",
-	"hoverItemMove": false,
-	"defaultCursor": false,
-	"outerWidth": 50,
-	"outerHeight": 50
-});
+// Wait for magicMouse to be available
+if (typeof magicMouse !== 'undefined') {
+	magicMouse({
+		"hoverEffect": "circle-move",
+		"hoverItemMove": false,
+		"defaultCursor": false,
+		"outerWidth": 50,
+		"outerHeight": 50
+	});
+}
 
 // FadeIn effect for important texts and logo
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,18 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Initialize Swiper after everything is loaded
-function initializeSwipers() {
+window.initializeSwipers = function () {
+	console.log('initializeSwipers called');
+
+	// Check if Swiper is available
+	if (typeof Swiper === 'undefined') {
+		console.log('Swiper not available, retrying...');
+		setTimeout(initializeSwipers, 1000);
+		return;
+	}
+
+	console.log('Swiper is available, initializing...');
+
 	// Initialize main swiper (slides)
 	const mainSwiperElement = document.querySelector('.swiper-main');
+	console.log('Main swiper element found:', !!mainSwiperElement);
 	if (mainSwiperElement) {
+		console.log('Creating main Swiper instance...');
 		const mainSwiper = new Swiper('.swiper-main', {
 			slidesPerView: 1,
 			spaceBetween: 20,
 			loop: true,
 			autoplay: {
-				delay: 1000,
+				delay: 3000,
 				disableOnInteraction: false,
-				pauseOnMouseEnter: true,
 			},
 			pagination: {
 				el: '.swiper-main .swiper-pagination',
@@ -70,19 +83,21 @@ function initializeSwipers() {
 			speed: 600,
 			effect: 'slide',
 		});
+		console.log('Main Swiper initialized successfully');
 	}
 
 	// Initialize aliados swiper
 	const aliadosSwiperElement = document.querySelector('.swiper-aliados');
+	console.log('Aliados swiper element found:', !!aliadosSwiperElement);
 	if (aliadosSwiperElement) {
+		console.log('Creating aliados Swiper instance...');
 		const aliadosSwiper = new Swiper('.swiper-aliados', {
 			slidesPerView: 2,
 			spaceBetween: 20,
 			loop: true,
 			autoplay: {
-				delay: 1000,
+				delay: 2000,
 				disableOnInteraction: false,
-				pauseOnMouseEnter: true,
 			},
 			pagination: {
 				el: '.swiper-aliados .swiper-pagination',
@@ -113,13 +128,8 @@ function initializeSwipers() {
 	}
 }
 
-// Start initialization when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-	// Give a small delay to ensure all scripts are loaded
-	setTimeout(initializeSwipers, 500);
-});
-
-// Also try to initialize when window is fully loaded
-window.addEventListener('load', function() {
-	setTimeout(initializeSwipers, 100);
+// Initialize when window is fully loaded (recommended by Swiper docs)
+window.addEventListener('load', function () {
+	console.log('Window load fired');
+	initializeSwipers();
 });

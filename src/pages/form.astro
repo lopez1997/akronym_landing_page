@@ -2,29 +2,35 @@
 import "../styles/global.css";
 import Input from "../components/form/input.astro";
 import Layout from "../layouts/Layout.astro";
+import { useTranslations } from '../i18n/ui';
+
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <Layout>
     <div class="h-screen flex flex-col bg-black p-10">
         <form id="wizard-form" class="w-full max-w-5xl mx-auto flex flex-col h-full justify-between" autocomplete="off">
-            <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
-                ¡GRACIAS POR TU INTERÉS EN<br />TRANSFORMAR TU NEGOCIO!
+            <h1 class="text-4xl md:text-5xl font-light text-white mb-6" set:html={t('form.title')}>
             </h1>
             <p class="text-gray-300 mb-8 max-w-5xl text-xl font-extralight">
-                Este formulario nos ayuda a entender tu negocio y construir la solución exacta para vos.
-                Es simple. Y puede cambiarlo todo.
+                {t('form.subtitle')}
             </p>
 
             <!-- Step 1 -->
             <div id="step-1" class="flex flex-col h-full">
                 <div class="flex-1">
                     <div class="mb-6">
-                        <span class="text-xl text-white underline underline-offset-4">1. INFORMACIÓN DE CONTACTO</span>
+                        <span class="text-xl text-white underline underline-offset-4">{t('form.step1.title')}</span>
                     </div>
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Nombre Completo"
+                            placeholder={t('form.name.placeholder')}
                             value=""
                             name="nombre"
                             data-input="nombre"
@@ -39,7 +45,7 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Correo Electrónico"
+                            placeholder={t('form.email.placeholder')}
                             value=""
                             name="email"
                             data-input="email"
@@ -55,7 +61,7 @@ import Layout from "../layouts/Layout.astro";
                         <Input
                             type="tel"
                             label=""
-                            placeholder="Número de Teléfono"
+                            placeholder={t('form.phone.placeholder')}
                             value=""
                             countryCode="+506"
                             name="telefono"
@@ -75,7 +81,7 @@ import Layout from "../layouts/Layout.astro";
                         id="btn-next"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        Continuar
+                        {t('form.continue')}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
                             <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
                         </svg>
@@ -87,12 +93,12 @@ import Layout from "../layouts/Layout.astro";
             <div id="step-2" class="hidden flex flex-col h-full">
                 <div class="flex-1">
                     <div class="mb-6">
-                        <span class="text-xl text-white underline underline-offset-4">2. INFORMACIÓN DE TU NEGOCIO</span>
+                        <span class="text-xl text-white underline underline-offset-4">{t('form.step2.title')}</span>
                     </div>
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Nombre de la Empresa"
+                            placeholder={t('form.company.placeholder')}
                             value=""
                             name="empresa"
                             data-input="empresa"
@@ -107,7 +113,7 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Industria / Sector"
+                            placeholder={t('form.industry.placeholder')}
                             value=""
                             name="industria"
                             data-input="industria"
@@ -122,7 +128,7 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Número de Empleados"
+                            placeholder={t('form.employees.placeholder')}
                             value=""
                             name="empleados"
                             data-input="empleados"
@@ -137,7 +143,7 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-4">
                         <Input
                             label=""
-                            placeholder="Cargo / Puesto en la empresa"
+                            placeholder={t('form.position.placeholder')}
                             value=""
                             name="cargo_empresa"
                             data-input="cargo_empresa"
@@ -152,7 +158,7 @@ import Layout from "../layouts/Layout.astro";
                     <div class="mb-2">
                         <Input
                             label=""
-                            placeholder="Website (si aplica)"
+                            placeholder={t('form.website.placeholder')}
                             value=""
                             name="website"
                             data-input="website"
@@ -164,7 +170,7 @@ import Layout from "../layouts/Layout.astro";
                             <span></span>
                         </div>
                     </div>
-                    <div class="text-sm text-gray-400">Pregunta no obligatoria*</div>
+                    <div class="text-sm text-gray-400">{t('form.website.optional')}</div>
                 </div>
                 <div class="flex justify-between btn-container pt-10">
                     <button
@@ -172,14 +178,14 @@ import Layout from "../layouts/Layout.astro";
                         id="btn-prev"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        <span class="mr-2">←</span> Anterior
+                        <span class="mr-2">←</span> {t('form.previous')}
                     </button>
                     <button
                         type="button"
                         id="btn-next-2"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        Continuar
+                        {t('form.continue')}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
                             <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
                         </svg>
@@ -191,35 +197,35 @@ import Layout from "../layouts/Layout.astro";
             <div id="step-3" class="hidden flex flex-col h-full">
                 <div class="flex-1">
                     <div class="mb-6">
-                        <span class="text-xl text-white underline underline-offset-4">3. CAPACIDAD DE INVERSIÓN EN SOFTWARE Y AUTOMATIZACIÓN (ANUAL)</span>
+                        <span class="text-xl text-white underline underline-offset-4">{t('form.step3.title')}</span>
                     </div>
                     <div class="text-gray-300 text-sm mb-6 max-w-5xl font-extralight">
-                        Para asegurarnos de que podemos ofrecerte las soluciones más adecuadas, por favor, indícanos tu rango de inversión anual estimado para software y automatización. Esto nos ayuda a dimensionar el proyecto.
+                        {t('form.investment.description')}
                     </div>
                     <div class="flex flex-col gap-4">
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="<36k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>Menos de $36,000 USD</span>
+                            <span>{t('form.investment.less36k')}</span>
                         </label>
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="36k-60k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>$36,000 – 60,000 USD</span>
+                            <span>{t('form.investment.36k60k')}</span>
                         </label>
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="60k-96k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>$60,001 – 96,000 USD</span>
+                            <span>{t('form.investment.60k96k')}</span>
                         </label>
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="96k-144k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>$96,001 – 144,000 USD</span>
+                            <span>{t('form.investment.96k144k')}</span>
                         </label>
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="144k-240k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>$144,001 – 240,000 USD</span>
+                            <span>{t('form.investment.144k240k')}</span>
                         </label>
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value=">240k" class="custom-radio mr-5" data-input="inversion" />
-                            <span>Más de $240,000 USD</span>
+                            <span>{t('form.investment.more240k')}</span>
                         </label>
                     </div>
                     <div id="error-inversion" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
@@ -235,14 +241,14 @@ import Layout from "../layouts/Layout.astro";
                         id="btn-prev-3"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        <span class="mr-2">←</span> Anterior
+                        <span class="mr-2">←</span> {t('form.previous')}
                     </button>
                     <button
                         type="submit"
                         id="btn-submit"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        Continuar
+                        {t('form.continue')}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
                             <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
                         </svg>
@@ -254,13 +260,13 @@ import Layout from "../layouts/Layout.astro";
             <div id="step-4" class="hidden flex flex-col h-full">
                 <div class="flex-1">
                     <div class="mb-6">
-                        <span class="text-xl text-white underline underline-offset-4">4. DETALLES DE DIGITALIZACIÓN ACTUAL</span>
+                        <span class="text-xl text-white underline underline-offset-4">{t('form.step4.title')}</span>
                     </div>
                     <div class="text-gray-300 text-md font-extralight mb-6 max-w-5xl">
-                        Queremos entender tu situación actual para saber cómo podemos potenciar tu negocio. Por favor, responde de forma breve y honesta
+                        {t('form.digitalization.description')}
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">1. Describe el mayor desafío que enfrentas hoy en día con la gestión de tu información o procesos internos:</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">{t('form.challenge.question')}</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="desafio" data-input="desafio" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
@@ -274,7 +280,7 @@ import Layout from "../layouts/Layout.astro";
                         </div>
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">2. ¿Qué herramientas digitales (además de correo electrónico básico) utilizas actualmente en tu negocio para la gestión diaria (ej. hojas de cálculo, CRM, software de contabilidad, herramientas de comunicación)?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">{t('form.tools.question')}</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="herramientas" data-input="herramientas" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
@@ -288,7 +294,7 @@ import Layout from "../layouts/Layout.astro";
                         </div>
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">3. Si pudieras automatizar una tarea repetitiva en tu negocio hoy mismo, ¿cuál sería y por qué?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">{t('form.automate.question')}</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="automatizar" data-input="automatizar" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
@@ -308,14 +314,14 @@ import Layout from "../layouts/Layout.astro";
                         id="btn-prev-4"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        <span class="mr-2">←</span> Anterior
+                        <span class="mr-2">←</span> {t('form.previous')}
                     </button>
                     <button
                         type="submit"
                         id="btn-submit-4"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        Continuar
+                        {t('form.continue')}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
                             <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
                         </svg>
@@ -327,13 +333,13 @@ import Layout from "../layouts/Layout.astro";
             <div id="step-5" class="hidden flex flex-col h-full">
                 <div class="flex-1">
                     <div class="mb-6">
-                        <span class="text-xl text-white underline underline-offset-4">5. MOTIVACIÓN PARA LA TRANSFORMACIÓN DIGITAL</span>
+                        <span class="text-xl text-white underline underline-offset-4">{t('form.step5.title')}</span>
                     </div>
                     <div class="text-gray-300 text-md font-extralight mb-6 max-w-5xl">
-                        Comprender tu visión es clave para nosotros. Por favor, comparte tu principal motivación para buscar la transformación digital en tu empresa
+                        {t('form.motivation.description')}
                     </div>
                     <div class="mb-8">
-                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">¿Qué te impulsa a buscar la transformación digital en este momento? ¿Qué problema(s) esperas resolver o qué oportunidad(es) esperas aprovechar al digitalizar tu negocio?</div>
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">{t('form.motivation.question')}</div>
                         <div class="relative">
                             <textarea maxlength="200" rows="3" name="motivacion" data-input="motivacion" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
                             <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
@@ -353,14 +359,14 @@ import Layout from "../layouts/Layout.astro";
                         id="btn-prev-5"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        <span class="mr-2">←</span> Anterior
+                        <span class="mr-2">←</span> {t('form.previous')}
                     </button>
                     <button
                         type="submit"
                         id="btn-submit-final"
                         class="flex items-center gap-2 border border-white rounded-full px-6 sm:px-8 py-2 text-white hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white transition text-sm sm:text-base"
                     >
-                        Enviar
+                        {t('form.send')}
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
                             <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
                         </svg>
@@ -407,12 +413,60 @@ import Layout from "../layouts/Layout.astro";
     };
 
     // Funciones de validación
-    function showError(fieldName: string, message: string) {
+    function showError(fieldName: string, messageKey: string) {
         const errorElement = document.getElementById(`error-${fieldName}`);
         if (errorElement) {
             const spanElement = errorElement.querySelector('span');
             if (spanElement) {
-                spanElement.textContent = message;
+                // Get the language from the URL or default to 'es'
+                const lang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+                const errorMessages: Record<string, Record<string, string>> = {
+                    'es': {
+                        'name.required': 'El nombre es obligatorio',
+                        'name.min': 'El nombre debe tener al menos 2 caracteres',
+                        'email.required': 'El correo electrónico es obligatorio',
+                        'email.invalid': 'Ingresa un correo electrónico válido',
+                        'phone.required': 'El número de teléfono es obligatorio',
+                        'phone.invalid': 'Ingresa un número válido',
+                        'company.required': 'El nombre de la empresa es obligatorio',
+                        'industry.required': 'La industria es obligatoria',
+                        'employees.required': 'El número de empleados es obligatorio',
+                        'position.required': 'El cargo en la empresa es obligatorio',
+                        'website.invalid': 'Ingresa una URL válida (debe comenzar con http:// o https://)',
+                        'investment.required': 'Debes seleccionar un rango de inversión',
+                        'challenge.required': 'Debes describir el mayor desafío que enfrentas',
+                        'challenge.min': 'La descripción debe tener al menos 10 caracteres',
+                        'tools.required': 'Debes describir las herramientas digitales que utilizas',
+                        'tools.min': 'La descripción debe tener al menos 10 caracteres',
+                        'automate.required': 'Debes describir qué tarea te gustaría automatizar',
+                        'automate.min': 'La descripción debe tener al menos 10 caracteres',
+                        'motivation.required': 'Debes describir tu motivación para la transformación digital',
+                        'motivation.min': 'La descripción debe tener al menos 10 caracteres'
+                    },
+                    'en': {
+                        'name.required': 'Name is required',
+                        'name.min': 'Name must have at least 2 characters',
+                        'email.required': 'Email address is required',
+                        'email.invalid': 'Please enter a valid email address',
+                        'phone.required': 'Phone number is required',
+                        'phone.invalid': 'Please enter a valid number',
+                        'company.required': 'Company name is required',
+                        'industry.required': 'Industry is required',
+                        'employees.required': 'Number of employees is required',
+                        'position.required': 'Position in the company is required',
+                        'website.invalid': 'Please enter a valid URL (must start with http:// or https://)',
+                        'investment.required': 'You must select an investment range',
+                        'challenge.required': 'You must describe the biggest challenge you face',
+                        'challenge.min': 'Description must have at least 10 characters',
+                        'tools.required': 'You must describe the digital tools you use',
+                        'tools.min': 'Description must have at least 10 characters',
+                        'automate.required': 'You must describe what task you would like to automate',
+                        'automate.min': 'Description must have at least 10 characters',
+                        'motivation.required': 'You must describe your motivation for digital transformation',
+                        'motivation.min': 'Description must have at least 10 characters'
+                    }
+                };
+                spanElement.textContent = (errorMessages[lang] as any)[messageKey] || messageKey;
             }
             errorElement.classList.remove('hidden');
         }
@@ -642,10 +696,10 @@ import Layout from "../layouts/Layout.astro";
         
         // Validar nombre
         if (!formData.nombre.trim()) {
-            showError('nombre', 'El nombre es obligatorio');
+            showError('nombre', 'name.required');
             isValid = false;
         } else if (formData.nombre.trim().length < 2) {
-            showError('nombre', 'El nombre debe tener al menos 2 caracteres');
+            showError('nombre', 'name.min');
             isValid = false;
         } else {
             hideError('nombre');
@@ -653,10 +707,10 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar email
         if (!formData.email.trim()) {
-            showError('email', 'El correo electrónico es obligatorio');
+            showError('email', 'email.required');
             isValid = false;
         } else if (!validateEmail(formData.email)) {
-            showError('email', 'Ingresa un correo electrónico válido');
+            showError('email', 'email.invalid');
             isValid = false;
         } else {
             hideError('email');
@@ -664,12 +718,10 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar teléfono
         if (!formData.telefono.trim()) {
-            showError('telefono', 'El número de teléfono es obligatorio');
+            showError('telefono', 'phone.required');
             isValid = false;
         } else if (!validatePhone(formData.telefono)) {
-            const countryIso = getCountryIsoFromDialCode(formData.pais);
-            const validationInfo = getPhoneValidationInfo(countryIso);
-            showError('telefono', `Ingresa un número válido: ${validationInfo.description}`);
+            showError('telefono', 'phone.invalid');
             isValid = false;
         } else {
             hideError('telefono');
@@ -683,7 +735,7 @@ import Layout from "../layouts/Layout.astro";
         
         // Validar empresa
         if (!formData.empresa.trim()) {
-            showError('empresa', 'El nombre de la empresa es obligatorio');
+            showError('empresa', 'company.required');
             isValid = false;
         } else {
             hideError('empresa');
@@ -691,7 +743,7 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar industria
         if (!formData.industria.trim()) {
-            showError('industria', 'La industria es obligatoria');
+            showError('industria', 'industry.required');
             isValid = false;
         } else {
             hideError('industria');
@@ -699,7 +751,7 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar empleados
         if (!formData.empleados.trim()) {
-            showError('empleados', 'El número de empleados es obligatorio');
+            showError('empleados', 'employees.required');
             isValid = false;
         } else {
             hideError('empleados');
@@ -707,7 +759,7 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar cargo empresa
         if (!formData.cargo_empresa.trim()) {
-            showError('cargo_empresa', 'El cargo en la empresa es obligatorio');
+            showError('cargo_empresa', 'position.required');
             isValid = false;
         } else {
             hideError('cargo_empresa');
@@ -715,7 +767,7 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar website (opcional)
         if (formData.website && !validateWebsite(formData.website)) {
-            showError('website', 'Ingresa una URL válida (debe comenzar con http:// o https://)');
+            showError('website', 'website.invalid');
             isValid = false;
         } else {
             hideError('website');
@@ -726,7 +778,7 @@ import Layout from "../layouts/Layout.astro";
 
     function validateStep3(): boolean {
         if (!formData.inversion) {
-            showError('inversion', 'Debes seleccionar un rango de inversión');
+            showError('inversion', 'investment.required');
             return false;
         } else {
             hideError('inversion');
@@ -739,10 +791,10 @@ import Layout from "../layouts/Layout.astro";
         
         // Validar desafío
         if (!formData.desafio.trim()) {
-            showError('desafio', 'Debes describir el mayor desafío que enfrentas');
+            showError('desafio', 'challenge.required');
             isValid = false;
         } else if (formData.desafio.trim().length < 10) {
-            showError('desafio', 'La descripción debe tener al menos 10 caracteres');
+            showError('desafio', 'challenge.min');
             isValid = false;
         } else {
             hideError('desafio');
@@ -750,10 +802,10 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar herramientas
         if (!formData.herramientas.trim()) {
-            showError('herramientas', 'Debes describir las herramientas digitales que utilizas');
+            showError('herramientas', 'tools.required');
             isValid = false;
         } else if (formData.herramientas.trim().length < 10) {
-            showError('herramientas', 'La descripción debe tener al menos 10 caracteres');
+            showError('herramientas', 'tools.min');
             isValid = false;
         } else {
             hideError('herramientas');
@@ -761,10 +813,10 @@ import Layout from "../layouts/Layout.astro";
 
         // Validar automatizar
         if (!formData.automatizar.trim()) {
-            showError('automatizar', 'Debes describir qué tarea te gustaría automatizar');
+            showError('automatizar', 'automate.required');
             isValid = false;
         } else if (formData.automatizar.trim().length < 10) {
-            showError('automatizar', 'La descripción debe tener al menos 10 caracteres');
+            showError('automatizar', 'automate.min');
             isValid = false;
         } else {
             hideError('automatizar');
@@ -775,10 +827,10 @@ import Layout from "../layouts/Layout.astro";
 
     function validateStep5(): boolean {
         if (!formData.motivacion.trim()) {
-            showError('motivacion', 'Debes describir tu motivación para la transformación digital');
+            showError('motivacion', 'motivation.required');
             return false;
         } else if (formData.motivacion.trim().length < 10) {
-            showError('motivacion', 'La descripción debe tener al menos 10 caracteres');
+            showError('motivacion', 'motivation.min');
             return false;
         } else {
             hideError('motivacion');
@@ -933,7 +985,9 @@ import Layout from "../layouts/Layout.astro";
             const submitBtn = document.getElementById('btn-submit-final') as HTMLButtonElement;
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = 'Enviando... <span class="ml-2">⏳</span>';
+                const lang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+                const sendingText = lang === 'en' ? 'Sending...' : 'Enviando...';
+                submitBtn.innerHTML = `${sendingText} <span class="ml-2">⏳</span>`;
             }
 
             // Mostrar datos en consola (opcional para debug)
@@ -945,13 +999,18 @@ import Layout from "../layouts/Layout.astro";
             
             if (exitoso) {
                 // Redirigir a página de agradecimiento
-                window.location.href = '/gracias';
+                const lang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+                const thanksUrl = lang === 'en' ? '/en/gracias' : '/gracias';
+                window.location.href = thanksUrl;
             } else {
                 // Mostrar error y reactivar botón
-                alert('❌ Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+                const lang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+                const errorMessage = lang === 'en' ? '❌ There was an error sending the form. Please try again.' : '❌ Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.';
+                const sendText = lang === 'en' ? 'Send' : 'Enviar';
+                alert(errorMessage);
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Enviar <span class="ml-2">→</span>';
+                    submitBtn.innerHTML = `${sendText} <span class="ml-2">→</span>`;
                 }
             }
         }

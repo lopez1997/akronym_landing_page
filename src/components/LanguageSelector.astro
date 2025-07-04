@@ -1,0 +1,29 @@
+---
+import { getRelativeLocaleUrl } from '../i18n/utils';
+
+export interface Props {
+  lang: 'es' | 'en';
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const otherLang = lang === 'es' ? 'en' : 'es';
+const otherLangUrl = getRelativeLocaleUrl(otherLang, currentPath);
+const otherLangLabel = lang === 'es' ? 'EN' : 'ES';
+
+---
+
+<div class="language-selector">
+  <a href={otherLangUrl} class="text-neutral-100 text-sm font-normal tracking-wider hover:opacity-70 transition-opacity">
+    {otherLangLabel}
+  </a>
+</div>
+
+<style>
+  .language-selector {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+  }
+</style> 
