@@ -23,31 +23,12 @@
 		<!-- @ts-ignore -->
 		<link rel="stylesheet" href="/swiper/swiper-bundle.min.css" is:inline />
 
-		<!-- Tu CSS global -->
-		<link rel="stylesheet" href="/src/styles/global.css" />
-
 		<!-- Swiper JS Bundle -->
 		<!-- @ts-ignore -->
 		<script src="/swiper/swiper-bundle.min.js" is:inline></script>
 		
 		<!-- Tu script global, con defer -->
-		<script src="/src/scripts/global.js" defer></script>
-		
-		<!-- Debug script to check Swiper loading -->
-		<script>
-			window.addEventListener('load', function() {
-				console.log('=== SWIPER DEBUG ===');
-				// @ts-ignore
-				console.log('Swiper available:', typeof Swiper !== 'undefined');
-				// @ts-ignore
-				console.log('Swiper version:', typeof Swiper !== 'undefined' ? Swiper.version : 'N/A');
-				// @ts-ignore
-				console.log('Swiper modules:', typeof Swiper !== 'undefined' ? Object.keys(Swiper) : 'N/A');
-				console.log('Main swiper element:', document.querySelector('.swiper-main'));
-				console.log('Aliados swiper element:', document.querySelector('.swiper-aliados'));
-				console.log('===================');
-			});
-		</script>
+		<script src="/global.js" defer></script>
 	</head>
 	<body id="body" class="bg-black">
 		<slot />

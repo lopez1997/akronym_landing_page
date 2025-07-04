@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { useTranslations } from '../i18n/ui';
+import '../styles/global.css';
 
 // CSS is imported in Layout, so we don't need to import it here when using Layout
 
@@ -49,6 +50,8 @@ import david from '../assets/testimonial/david.png';
 import michael from '../assets/testimonial/michael.png';
 import fatou from '../assets/testimonial/fatou.png';
 import marilis from '../assets/testimonial/marilis_llobet.png';
+import spain from '../assets/spain.png';
+import usa from '../assets/usa.png';
 
 ---
 
@@ -71,9 +74,10 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
       <div>
         <a href={lang === 'en' ? '/en/form' : '/form'} class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">{t('nav.contact')}</a>
       </div>
-      <div>
-        <a href={lang === 'es' ? '/en' : '/'} class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity">
+      <div class="flex items-center gap-2">
+        <a href={lang === 'es' ? '/en' : '/'} class="text-neutral-100 text-base font-normal tracking-wider hover:opacity-70 transition-opacity flex items-center gap-2">
           {lang === 'es' ? 'EN' : 'ES'}
+          <img src={lang === 'es' ? usa.src : spain.src} alt={lang === 'es' ? 'US Flag' : 'Spanish Flag'} class="w-5 h-5 ml-1" />
         </a>
       </div>
     </div>
@@ -95,6 +99,10 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
         </svg>
       </button>
       <a href={lang === 'en' ? '/en/form' : '/form'} class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity">{t('nav.contact')}</a>
+      <a href={lang === 'es' ? '/en' : '/'} class="text-neutral-100 text-2xl font-normal tracking-wider hover:opacity-70 transition-opacity flex items-center gap-3">
+        {lang === 'es' ? 'EN' : 'ES'}
+        <img src={lang === 'es' ? usa.src : spain.src} alt={lang === 'es' ? 'US Flag' : 'Spanish Flag'} class="w-6 h-6" />
+      </a>
     </div>
   </div>
   
