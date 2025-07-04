@@ -338,29 +338,29 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
   <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 px-4">
     <!-- Columna derecha: nombres y descripciones (primera en móvil) -->
     <div class="flex-1 flex flex-col justify-start order-1 md:order-2">
-      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="becky">
+      <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="becky">
         <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">BECKY VANNES</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">Productions Manager at ACP Publishing</div>
-      </div>
-      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="david">
+      </a>
+      <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="david">
         <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">DR. DAVID KUBES</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">International Lawyer</div>
-      </div>
-      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="michael">
+      </a>
+      <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="michael">
         <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">MICHAEL SHANER</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">CEO of The Flow Group & President of Shantou Media</div>
-      </div>
-      <div class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="fatou">
+      </a>
+      <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="fatou">
         <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">FATOU SOW</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">President of Slingshots Music and Managing Director of Shantou Media</div>
-      </div>
-      <div class="testimonial-name md:mb-8 cursor-pointer" data-testimonial="marilis">
+      </a>
+      <a href="#testimonial-content" class="testimonial-name md:mb-8 cursor-pointer" data-testimonial="marilis">
         <h4 class="fade-in text-2xl md:text-6xl leading-tight text-neutral-600">MARILIS LLOBET</h4>
         <div class="fade-in text-neutral-600 text-md md:text-lg mt-2">CEO of Ventas Cognitivas</div>
-      </div>
+      </a>
     </div>
     <!-- Columna izquierda: imagen y testimonio (segunda en móvil) -->
-    <div class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1">
+    <div id="testimonial-content" class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1">
       <div class="testimonial-content">
         <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded mb-8 max-w-xs" />
         <div id="testimonial-position" class="text-neutral-400 text-sm mb-4 max-w-xs">Productions Manager at ACP Publishing</div>
@@ -698,7 +698,7 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
     setInterval(changeText, 1500);
   }
 
-  // Agregar event listeners para hover
+  // Agregar event listeners para hover y click
   document.addEventListener('DOMContentLoaded', function() {
     const testimonialNames = document.querySelectorAll('.testimonial-name');
     
@@ -706,8 +706,21 @@ import marilis from '../assets/testimonial/marilis_llobet.png';
       const testimonialKey = nameElement.getAttribute('data-testimonial');
       
       if (testimonialKey) {
+        // Evento hover para cambiar testimonio
         nameElement.addEventListener('mouseenter', function() {
           changeTestimonial(testimonialKey);
+        });
+        
+        // Evento click para scroll suave al contenido
+        nameElement.addEventListener('click', function(e) {
+          e.preventDefault();
+          const testimonialContent = document.getElementById('testimonial-content');
+          if (testimonialContent) {
+            testimonialContent.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }
         });
       }
     });
