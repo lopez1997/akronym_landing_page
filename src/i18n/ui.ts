@@ -103,6 +103,7 @@ export const ui = {
     'thanks.title': 'GRACIAS POR DAR<br />EL PRIMER PASO',
     'thanks.subtitle': 'Nos pondremos en contacto muy pronto.<br />Prepárate: lo que viene puede transformar tu negocio.',
     'thanks.back': 'Regresar',
+    'testimonials.title': 'Lo que pasa cuando trabajamos juntos',
   },
   en: {
     'nav.contact': 'CONTACT',
@@ -201,6 +202,7 @@ export const ui = {
     'thanks.title': 'THANK YOU FOR TAKING<br />THE FIRST STEP',
     'thanks.subtitle': 'We will contact you very soon.<br />Get ready: what\'s coming can transform your business.',
     'thanks.back': 'Go back',
+    'testimonials.title': 'What happens when we work together',
   },
 } as const;
 
