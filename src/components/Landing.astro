@@ -52,6 +52,8 @@ import fatou from '../assets/testimonial/fatou.png';
 import marilis from '../assets/testimonial/marilis_llobet.png';
 import spain from '../assets/spain.png';
 import usa from '../assets/usa.png';
+import leftArrow from '../assets/left.svg';
+import rightArrow from '../assets/right.svg';
 
 ---
 
@@ -115,7 +117,7 @@ import usa from '../assets/usa.png';
       {t('hero.subtitle')}
     </div>
 
-    <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="mt-10 relative w-[200px] sm:w-[250px] md:w-[320px] h-10 sm:h-12 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-xs sm:text-sm font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
+    <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="mt-10 relative w-[200px] sm:w-[250px] md:w-[420px] h-10 sm:h-12 md:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-xs sm:text-sm md:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
       {t('hero.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
@@ -134,7 +136,7 @@ import usa from '../assets/usa.png';
     <button
       onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`}
       class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-      {t('hero.cta')}
+      {t('more.clear.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>
@@ -239,13 +241,13 @@ import usa from '../assets/usa.png';
   </button>
 </section>
 
-<!-- Nueva sección: CREEN EN NEGOCIOS QUE PIENSAN DISTINTO -->
+<!-- Nueva sección: CREEMOS EN NEGOCIOS QUE PIENSAN DISTINTO -->
 <section class="w-full min-h-[70vh] bg-black flex flex-col items-center justify-center py-24 px-4">
   <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-10 text-center max-w-7xl">
     {t('believe.title')}
   </h2>
   <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    {t('hero.cta')}
+    {t('believe.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -284,7 +286,7 @@ import usa from '../assets/usa.png';
     {t('what.we.do.description')}
   </div>
   <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    {t('hero.cta')}
+    {t('what.we.do.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -354,7 +356,7 @@ import usa from '../assets/usa.png';
 <!-- Nueva sección: TESTIMONIOS -->
 <section class="w-full bg-black py-24 flex flex-col items-center justify-center px-4">
   <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-16 text-center tracking-wide">{t('testimonials.title')}</h2>
-  <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 px-4">
+  <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12">
     <!-- Columna derecha: nombres y descripciones (primera en móvil) -->
     <div class="flex-1 flex flex-col justify-start order-1 md:order-2">
       <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="becky">
@@ -378,28 +380,31 @@ import usa from '../assets/usa.png';
         <div class="fade-in text-neutral-600 text-md md:text-lg mt-2">CEO of Ventas Cognitivas</div>
       </a>
     </div>
+
     <!-- Columna izquierda: imagen y testimonio (segunda en móvil) -->
     <div id="testimonial-content" class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1 relative">
-      <div class="testimonial-content">
-        <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded mb-8 max-w-xs" />
+      <div class="testimonial-content w-[90%] flex flex-col items-center justify-center relative">
+        <!-- Flecha izquierda (solo móvil) -->
+        <button id="prev-testimonial" class="absolute -left-8 top-1/2 transform -translate-y-1/2 z-10 text-white p-2 rounded-full md:hidden">
+          <img src={leftArrow.src} alt="Previous" class="w-5 h-5" />
+        </button>
+        
+        <!-- Contenedor de imagen -->
+        <div class="flex items-center justify-center mb-8 md:mb-8">
+          <!-- Imagen del testimonio -->
+          <img id="testimonial-image" src={becky.src} alt="Becky Vannes" class="rounded w-full sm:w-[250px] md:max-w-xs" />
+        </div>
+        
+        <!-- Flecha derecha (solo móvil) -->
+        <button id="next-testimonial" class="absolute -right-8 top-1/2 transform -translate-y-1/2 z-10 text-white p-2 rounded-full md:hidden">
+          <img src={rightArrow.src} alt="Next" class="w-5 h-5" />
+        </button>
+        
+        <h4 id="testimonial-name" class="text-neutral-100 mb-2 text-xl max-w-xs">Becky Vannes</h4>
         <div id="testimonial-position" class="text-neutral-400 text-sm mb-4 max-w-xs">Productions Manager at ACP Publishing</div>
         <p id="testimonial-text" class="fade-in text-neutral-100 text-base md:text-lg max-w-xs text-justify">
           Thanks to Akronym's expertise and dedication, our online presence has flourished, and our sales of self-help books have soared. We wholeheartedly recommend Akronym to anyone looking for top-notch website development services. They are a true asset to our business!
         </p>
-        
-        <!-- Flechas de navegación móvil -->
-        <div class="flex justify-center items-center gap-4 mt-6 md:hidden">
-          <button id="prev-testimonial" class="bg-black/20 text-white p-2 rounded-full transition-all duration-200">
-            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.3 9.50001L7.1 4.70001M2.3 9.50001L7.1 14.3M2.3 9.50001H17.3" stroke="currentColor"/>
-            </svg>
-          </button>
-          <button id="next-testimonial" class="bg-black/20 text-white p-2 rounded-full transition-all duration-200">
-            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
-            </svg>
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -519,7 +524,7 @@ import usa from '../assets/usa.png';
   </div>
   
   <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-    {t('hero.cta')}
+    {t('allies.cta')}
     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
       <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
     </svg>
@@ -534,11 +539,11 @@ import usa from '../assets/usa.png';
     <h2 class="fade-in text-4xl md:text-7xl lg:text-8xl font-normal text-neutral-100 text-center mb-16 leading-tight max-w-4xl mb-200">
       {t('perspective.title')}
     </h2>
-    <p class="fade-in text-md text-neutral-100 text-center mb-10 max-w-7xl">
+    <p class="fade-in text-lg text-neutral-100 text-center mb-10 max-w-7xl">
       {t('perspective.description')}
     </p>
     <button onclick={`window.location.href = '${lang === 'en' ? '/en/form' : '/form'}'`} class="relative w-[250px] sm:w-[350px] md:w-[420px] h-12 sm:h-14 border border-neutral-300 rounded-full flex items-center justify-center bg-transparent text-neutral-100 text-sm sm:text-lg font-normal transition hover:bg-white hover:text-[#191B1C] active:bg-[#191B1C] active:text-white">
-      {t('hero.cta')}
+      {t('perspective.cta')}
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline w-5 h-5 ml-3 arrow-svg">
         <path d="M16.7 9.50001L11.9 4.70001M16.7 9.50001L11.9 14.3M16.7 9.50001H1.69995" stroke="currentColor"/>
       </svg>

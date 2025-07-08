@@ -15,18 +15,20 @@ const t = useTranslations(lang);
 <Layout>
     <div class="h-screen flex flex-col bg-black p-10">
         <form id="wizard-form" class="w-full max-w-5xl mx-auto flex flex-col h-full justify-between" autocomplete="off">
-            <h1 class="text-4xl md:text-5xl font-light text-white mb-6" set:html={t('form.title')}>
+            <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
+                {t('form.title')}
             </h1>
-            <p class="text-gray-300 mb-8 max-w-5xl text-xl font-extralight">
-                {t('form.subtitle')}
-            </p>
 
             <!-- Step 1 -->
             <div id="step-1" class="flex flex-col h-full">
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight">
+                    {t('form.subtitle')}
+                </p>
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step1.title')}</span>
                     </div>
+                    <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step1.subtitle')}></p>
                     <div class="mb-4">
                         <Input
                             label=""
@@ -91,6 +93,7 @@ const t = useTranslations(lang);
 
             <!-- Step 2 -->
             <div id="step-2" class="hidden flex flex-col h-full">
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step2.subtitle')}></p>
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step2.title')}</span>
@@ -195,6 +198,8 @@ const t = useTranslations(lang);
 
             <!-- Step 3 -->
             <div id="step-3" class="hidden flex flex-col h-full">
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step3.title')}</span>
@@ -202,6 +207,7 @@ const t = useTranslations(lang);
                     <div class="text-gray-300 text-sm mb-6 max-w-5xl font-extralight">
                         {t('form.investment.description')}
                     </div>
+                    <p class="text-white mb-5 max-w-5xl text-sm" set:html={t('form.investment.question')}></p>
                     <div class="flex flex-col gap-4">
                         <label class="flex items-center gap-3 text-gray-400 cursor-pointer font-extralight">
                             <input type="radio" name="inversion" value="<36k" class="custom-radio mr-5" data-input="inversion" />
@@ -258,6 +264,8 @@ const t = useTranslations(lang);
 
             <!-- Step 4 -->
             <div id="step-4" class="hidden flex flex-col h-full">
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step4.title')}</span>
@@ -331,6 +339,8 @@ const t = useTranslations(lang);
            
             <!-- Step 5 -->
             <div id="step-5" class="hidden flex flex-col h-full">
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step5.title')}</span>
@@ -346,6 +356,20 @@ const t = useTranslations(lang);
                         </div>
                         <div class="text-xs text-gray-400 mt-1"><span id="count-motivacion">0</span>/200</div>
                         <div id="error-motivacion" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <div class="text-white mb-2 text-gray-400 text-lg font-extralight">{t('form.motivation.question2')}</div>
+                        <div class="relative">
+                            <textarea maxlength="200" rows="3" name="motivacion2" data-input="motivacion2" class="w-full bg-transparent border-b border-gray-400 text-white px-0 py-2 resize-none focus:outline-none focus:border-white placeholder-gray-400"></textarea>
+                            <span class="absolute right-0 bottom-0 text-gray-400 text-xs">//</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1"><span id="count-motivacion2">0</span>/200</div>
+                        <div id="error-motivacion2" class="text-red-500 text-sm mt-2 font-extralight hidden flex items-center gap-2">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5.33333V8M8 10.6667H8.00667M2 8C2 8.78793 2.15519 9.56815 2.45672 10.2961C2.75825 11.0241 3.20021 11.6855 3.75736 12.2426C4.31451 12.7998 4.97595 13.2417 5.7039 13.5433C6.43185 13.8448 7.21207 14 8 14C8.78793 14 9.56815 13.8448 10.2961 13.5433C11.0241 13.2417 11.6855 12.7998 12.2426 12.2426C12.7998 11.6855 13.2417 11.0241 13.5433 10.2961C13.8448 9.56815 14 8.78793 14 8C14 6.4087 13.3679 4.88258 12.2426 3.75736C11.1174 2.63214 9.5913 2 8 2C6.4087 2 4.88258 2.63214 3.75736 3.75736C2.63214 4.88258 2 6.4087 2 8Z" stroke="#ED8296" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -410,6 +434,7 @@ const t = useTranslations(lang);
         herramientas: "",
         automatizar: "",
         motivacion: "",
+        motivacion2: "",
     };
 
     // Funciones de validación
@@ -441,7 +466,9 @@ const t = useTranslations(lang);
                         'automate.required': 'Debes describir qué tarea te gustaría automatizar',
                         'automate.min': 'La descripción debe tener al menos 10 caracteres',
                         'motivation.required': 'Debes describir tu motivación para la transformación digital',
-                        'motivation.min': 'La descripción debe tener al menos 10 caracteres'
+                        'motivation.min': 'La descripción debe tener al menos 10 caracteres',
+                        'motivation2.required': 'Debes describir el problema que querés resolver o la oportunidad que querés capturar',
+                        'motivation2.min': 'La descripción debe tener al menos 10 caracteres'
                     },
                     'en': {
                         'name.required': 'Name is required',
@@ -463,7 +490,9 @@ const t = useTranslations(lang);
                         'automate.required': 'You must describe what task you would like to automate',
                         'automate.min': 'Description must have at least 10 characters',
                         'motivation.required': 'You must describe your motivation for digital transformation',
-                        'motivation.min': 'Description must have at least 10 characters'
+                        'motivation.min': 'Description must have at least 10 characters',
+                        'motivation2.required': 'You must describe the problem you want to solve or the opportunity you want to capture',
+                        'motivation2.min': 'Description must have at least 10 characters'
                     }
                 };
                 spanElement.textContent = (errorMessages[lang] as any)[messageKey] || messageKey;
@@ -826,16 +855,31 @@ const t = useTranslations(lang);
     }
 
     function validateStep5(): boolean {
+        let isValid = true;
+
+        // Validar motivacion
         if (!formData.motivacion.trim()) {
             showError('motivacion', 'motivation.required');
-            return false;
+            isValid = false;
         } else if (formData.motivacion.trim().length < 10) {
             showError('motivacion', 'motivation.min');
-            return false;
+            isValid = false;
         } else {
             hideError('motivacion');
-            return true;
         }
+
+        // Validar motivacion2 
+        if (!formData.motivacion2.trim()) {
+            showError('motivacion2', 'motivation.required');
+            isValid = false;
+        } else if (formData.motivacion2.trim().length < 10) {
+            showError('motivacion2', 'motivation.min');
+            isValid = false;
+        } else {
+            hideError('motivacion2');
+        }
+
+        return isValid;
     }
 
     // Manejar eventos de input personalizados
@@ -959,7 +1003,8 @@ const t = useTranslations(lang);
                     desafio: datos.desafio,
                     herramientas: datos.herramientas,
                     automatizar: datos.automatizar,
-                    motivacion: datos.motivacion
+                    motivacion: datos.motivacion,
+                    motivacion2: datos.motivacion2
                 })
             });
 
