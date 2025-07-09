@@ -6,7 +6,7 @@ if (typeof magicMouse !== 'undefined') {
 	magicMouse({
 		"hoverEffect": "circle-move",
 		"hoverItemMove": false,
-		"defaultCursor": false,
+		"defaultCursor": true,
 		"outerWidth": 50,
 		"outerHeight": 50
 	});

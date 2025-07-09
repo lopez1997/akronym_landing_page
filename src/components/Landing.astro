@@ -400,7 +400,7 @@ import rightArrow from '../assets/right.svg';
           <img src={rightArrow.src} alt="Next" class="w-5 h-5" />
         </button>
         
-        <h4 id="testimonial-name" class="text-neutral-100 mb-2 text-xl max-w-xs">Becky Vannes</h4>
+        <h4 id="testimonial-name" class="text-neutral-100 mb-2 text-xl max-w-xs md:hidden">Becky Vannes</h4>
         <div id="testimonial-position" class="text-neutral-400 text-sm mb-4 max-w-xs">Productions Manager at ACP Publishing</div>
         <p id="testimonial-text" class="fade-in text-neutral-100 text-base md:text-lg max-w-xs text-justify">
           Thanks to Akronym's expertise and dedication, our online presence has flourished, and our sales of self-help books have soared. We wholeheartedly recommend Akronym to anyone looking for top-notch website development services. They are a true asset to our business!
@@ -680,12 +680,17 @@ import rightArrow from '../assets/right.svg';
     if (!testimonial) return;
 
     const imageElement = document.getElementById('testimonial-image');
+    const nameElement = document.getElementById('testimonial-name');
     const positionElement = document.getElementById('testimonial-position');
     const textElement = document.getElementById('testimonial-text');
 
     if (imageElement) {
       imageElement.src = testimonialImages[testimonial.imageKey];
       imageElement.alt = testimonial.name;
+    }
+
+    if (nameElement) {
+      nameElement.textContent = testimonial.name;
     }
 
     if (positionElement) {
