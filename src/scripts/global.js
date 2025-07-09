@@ -4,6 +4,7 @@
 // Wait for magicMouse to be available
 if (typeof magicMouse !== 'undefined') {
 	magicMouse({
+		"outerStyle": "circle",
 		"hoverEffect": "circle-move",
 		"hoverItemMove": false,
 		"defaultCursor": true,
