@@ -695,6 +695,45 @@ import rightArrow from '../assets/right.svg';
     if (textElement) {
       textElement.textContent = testimonial.text;
     }
+
+    // Actualizar estilos de los nombres
+    updateTestimonialStyles(testimonialKey);
+    
+    // Actualizar el índice actual para las flechas de navegación
+    updateCurrentIndex(testimonialKey);
+  }
+
+  // Función para actualizar estilos de los nombres de testimonios
+  function updateTestimonialStyles(activeKey) {
+    const testimonialNames = document.querySelectorAll('.testimonial-name');
+    
+    testimonialNames.forEach(nameElement => {
+      const testimonialKey = nameElement.getAttribute('data-testimonial');
+      const nameTitle = nameElement.querySelector('h4');
+      const namePosition = nameElement.querySelector('div');
+      
+      if (testimonialKey === activeKey) {
+        // Estilo activo: texto blanco
+        if (nameTitle) {
+          nameTitle.classList.remove('text-neutral-600');
+          nameTitle.classList.add('text-neutral-100');
+        }
+        if (namePosition) {
+          namePosition.classList.remove('text-neutral-500', 'text-neutral-600');
+          namePosition.classList.add('text-neutral-300');
+        }
+      } else {
+        // Estilo inactivo: texto gris
+        if (nameTitle) {
+          nameTitle.classList.remove('text-neutral-100');
+          nameTitle.classList.add('text-neutral-600');
+        }
+        if (namePosition) {
+          namePosition.classList.remove('text-neutral-300');
+          namePosition.classList.add('text-neutral-500');
+        }
+      }
+    });
   }
 
   // Función para navegar al testimonio anterior
@@ -709,6 +748,14 @@ import rightArrow from '../assets/right.svg';
     currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialOrder.length;
     const testimonialKey = testimonialOrder[currentTestimonialIndex];
     changeTestimonial(testimonialKey);
+  }
+
+  // Función para actualizar el índice actual basado en la clave del testimonio
+  function updateCurrentIndex(testimonialKey) {
+    const index = testimonialOrder.indexOf(testimonialKey);
+    if (index !== -1) {
+      currentTestimonialIndex = index;
+    }
   }
 
   // Animación de texto cambiante
@@ -763,6 +810,9 @@ import rightArrow from '../assets/right.svg';
   document.addEventListener('DOMContentLoaded', function() {
     const testimonialNames = document.querySelectorAll('.testimonial-name');
     
+    // Inicializar con el primer testimonio activo (Becky)
+    changeTestimonial('becky');
+    
     testimonialNames.forEach(nameElement => {
       const testimonialKey = nameElement.getAttribute('data-testimonial');
       
@@ -772,9 +822,10 @@ import rightArrow from '../assets/right.svg';
           changeTestimonial(testimonialKey);
         });
         
-        // Evento click para scroll suave al contenido
+        // Evento click para cambiar testimonio y scroll suave al contenido
         nameElement.addEventListener('click', function(e) {
           e.preventDefault();
+          changeTestimonial(testimonialKey);
           const testimonialContent = document.getElementById('testimonial-content');
           if (testimonialContent) {
             testimonialContent.scrollIntoView({
