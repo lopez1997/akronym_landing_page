@@ -1,5 +1,43 @@
+---
+export interface Props {
+  lang?: 'es' | 'en';
+  title?: string;
+  description?: string;
+}
+
+const { 
+  lang = 'es', 
+  title = 'Akronym | Desarrollo de Software',
+  description = 'Akronym - Tecnología que transforma. Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio.'
+} = Astro.props;
+
+// Definir contenido según idioma
+const content = {
+  es: {
+    title: 'Akronym | Desarrollo de Software',
+    description: 'Akronym - Tecnología que transforma. Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio.',
+    keywords: 'desarrollo software, tecnología, Costa Rica, transformación digital, desarrollo web, aplicaciones, innovación',
+    ogTitle: 'Akronym | Tecnología que transforma',
+    ogDescription: 'Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio.',
+    locale: 'es_ES'
+  },
+  en: {
+    title: 'Akronym | Software Development',
+    description: 'Akronym - Technology that transforms. We develop innovative software from Costa Rica for the world. We transform ideas into digital solutions that drive your business.',
+    keywords: 'software development, technology, Costa Rica, digital transformation, web development, applications, innovation',
+    ogTitle: 'Akronym | Technology that transforms',
+    ogDescription: 'We develop innovative software from Costa Rica for the world. We transform ideas into digital solutions that drive your business.',
+    locale: 'en_US'
+  }
+};
+
+const currentContent = content[lang];
+const finalTitle = title || currentContent.title;
+const finalDescription = description || currentContent.description;
+---
+
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -11,28 +49,28 @@
 		<link rel="apple-touch-icon" href="/favicon.png" />
 		
 		<meta name="generator" content={Astro.generator} />
-		<title>Akronym | Desarrollo de Software</title>
+		<title>{finalTitle}</title>
 		
 		<!-- SEO -->
-		<meta name="description" content="Akronym - Tecnología que transforma. Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio." />
-		<meta name="keywords" content="desarrollo software, tecnología, Costa Rica, transformación digital, desarrollo web, aplicaciones, innovación" />
+		<meta name="description" content={finalDescription} />
+		<meta name="keywords" content={currentContent.keywords} />
 		<meta name="author" content="Akronym" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://akronym.cr/" />
-		<meta property="og:title" content="Akronym | Tecnología que transforma" />
-		<meta property="og:description" content="Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio." />
-		<meta property="og:image" content="https://akronym.cr/favicon.png" />
+		<meta property="og:url" content={lang === 'en' ? 'https://akronym.cr/en/' : 'https://akronym.cr/'} />
+		<meta property="og:title" content={currentContent.ogTitle} />
+		<meta property="og:description" content={currentContent.ogDescription} />
+		<meta property="og:image" content="https://akronym.cr/og-image.png" />
 		<meta property="og:site_name" content="Akronym" />
-		<meta property="og:locale" content="es_ES" />
+		<meta property="og:locale" content={currentContent.locale} />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://akronym.cr/" />
-		<meta property="twitter:title" content="Akronym | Tecnología que transforma" />
-		<meta property="twitter:description" content="Desarrollamos software innovador desde Costa Rica para el mundo. Transformamos ideas en soluciones digitales que impulsan tu negocio." />
-		<meta property="twitter:image" content="https://akronym.cr/favicon.png" />
+		<meta property="twitter:url" content={lang === 'en' ? 'https://akronym.cr/en/' : 'https://akronym.cr/'} />
+		<meta property="twitter:title" content={currentContent.ogTitle} />
+		<meta property="twitter:description" content={currentContent.ogDescription} />
+		<meta property="twitter:image" content="https://akronym.cr/og-image.png" />
 		
 		<!-- WhatsApp -->
 		<meta property="og:image:width" content="1200" />

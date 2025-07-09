@@ -10,9 +10,21 @@ export interface Props {
 
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
+
+// Definir títulos y descripciones según idioma
+const formTitles = {
+  es: {
+    title: 'Contacto | Akronym',
+    description: 'Contáctanos para transformar tus ideas en soluciones digitales innovadoras. Agenda una consulta gratuita con nuestros expertos.'
+  },
+  en: {
+    title: 'Contact | Akronym',
+    description: 'Contact us to transform your ideas into innovative digital solutions. Schedule a free consultation with our experts.'
+  }
+};
 ---
 
-<Layout>
+<Layout lang={lang} title={formTitles[lang].title} description={formTitles[lang].description}>
     <div class="h-screen flex flex-col bg-black p-10">
         <form id="wizard-form" class="w-full max-w-5xl mx-auto flex flex-col h-full justify-between" autocomplete="off">
             <h1 class="text-4xl md:text-5xl font-light text-white mb-6">
