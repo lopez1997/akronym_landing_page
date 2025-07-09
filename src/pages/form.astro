@@ -21,9 +21,7 @@ const t = useTranslations(lang);
 
             <!-- Step 1 -->
             <div id="step-1" class="flex flex-col h-full">
-                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight">
-                    {t('form.subtitle')}
-                </p>
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.subtitle')}></p>
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step1.title')}</span>
@@ -93,11 +91,13 @@ const t = useTranslations(lang);
 
             <!-- Step 2 -->
             <div id="step-2" class="hidden flex flex-col h-full">
-                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step2.subtitle')}></p>
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.subtitle')}></p>
                 <div class="flex-1">
                     <div class="mb-6">
                         <span class="text-xl text-white underline underline-offset-4">{t('form.step2.title')}</span>
                     </div>
+                    <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step2.subtitle')}></p>
+
                     <div class="mb-4">
                         <Input
                             label=""
@@ -198,7 +198,7 @@ const t = useTranslations(lang);
 
             <!-- Step 3 -->
             <div id="step-3" class="hidden flex flex-col h-full">
-                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.subtitle')}></p>
 
                 <div class="flex-1">
                     <div class="mb-6">
@@ -264,7 +264,7 @@ const t = useTranslations(lang);
 
             <!-- Step 4 -->
             <div id="step-4" class="hidden flex flex-col h-full">
-                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.subtitle')}></p>
 
                 <div class="flex-1">
                     <div class="mb-6">
@@ -339,7 +339,7 @@ const t = useTranslations(lang);
            
             <!-- Step 5 -->
             <div id="step-5" class="hidden flex flex-col h-full">
-                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.step3.subtitle')}></p>
+                <p class="text-gray-300 mb-8 max-w-5xl text-lg font-extralight" set:html={t('form.subtitle')}></p>
 
                 <div class="flex-1">
                     <div class="mb-6">
