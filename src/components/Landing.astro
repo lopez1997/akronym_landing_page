@@ -357,8 +357,8 @@ import rightArrow from '../assets/right.svg';
 <section class="w-full bg-black py-24 flex flex-col items-center justify-center px-4">
   <h2 class="fade-in text-3xl md:text-5xl font-normal text-neutral-100 mb-16 text-center tracking-wide">{t('testimonials.title')}</h2>
   <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12">
-    <!-- Columna derecha: nombres y descripciones (primera en móvil) -->
-    <div class="flex-1 flex flex-col justify-start order-1 md:order-2">
+    <!-- Columna derecha: nombres y descripciones (solo desktop) -->
+    <div class="hidden md:flex flex-1 flex-col justify-start order-1 md:order-2">
       <a href="#testimonial-content" class="testimonial-name mb-4 md:mb-8 cursor-pointer" data-testimonial="becky">
         <h4 class="fade-in text-2xl md:text-6xl font-medium text-neutral-600 leading-tight">BECKY VANNES</h4>
         <div class="fade-in text-neutral-500 text-md md:text-lg mt-1">Productions Manager at ACP Publishing</div>
@@ -381,8 +381,8 @@ import rightArrow from '../assets/right.svg';
       </a>
     </div>
 
-    <!-- Columna izquierda: imagen y testimonio (segunda en móvil) -->
-    <div id="testimonial-content" class="flex-1 flex flex-col items-center md:items-start order-2 md:order-1 relative">
+    <!-- Columna izquierda: imagen y testimonio (full width en móvil) -->
+    <div id="testimonial-content" class="w-full md:flex-1 flex flex-col items-center md:items-start order-2 md:order-1 relative">
       <div class="testimonial-content w-[90%] flex flex-col items-center justify-center relative">
         <!-- Flecha izquierda (solo móvil) -->
         <button id="prev-testimonial" class="absolute -left-8 top-1/2 transform -translate-y-1/2 z-10 text-white p-2 rounded-full md:hidden">
