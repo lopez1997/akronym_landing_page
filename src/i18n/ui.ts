@@ -225,7 +225,7 @@ export const ui = {
     'thanks.title': 'THANK YOU FOR TAKING<br />THE FIRST STEP',
     'thanks.subtitle': 'We will contact you very soon.<br />Get ready: what\'s coming can transform your operation.',
     'thanks.back': 'Go back',
-    'testimonials.title': 'What they say about us',
+    'testimonials.title': 'What those who have already taken off say.',
     'allies.cta': 'Activate your transformation',
   },
 } as const;
