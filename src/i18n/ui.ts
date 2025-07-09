@@ -52,7 +52,7 @@ export const ui = {
     'footer.privacy': 'Políticas de privacidad',
     'footer.copyright': 'Copyright © 2025 AKRONYM. All rights reserved.',
     // Form translations
-    'form.title': '¡GRACIAS POR SUMARTE A ESTA MISIÓN!',
+    'form.title': '¡CONSTRUYAMOS EL COHETE!',
     'form.subtitle': 'Este no es un formulario más. <br>Es el primer paso para alinear tu negocio, eliminar la fricción y prepararlo para despegar. <br>Mientras otros llenan datos, vos estás activando una trayectoria con dirección.',
     'form.step1.title': '1. INFORMACIÓN DE CONTACTO',
     'form.step1.subtitle': 'Necesitamos ubicarte en el radar. <br />(Así nos comunicamos para preparar el lanzamiento)',
@@ -163,7 +163,7 @@ export const ui = {
     'footer.privacy': 'Privacy policy',
     'footer.copyright': 'Copyright © 2025 AKRONYM. All rights reserved.',
     // Form translations
-    'form.title': 'THANK YOU FOR JOINING THIS MISSION!',
+    'form.title': 'LET\'S BUILD THE ROCKET!',
     'form.subtitle': 'This is not just another form. <br> It\'s the first step to align your business, eliminate friction and prepare it for takeoff. <br> While others fill out data, you\'re activating a trajectory with direction.',
     'form.step1.title': '1. CONTACT INFORMATION',
     'form.step1.subtitle': 'We need to locate you on the radar. <br />(So we can communicate to prepare the launch)',
